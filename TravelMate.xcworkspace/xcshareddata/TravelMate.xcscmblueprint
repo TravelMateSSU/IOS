@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "3E085AD0C0DFACA98E11CB6092C59D237257BE1C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "66858D06FBE52BF4B6B0AF3D04307F5F44319DB5" : 9223372036854775807,
+    "3E085AD0C0DFACA98E11CB6092C59D237257BE1C" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D4B396DE-BBA3-4444-B42C-B74FA8C2C306",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "66858D06FBE52BF4B6B0AF3D04307F5F44319DB5" : "TravelMate\/excel\/XlsxReaderWriter\/",
+    "3E085AD0C0DFACA98E11CB6092C59D237257BE1C" : "TravelMate\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "TravelMate",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "TravelMate.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/TravelMateSSU\/IOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3E085AD0C0DFACA98E11CB6092C59D237257BE1C"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/renebigot\/XlsxReaderWriter.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "66858D06FBE52BF4B6B0AF3D04307F5F44319DB5"
+    }
+  ]
+}

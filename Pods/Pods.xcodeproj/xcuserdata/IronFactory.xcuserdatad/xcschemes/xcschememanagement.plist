@@ -9,7 +9,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FMDB.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-TravelMate.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Realm.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RealmSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>023A8A18B2A452DD9C58E9DB1BCDD04E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>23CF27B2BA6AC7125EFFEDA8C5AA819F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C9E8FB8A9DD766E369F6046A8E7745EF</key>
+		<key>CFE170DA58F8789C08BB2B58D2BEC737</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E0ABD2BF655EA93C6A4C9A9E9270BA33</key>
 		<dict>
 			<key>primary</key>
 			<true/>
