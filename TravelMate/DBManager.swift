@@ -37,7 +37,7 @@ class DBManager {
                     if let code = code, let name = name {
                         try! realm.write {
                             let category = CategoryDto()
-                            category.category = code
+                            category.code = code
                             category.name = name
                             realm.add(category)
                         }
@@ -48,7 +48,12 @@ class DBManager {
     }
     
     
-    func categoryName(categoryCode: String) -> CategoryDto {
-        return realm.objects(CategoryDto.self).filter(NSPredicate(format: "category == \(categoryCode)", <#T##args: CVarArg...##CVarArg#>)) as CategoryDto
+    // 카테고리 코드를 넘겨주면 이름을 리턴
+    func categoryName(categoryCode: String) -> String {
+        let results = realm.objects(CategoryDto.self).filter(NSPredicate(format: "code = %@", categoryCode))
+        if results.isEmpty{
+            return "기타"
+        }
+        return results[0].name
     }
 }

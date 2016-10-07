@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Realm
 import RealmSwift
 
 class Tourist: Object {
@@ -44,13 +45,13 @@ class Tourist: Object {
     dynamic var titleImage2: String!
     
     // 주소
-    dynamic var address: String! {
+    var address: String! {
         set {
             self.address = "\(self.addr1)\(self.addr2)\(self.zipCode)"
         }
         
         get {
-            return "\(self.addr1)\(self.addr2)\(self.zipCode)"
+            return "\(self.addr1 == nil ? " ": self.addr1!)\(self.addr2 == nil ? " ": self.addr2!)\(self.zipCode == nil ? "": self.zipCode!)"
         }
     }
     
@@ -78,7 +79,10 @@ class Tourist: Object {
     // y좌표
     dynamic var y = 0.0
     
+    
     func setData(dict: [String: Any]) {
+        let dbManager = DBManager()
+        
         if dict[PROPERTY_TITLE] != nil {
             title = dict[PROPERTY_TITLE] as! String
         }
@@ -113,14 +117,23 @@ class Tourist: Object {
         
         if dict[PROPERTY_CATEGORY_1] != nil {
             let category = dict[PROPERTY_CATEGORY_1] as! String
+            category1 = CategoryDto()
+            category1?.code = category
+            category1?.name = dbManager.categoryName(categoryCode: category)
         }
         
         if dict[PROPERTY_CATEGORY_2] != nil {
             let category = dict[PROPERTY_CATEGORY_2] as! String
+            category2 = CategoryDto()
+            category2?.code = category
+            category2?.name = dbManager.categoryName(categoryCode: category)
         }
         
         if dict[PROPERTY_CATEGORY_3] != nil {
             let category = dict[PROPERTY_CATEGORY_3] as! String
+            category3 = CategoryDto()
+            category3?.code = category
+            category3?.name = dbManager.categoryName(categoryCode: category)
         }
         
         if dict[PROPERTY_MAP_X] != nil {
@@ -133,6 +146,6 @@ class Tourist: Object {
     }
     
     func toString() -> String {
-        return "title = \(self.title), contentId = \(self.contentId), contentTypeId = \(self.contentTypeId), titleImage1 = \(self.titleImage1), titleImage2 = \(self.titleImage2), address = \(self.address), category1 = \(self.category1), category2 = \(self.category2), category3 = \(self.category3), x = \(self.x), y = \(self.y)"
+        return "title = \(self.title), contentId = \(self.contentId), contentTypeId = \(self.contentTypeId), titleImage1 = \(self.titleImage1), titleImage2 = \(self.titleImage2), address = \(self.address), category1 = \(self.category1?.name), category2 = \(self.category2?.name), category3 = \(self.category3?.name), x = \(self.x), y = \(self.y)"
     }
 }

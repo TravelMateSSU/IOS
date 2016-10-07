@@ -10,7 +10,7 @@ import RealmSwift
 
 class CategoryDto: Object {
     
-    dynamic var category: String!
+    dynamic var code: String!
     
     dynamic var name: String!
 }

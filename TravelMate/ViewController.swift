@@ -8,18 +8,20 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, TourAPIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let dBManager = DBManager()
         let isBeginner = UserDefaults.standard.value(forKey: "isBeginner")
-        if isBeginner == nil {
+        if isBeginner == nil {          // 처음 앱을 시작한 사람
+            // 카테고리 SQLite -> Realm DB화
             dBManager.copyCategories()
+            
             UserDefaults.standard.set(1, forKey: "isBeginner")
         } else {
-            let category = dBManager.categoryName(categoryCode: "A01")
+            
         }
         
         
@@ -33,18 +35,34 @@ class ViewController: UIViewController {
 //        self.view.addSubview(routeView)
 //        routeView.setNeedsDisplay()
         
-//        let apiManager = TourAPIManager()
-//        let touristSite = Tourist()
-//        touristSite.contentTypeId = "12"
-//        touristSite.contentId = "636266"
-//        apiManager.querySearchById(touristSite: touristSite)
+        let apiManager = TourAPIManager()
+        let touristSite = Tourist()
+        touristSite.contentTypeId = "12"
+        touristSite.contentId = "636266"
+        apiManager.delegate = self
+        try! apiManager.querySearchById(tourist: touristSite)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func searchById(tourist: Tourist) {
+        print(tourist.toString())
     }
 
-
+    func searchByIdFailed() {
+        
+    }
+    
+    
+    func searchByKeyword(touristList: [Tourist]) {
+        print("Success")
+        touristList.map({
+            tourist in
+            print(tourist.toString())
+        })
+    }
+    
+    func searchByKeywordFailed() {
+        
+    }
+    
 }
 

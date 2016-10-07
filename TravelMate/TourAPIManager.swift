@@ -9,6 +9,16 @@
 import Foundation
 import Alamofire
 
+
+protocol TourAPIDelegate {
+    func searchById(tourist: Tourist)
+    func searchByIdFailed()
+    
+    func searchByKeyword(touristList: [Tourist])
+    func searchByKeywordFailed()
+}
+
+
 class TourAPIManager: NSObject, XMLParserDelegate {
     
     let APP_NAME = "TravelMate"
@@ -22,77 +32,110 @@ class TourAPIManager: NSObject, XMLParserDelegate {
     fileprivate let API_KEYWORD_SEARCH_URL = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword"
     
     var touristDict = [String: Any]()
-    let touristSite = Tourist()
+    var tourist: Tourist = Tourist()
+    var touristList: [Tourist] = []
     var elementName: String!
+    var delegate: TourAPIDelegate?
     
-    
-    func querySearchByKeyword(keyword: String) {
-        let parameters: [String: Any] = [
-            /* API_KEY에서 %값이 %25로 인코딩 되는 문제를 해결하려면 removeingPercentEncoding을 통해 한 번 디코딩해주고 전송해야함(2중 인코딩 방지) */
+    func querySearchByKeyword(keyword: String) throws {
+        if let delegate = delegate {
+            let parameters: [String: Any] = [
+                /* API_KEY에서 %값이 %25로 인코딩 되는 문제를 해결하려면 removeingPercentEncoding을 통해 한 번 디코딩해주고 전송해야함(2중 인코딩 방지) */
                 "ServiceKey": API_KEY.removingPercentEncoding!,
                 "numOfRows": MAX_ROW_NUM,
                 "pageNo": 1,
                 "keyword": keyword,
                 "MobileOS": "ETC",
                 "MobileApp": APP_NAME
-        ]
-        
-        let url = URL(string: API_KEYWORD_SEARCH_URL)
-        if let url = url {
-            Alamofire.request(url, parameters: parameters).responseString(completionHandler: {
-                data in
-                print("resData = \(data)")
-            })
+            ]
+            
+            let url = URL(string: API_KEYWORD_SEARCH_URL)
+            if let url = url {
+                Alamofire.request(url, parameters: parameters).responseString(completionHandler: {
+                    dataStr in
+                    print("dataStr = \(dataStr)")
+                    if let data = dataStr.data {
+                        self.touristDict = [:]
+                        let parser = XMLParser(data: data)
+                        parser.delegate = self
+                        
+                        let isSuccess = parser.parse()
+                        print("isSuccess = \(isSuccess)")
+                        if isSuccess {
+                            delegate.searchByKeyword(touristList: self.touristList)
+                        } else {
+                            delegate.searchByKeywordFailed()
+                        }
+                    }
+                })
+            }
+        } else {
+            // deletegate 없을 때
+            print("\nTourAPIDelegate delegate를 등록해주세요.\n")
+            throw APIError.DelegateNotFound
         }
     }
     
-    func querySearchById(touristSite: Tourist) {
-        let parameters: [String: Any] = [
-            "ServiceKey": API_KEY.removingPercentEncoding!,
-            "contentId": touristSite.contentId,
-            "contentTypeId": touristSite.contentTypeId,
-            "defaultYN": "N",
-            "mapImageYN": "N",
-            "firstImageYN": "Y",
-            "areacodeYN": "N",
-            "catcodeYN": "Y",
-            "addrinfoYN": "Y",
-            "mapinfoYN": "Y",
-            "overviewYN": "N",
-            "transGuideYN": "N",
-            "MobileOS": "ETC",
-            "MobileApp": APP_NAME,
-            "numOfRows": MAX_ROW_NUM,
-            "pageNo": 1
-        ]
-        
-        let url = URL(string: API_COMMON_URL)
-        if let url = url {
-            Alamofire.request(url, parameters: parameters).responseString(completionHandler: {
-                dataStr in
-                print("resData= \(dataStr)")
-                
-                if let data = dataStr.data {
-                    let xmlParser = XMLParser(data: data)
-                    xmlParser.delegate = self
-                    
-                    let isSuccess = xmlParser.parse()
-                    
-                    if isSuccess {
-                        print("Success")
-                        let touristSite = Tourist()
-                        touristSite.setData(dict: self.touristDict)
-                        print("touristSite = \(touristSite.toString())")
-                    } else {
-                        print("Failed")
+    func querySearchById(tourist: Tourist) throws {
+        if let delegate = self.delegate {
+            let parameters: [String: Any] = [
+                "ServiceKey": API_KEY.removingPercentEncoding!,
+                "contentId": tourist.contentId,
+                "contentTypeId": tourist.contentTypeId,
+                "defaultYN": "N",
+                "mapImageYN": "N",
+                "firstImageYN": "Y",
+                "areacodeYN": "N",
+                "catcodeYN": "Y",
+                "addrinfoYN": "Y",
+                "mapinfoYN": "Y",
+                "overviewYN": "N",
+                "transGuideYN": "N",
+                "MobileOS": "ETC",
+                "MobileApp": APP_NAME,
+                "numOfRows": MAX_ROW_NUM,
+                "pageNo": 1
+            ]
+            
+            let url = URL(string: API_COMMON_URL)
+            if let url = url {
+                Alamofire.request(url, parameters: parameters).responseString(completionHandler: {
+                    dataStr in
+                    if let data = dataStr.data {
+                        self.touristDict = [:]
+                        let xmlParser = XMLParser(data: data)
+                        xmlParser.delegate = self
+                        
+                        let isSuccess = xmlParser.parse()
+                        
+                        if isSuccess {
+                            let tourist = Tourist()
+                            tourist.setData(dict: self.touristDict)
+                            delegate.searchById(tourist: self.touristList[0])
+                        } else {
+                            delegate.searchByIdFailed()
+                        }
                     }
-                }
-            })
+                })
+            }
+        } else {
+            // deletegate 없을 때
+            print("\nTourAPIDelegate delegate를 등록해주세요.\n")
+            throw APIError.DelegateNotFound
         }
     }
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
         self.elementName = elementName
+    }
+    
+    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        if elementName == "item" {
+            let tourist = Tourist()
+            tourist.setData(dict: self.touristDict)
+            self.touristList.append(tourist)
+            self.touristDict = [:]
+        }
     }
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
