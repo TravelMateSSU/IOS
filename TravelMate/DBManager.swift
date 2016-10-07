@@ -54,4 +54,37 @@ class DBManager {
         }
         return results[0].name
     }
+    
+    
+    // 카테고리 배열 리턴
+    func categories() -> [CategoryDto] {
+        let results = realm.objects(CategoryDto.self)
+        var categories: [CategoryDto] = []
+        for i in 0 ..< results.count {
+            let categoryDto = results[i]
+            if let code = categoryDto.code, let name = categoryDto.name {
+                print("code = \(code)")
+                print("name = \(name)")
+                
+                categories.append(categoryDto)
+            }
+        }
+        return categories
+    }
+    
+    // 카테고리 Dictionary 리턴
+    func categoriesDict() -> [String: String] {
+        let results = realm.objects(CategoryDto.self)
+        var categories: [String: String] = [:]
+        for i in 0 ..< results.count {
+            let categoryDto = results[i]
+            if let code = categoryDto.code, let name = categoryDto.name {
+                print("code = \(code)")
+                print("name = \(name)")
+                
+                categories[code] = name
+            }
+        }
+        return categories
+    }
 }

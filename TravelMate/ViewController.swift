@@ -21,7 +21,7 @@ class ViewController: UIViewController, TourAPIDelegate {
             
             UserDefaults.standard.set(1, forKey: "isBeginner")
         } else {
-            
+            dBManager.categoriesDict()
         }
         
         
