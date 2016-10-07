@@ -22,8 +22,6 @@ class DBManager {
     func copyCategories() {
         let resourcePath = Bundle.main.resourceURL!.absoluteString
         let dbPath = resourcePath.appending("travelmate.db")
-        print(resourcePath)
-        print(dbPath)
         let database = FMDatabase(path: dbPath)
         if !(database?.open())! {
             print("db 열기 실패")
