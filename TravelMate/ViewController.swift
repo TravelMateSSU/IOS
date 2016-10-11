@@ -13,27 +13,32 @@ class ViewController: UIViewController, TourAPIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let dBManager = DBManager()
+        let dbManager = DBManager()
         let isBeginner = UserDefaults.standard.value(forKey: "isBeginner")
         if isBeginner == nil {          // 처음 앱을 시작한 사람
             // 카테고리 SQLite -> Realm DB화
-            dBManager.copyCategories()
+            dbManager.copyCategories()
             
+            // 앱을 실행했음을 마킹
             UserDefaults.standard.set(1, forKey: "isBeginner")
-        } else {
-            dBManager.categoriesDict()
         }
         
+        let category = dbManager.categoriesDict()
         
-//        let routeView = RouteView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 100))
-//        routeView.append(title: "실험1")
-//        routeView.append(title: "실험2")
-//        routeView.append(title: "실험3")
-//        routeView.append(title: "실험4")
-//        routeView.append(title: "실험5")
-//        routeView.append(title: "실험6")
-//        self.view.addSubview(routeView)
-//        routeView.setNeedsDisplay()
+        
+        let routeView = RouteView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 150))
+        routeView.backgroundColor = UIColor.orange
+        let tourist = Tourist()
+        tourist.title = "실험"
+        routeView.append(tourist: tourist)
+        routeView.append(tourist: tourist)
+        routeView.append(tourist: tourist)
+        routeView.append(tourist: tourist)
+        routeView.append(tourist: tourist)
+        routeView.append(tourist: tourist)
+        routeView.title = "연습타이틀"
+        self.view.addSubview(routeView)
+        routeView.setNeedsDisplay()
         
         let apiManager = TourAPIManager()
         let touristSite = Tourist()

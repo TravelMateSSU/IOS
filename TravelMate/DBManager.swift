@@ -73,7 +73,7 @@ class DBManager {
     }
     
     // 카테고리 Dictionary 리턴
-    func categoriesDict() -> [String: String] {
+    @discardableResult func categoriesDict() -> [String: String] {
         let results = realm.objects(CategoryDto.self)
         var categories: [String: String] = [:]
         for i in 0 ..< results.count {
