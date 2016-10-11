@@ -10,7 +10,7 @@ import UIKit
 import Realm
 import RealmSwift
 
-class Tourist: Object {
+class SpotModel: Object {
     
     let PROPERTY_TITLE = "title"
     let PROPERTY_CONTENT_ID = "contentid"
@@ -65,13 +65,13 @@ class Tourist: Object {
     dynamic var zipCode: String!
     
     // 대분류
-    dynamic var category1: CategoryDto?
+    dynamic var category1: CategoryModel?
     
     // 중분류
-    dynamic var category2: CategoryDto?
+    dynamic var category2: CategoryModel?
     
     // 소분류
-    dynamic var category3: CategoryDto?
+    dynamic var category3: CategoryModel?
     
     // x좌표
     dynamic var x = 0.0
@@ -117,21 +117,21 @@ class Tourist: Object {
         
         if dict[PROPERTY_CATEGORY_1] != nil {
             let category = dict[PROPERTY_CATEGORY_1] as! String
-            category1 = CategoryDto()
+            category1 = CategoryModel()
             category1?.code = category
             category1?.name = dbManager.categoryName(categoryCode: category)
         }
         
         if dict[PROPERTY_CATEGORY_2] != nil {
             let category = dict[PROPERTY_CATEGORY_2] as! String
-            category2 = CategoryDto()
+            category2 = CategoryModel()
             category2?.code = category
             category2?.name = dbManager.categoryName(categoryCode: category)
         }
         
         if dict[PROPERTY_CATEGORY_3] != nil {
             let category = dict[PROPERTY_CATEGORY_3] as! String
-            category3 = CategoryDto()
+            category3 = CategoryModel()
             category3?.code = category
             category3?.name = dbManager.categoryName(categoryCode: category)
         }

@@ -8,7 +8,7 @@
 
 import RealmSwift
 
-class CategoryDto: Object {
+class CategoryModel: Object {
     
     dynamic var code: String!
     

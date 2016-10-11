@@ -17,7 +17,7 @@ class RouteView: UIView {
     var points: [[(x: Int, y: Int)]] = []
     var titlePoints: [(x: Int, y: Int)] = []
     
-    var tourists: [Tourist] = []
+    var spots: [SpotModel] = []
     var ballNum: Int = 0
     var title: String?
     
@@ -39,7 +39,6 @@ class RouteView: UIView {
             layer.path = UIBezierPath(roundedRect: CGRect(x: point.x - MIDDLE_SIZE >> 1, y: point.y - MIDDLE_SIZE >> 1, width: MIDDLE_SIZE, height: MIDDLE_SIZE), cornerRadius: 10).cgPath
             layer.fillColor = UIColor.red.cgColor
             self.layer.addSublayer(layer)
-            
             
             /// 여행 경로 관광지 이름 label
             let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
@@ -102,8 +101,8 @@ class RouteView: UIView {
 //        titlePoints.append((x: screenWidth >> 1, y: screenHeight >> 1))
     }
     
-    func append(tourist: Tourist) {
-        tourists.append(tourist)
+    func append(spot: SpotModel) {
+        spots.append(spot)
         ballNum += 1
     }
 }

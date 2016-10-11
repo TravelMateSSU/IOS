@@ -34,7 +34,7 @@ class DBManager {
                     
                     if let code = code, let name = name {
                         try! realm.write {
-                            let category = CategoryDto()
+                            let category = CategoryModel()
                             category.code = code
                             category.name = name
                             realm.add(category)
@@ -48,7 +48,7 @@ class DBManager {
     
     // 카테고리 코드를 넘겨주면 이름을 리턴
     func categoryName(categoryCode: String) -> String {
-        let results = realm.objects(CategoryDto.self).filter(NSPredicate(format: "code = %@", categoryCode))
+        let results = realm.objects(CategoryModel.self).filter(NSPredicate(format: "code = %@", categoryCode))
         if results.isEmpty{
             return "기타"
         }
@@ -57,16 +57,16 @@ class DBManager {
     
     
     // 카테고리 배열 리턴
-    func categories() -> [CategoryDto] {
-        let results = realm.objects(CategoryDto.self)
-        var categories: [CategoryDto] = []
+    func categories() -> [CategoryModel] {
+        let results = realm.objects(CategoryModel.self)
+        var categories: [CategoryModel] = []
         for i in 0 ..< results.count {
-            let categoryDto = results[i]
-            if let code = categoryDto.code, let name = categoryDto.name {
+            let CategoryModel = results[i]
+            if let code = CategoryModel.code, let name = CategoryModel.name {
                 print("code = \(code)")
                 print("name = \(name)")
                 
-                categories.append(categoryDto)
+                categories.append(CategoryModel)
             }
         }
         return categories
@@ -74,11 +74,11 @@ class DBManager {
     
     // 카테고리 Dictionary 리턴
     @discardableResult func categoriesDict() -> [String: String] {
-        let results = realm.objects(CategoryDto.self)
+        let results = realm.objects(CategoryModel.self)
         var categories: [String: String] = [:]
         for i in 0 ..< results.count {
-            let categoryDto = results[i]
-            if let code = categoryDto.code, let name = categoryDto.name {
+            let CategoryModel = results[i]
+            if let code = CategoryModel.code, let name = CategoryModel.name {
                 print("code = \(code)")
                 print("name = \(name)")
                 

@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		778B4C0E109A1C146408F4B5 /* Pods_TravelMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B13FA2517ECE3540B6A1D624 /* Pods_TravelMate.framework */; };
 		90119CF01DA6543E00FC6C56 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90119CEF1DA6543E00FC6C56 /* Error.swift */; };
-		902A2D861DA36C8B001FEA9F /* Tourist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902A2D851DA36C8B001FEA9F /* Tourist.swift */; };
+		902A2D861DA36C8B001FEA9F /* SpotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902A2D851DA36C8B001FEA9F /* SpotModel.swift */; };
 		902A2EB11DA4E14E001FEA9F /* travelmate.db in Resources */ = {isa = PBXBuildFile; fileRef = 902A2EB01DA4E14E001FEA9F /* travelmate.db */; };
 		902A2EB41DA4E478001FEA9F /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902A2EB31DA4E478001FEA9F /* DBManager.swift */; };
-		902A2EB71DA4F93F001FEA9F /* CategoryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902A2EB61DA4F93F001FEA9F /* CategoryDto.swift */; };
+		902A2EB71DA4F93F001FEA9F /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902A2EB61DA4F93F001FEA9F /* CategoryModel.swift */; };
 		903261A11D9E2E2A00CE31DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903261A01D9E2E2A00CE31DC /* AppDelegate.swift */; };
 		903261A31D9E2E2A00CE31DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903261A21D9E2E2A00CE31DC /* ViewController.swift */; };
 		903261A61D9E2E2A00CE31DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 903261A41D9E2E2A00CE31DC /* Main.storyboard */; };
@@ -55,10 +55,10 @@
 		272ED57CF35E4DD33E650BEA /* Pods-TravelMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelMate/Pods-TravelMate.debug.xcconfig"; sourceTree = "<group>"; };
 		581729D83643D3975C9EC6C2 /* Pods-TravelMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMate.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravelMate/Pods-TravelMate.release.xcconfig"; sourceTree = "<group>"; };
 		90119CEF1DA6543E00FC6C56 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
-		902A2D851DA36C8B001FEA9F /* Tourist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tourist.swift; sourceTree = "<group>"; };
+		902A2D851DA36C8B001FEA9F /* SpotModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotModel.swift; sourceTree = "<group>"; };
 		902A2EB01DA4E14E001FEA9F /* travelmate.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = travelmate.db; sourceTree = SOURCE_ROOT; };
 		902A2EB31DA4E478001FEA9F /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
-		902A2EB61DA4F93F001FEA9F /* CategoryDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryDto.swift; sourceTree = "<group>"; };
+		902A2EB61DA4F93F001FEA9F /* CategoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		9032619D1D9E2E2A00CE31DC /* TravelMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		903261A01D9E2E2A00CE31DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		903261A21D9E2E2A00CE31DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -132,13 +132,13 @@
 			name = db;
 			sourceTree = "<group>";
 		};
-		902A2EB51DA4F929001FEA9F /* dto */ = {
+		902A2EB51DA4F929001FEA9F /* models */ = {
 			isa = PBXGroup;
 			children = (
-				902A2D851DA36C8B001FEA9F /* Tourist.swift */,
-				902A2EB61DA4F93F001FEA9F /* CategoryDto.swift */,
+				902A2D851DA36C8B001FEA9F /* SpotModel.swift */,
+				902A2EB61DA4F93F001FEA9F /* CategoryModel.swift */,
 			);
-			name = dto;
+			name = models;
 			sourceTree = "<group>";
 		};
 		903261941D9E2E2900CE31DC = {
@@ -169,7 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				90119CEE1DA6542A00FC6C56 /* error */,
-				902A2EB51DA4F929001FEA9F /* dto */,
+				902A2EB51DA4F929001FEA9F /* models */,
 				902A2EB21DA4E464001FEA9F /* db */,
 				903261A01D9E2E2A00CE31DC /* AppDelegate.swift */,
 				903261A21D9E2E2A00CE31DC /* ViewController.swift */,
@@ -456,10 +456,10 @@
 				903261A31D9E2E2A00CE31DC /* ViewController.swift in Sources */,
 				902A2EB41DA4E478001FEA9F /* DBManager.swift in Sources */,
 				903261E41D9E4C6500CE31DC /* RouteView.swift in Sources */,
-				902A2EB71DA4F93F001FEA9F /* CategoryDto.swift in Sources */,
+				902A2EB71DA4F93F001FEA9F /* CategoryModel.swift in Sources */,
 				903262081DA255D500CE31DC /* TourAPIManager.swift in Sources */,
 				903261A11D9E2E2A00CE31DC /* AppDelegate.swift in Sources */,
-				902A2D861DA36C8B001FEA9F /* Tourist.swift in Sources */,
+				902A2D861DA36C8B001FEA9F /* SpotModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

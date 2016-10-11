@@ -25,31 +25,27 @@ class ViewController: UIViewController, TourAPIDelegate {
         
         let category = dbManager.categoriesDict()
         
-        
+        /*
         let routeView = RouteView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 150))
         routeView.backgroundColor = UIColor.orange
-        let tourist = Tourist()
+        let tourist = SpotModel()
         tourist.title = "실험"
-        routeView.append(tourist: tourist)
-        routeView.append(tourist: tourist)
-        routeView.append(tourist: tourist)
-        routeView.append(tourist: tourist)
-        routeView.append(tourist: tourist)
-        routeView.append(tourist: tourist)
+        routeView.append(spot: tourist)
         routeView.title = "연습타이틀"
         self.view.addSubview(routeView)
         routeView.setNeedsDisplay()
-        
+ 
         let apiManager = TourAPIManager()
-        let touristSite = Tourist()
-        touristSite.contentTypeId = "12"
-        touristSite.contentId = "636266"
+        let spot = SpotModel()
+        spot.contentTypeId = "12"
+        spot.contentId = "636266"
         apiManager.delegate = self
-        try! apiManager.querySearchById(tourist: touristSite)
+        try! apiManager.querySearchById(spot: spot)
+        */
     }
 
-    func searchById(tourist: Tourist) {
-        print(tourist.toString())
+    func searchById(spot: SpotModel) {
+        print(spot.toString())
     }
 
     func searchByIdFailed() {
@@ -57,11 +53,11 @@ class ViewController: UIViewController, TourAPIDelegate {
     }
     
     
-    func searchByKeyword(touristList: [Tourist]) {
+    func searchByKeyword(spots: [SpotModel]) {
         print("Success")
-        touristList.map({
-            tourist in
-            print(tourist.toString())
+        spots.map({
+            spot in
+            print(spot.toString())
         })
     }
     

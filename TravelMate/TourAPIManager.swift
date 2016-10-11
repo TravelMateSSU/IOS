@@ -11,10 +11,10 @@ import Alamofire
 
 
 protocol TourAPIDelegate {
-    func searchById(tourist: Tourist)
+    func searchById(spot: SpotModel)
     func searchByIdFailed()
     
-    func searchByKeyword(touristList: [Tourist])
+    func searchByKeyword(spots: [SpotModel])
     func searchByKeywordFailed()
 }
 
@@ -31,9 +31,9 @@ class TourAPIManager: NSObject, XMLParserDelegate {
     
     fileprivate let API_KEYWORD_SEARCH_URL = "http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchKeyword"
     
-    var touristDict = [String: Any]()
-    var tourist: Tourist = Tourist()
-    var touristList: [Tourist] = []
+    var spotDict = [String: Any]()
+    var spot: SpotModel = SpotModel()
+    var spots: [SpotModel] = []
     var elementName: String!
     var delegate: TourAPIDelegate?
     
@@ -55,14 +55,14 @@ class TourAPIManager: NSObject, XMLParserDelegate {
                     dataStr in
                     print("dataStr = \(dataStr)")
                     if let data = dataStr.data {
-                        self.touristDict = [:]
+                        self.spotDict = [:]
                         let parser = XMLParser(data: data)
                         parser.delegate = self
                         
                         let isSuccess = parser.parse()
                         print("isSuccess = \(isSuccess)")
                         if isSuccess {
-                            delegate.searchByKeyword(touristList: self.touristList)
+                            delegate.searchByKeyword(spots: self.spots)
                         } else {
                             delegate.searchByKeywordFailed()
                         }
@@ -76,12 +76,12 @@ class TourAPIManager: NSObject, XMLParserDelegate {
         }
     }
     
-    func querySearchById(tourist: Tourist) throws {
+    func querySearchById(spot: SpotModel) throws {
         if let delegate = self.delegate {
             let parameters: [String: Any] = [
                 "ServiceKey": API_KEY.removingPercentEncoding!,
-                "contentId": tourist.contentId,
-                "contentTypeId": tourist.contentTypeId,
+                "contentId": spot.contentId,
+                "contentTypeId": spot.contentTypeId,
                 "defaultYN": "N",
                 "mapImageYN": "N",
                 "firstImageYN": "Y",
@@ -102,16 +102,16 @@ class TourAPIManager: NSObject, XMLParserDelegate {
                 Alamofire.request(url, parameters: parameters).responseString(completionHandler: {
                     dataStr in
                     if let data = dataStr.data {
-                        self.touristDict = [:]
+                        self.spotDict = [:]
                         let xmlParser = XMLParser(data: data)
                         xmlParser.delegate = self
                         
                         let isSuccess = xmlParser.parse()
                         
                         if isSuccess {
-                            let tourist = Tourist()
-                            tourist.setData(dict: self.touristDict)
-                            delegate.searchById(tourist: self.touristList[0])
+                            let spot = SpotModel()
+                            spot.setData(dict: self.spotDict)
+                            delegate.searchById(spot: self.spots[0])
                         } else {
                             delegate.searchByIdFailed()
                         }
@@ -131,15 +131,15 @@ class TourAPIManager: NSObject, XMLParserDelegate {
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if elementName == "item" {
-            let tourist = Tourist()
-            tourist.setData(dict: self.touristDict)
-            self.touristList.append(tourist)
-            self.touristDict = [:]
+            let spot = SpotModel()
+            spot.setData(dict: self.spotDict)
+            self.spots.append(spot)
+            self.spotDict = [:]
         }
     }
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
-        touristDict[elementName] = string
+        spotDict[elementName] = string
     }
     
     func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
