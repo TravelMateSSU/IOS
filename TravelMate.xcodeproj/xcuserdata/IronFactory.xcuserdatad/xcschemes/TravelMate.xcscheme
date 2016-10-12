@@ -48,7 +48,6 @@
                ReferencedContainer = "container:TravelMate.xcodeproj">
             </BuildableReference>
          </TestableReference>
-<<<<<<< HEAD
          <TestableReference
             skipped = "NO">
             <BuildableReference
@@ -59,8 +58,6 @@
                ReferencedContainer = "container:TravelMate.xcodeproj">
             </BuildableReference>
          </TestableReference>
-=======
->>>>>>> 500b791c482d86cc2042ef733fa6db58f7a47032
       </Testables>
       <MacroExpansion>
          <BuildableReference
