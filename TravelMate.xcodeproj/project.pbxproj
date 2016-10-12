@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		778B4C0E109A1C146408F4B5 /* Pods_TravelMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B13FA2517ECE3540B6A1D624 /* Pods_TravelMate.framework */; };
 		90119CF01DA6543E00FC6C56 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90119CEF1DA6543E00FC6C56 /* Error.swift */; };
+		90119DEB1DADCC3100FC6C56 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90119DE81DADCC3100FC6C56 /* Alamofire.framework */; };
+		90119DEC1DADCC3100FC6C56 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 90119DE81DADCC3100FC6C56 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		90119DED1DADCC3100FC6C56 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90119DE91DADCC3100FC6C56 /* Realm.framework */; };
+		90119DEE1DADCC3100FC6C56 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 90119DE91DADCC3100FC6C56 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		90119DEF1DADCC3100FC6C56 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90119DEA1DADCC3100FC6C56 /* RealmSwift.framework */; };
+		90119DF01DADCC3100FC6C56 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 90119DEA1DADCC3100FC6C56 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		902A2D861DA36C8B001FEA9F /* SpotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902A2D851DA36C8B001FEA9F /* SpotModel.swift */; };
 		902A2EB11DA4E14E001FEA9F /* travelmate.db in Resources */ = {isa = PBXBuildFile; fileRef = 902A2EB01DA4E14E001FEA9F /* travelmate.db */; };
 		902A2EB41DA4E478001FEA9F /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902A2EB31DA4E478001FEA9F /* DBManager.swift */; };
@@ -51,10 +57,29 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		90119DF11DADCC3100FC6C56 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				90119DEE1DADCC3100FC6C56 /* Realm.framework in Embed Frameworks */,
+				90119DEC1DADCC3100FC6C56 /* Alamofire.framework in Embed Frameworks */,
+				90119DF01DADCC3100FC6C56 /* RealmSwift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		272ED57CF35E4DD33E650BEA /* Pods-TravelMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelMate/Pods-TravelMate.debug.xcconfig"; sourceTree = "<group>"; };
 		581729D83643D3975C9EC6C2 /* Pods-TravelMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMate.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravelMate/Pods-TravelMate.release.xcconfig"; sourceTree = "<group>"; };
 		90119CEF1DA6543E00FC6C56 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		90119DE81DADCC3100FC6C56 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		90119DE91DADCC3100FC6C56 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		90119DEA1DADCC3100FC6C56 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		902A2D851DA36C8B001FEA9F /* SpotModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotModel.swift; sourceTree = "<group>"; };
 		902A2EB01DA4E14E001FEA9F /* travelmate.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = travelmate.db; sourceTree = SOURCE_ROOT; };
 		902A2EB31DA4E478001FEA9F /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
@@ -87,7 +112,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90119DED1DADCC3100FC6C56 /* Realm.framework in Frameworks */,
 				778B4C0E109A1C146408F4B5 /* Pods_TravelMate.framework in Frameworks */,
+				90119DEF1DADCC3100FC6C56 /* RealmSwift.framework in Frameworks */,
+				90119DEB1DADCC3100FC6C56 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +172,9 @@
 		903261941D9E2E2900CE31DC = {
 			isa = PBXGroup;
 			children = (
+				90119DE81DADCC3100FC6C56 /* Alamofire.framework */,
+				90119DE91DADCC3100FC6C56 /* Realm.framework */,
+				90119DEA1DADCC3100FC6C56 /* RealmSwift.framework */,
 				9032619F1D9E2E2A00CE31DC /* TravelMate */,
 				903261B41D9E2E2A00CE31DC /* TravelMateTests */,
 				903261BF1D9E2E2A00CE31DC /* TravelMateUITests */,
@@ -242,6 +273,8 @@
 				9032619B1D9E2E2900CE31DC /* Resources */,
 				277EB84063DB784FFE8BFF5A /* [CP] Embed Pods Frameworks */,
 				160BF2C30E93CC410B3C51DE /* [CP] Copy Pods Resources */,
+				90119DF11DADCC3100FC6C56 /* Embed Frameworks */,
+				90119DF21DADCC5E00FC6C56 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -430,6 +463,22 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TravelMate/Pods-TravelMate-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		90119DF21DADCC5E00FC6C56 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
 		9A4887EE05889DBD978EBE97 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -442,7 +491,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -572,6 +621,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -616,6 +666,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -627,12 +678,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 272ED57CF35E4DD33E650BEA /* Pods-TravelMate.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 8S882ZSFK3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TravelMate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ssu.travelmate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TravelMate/TravelMate-Bridging-Header.h";
@@ -645,12 +701,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 581729D83643D3975C9EC6C2 /* Pods-TravelMate.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 8S882ZSFK3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TravelMate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ssu.travelmate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TravelMate/TravelMate-Bridging-Header.h";
