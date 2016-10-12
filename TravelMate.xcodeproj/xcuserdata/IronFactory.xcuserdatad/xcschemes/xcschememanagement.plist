@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>TravelMate 2.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>TravelMate.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -23,11 +28,6 @@
 			<true/>
 		</dict>
 		<key>903261BB1D9E2E2A00CE31DC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>903261E81D9F9AB200CE31DC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
