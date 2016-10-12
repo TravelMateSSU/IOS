@@ -55,10 +55,6 @@ class ViewController: UIViewController, TourAPIDelegate {
     
     func searchByKeyword(spots: [SpotModel]) {
         print("Success")
-        spots.map({
-            spot in
-            print(spot.toString())
-        })
     }
     
     func searchByKeywordFailed() {

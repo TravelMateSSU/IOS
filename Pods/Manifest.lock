@@ -1,14 +1,25 @@
 PODS:
+  - Alamofire (4.0.1)
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
+  - Realm (2.0.2):
+    - Realm/Headers (= 2.0.2)
+  - Realm/Headers (2.0.2)
+  - RealmSwift (2.0.2):
+    - Realm (= 2.0.2)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.0)
   - FMDB
+  - RealmSwift (~> 2.0.1)
 
 SPEC CHECKSUMS:
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  Realm: 0f5a194af0b7e6158b83db41b4ee1a00be7ddf1a
+  RealmSwift: 0eb5070d851cba7c66e841ca756d83609dc78bc8
 
-PODFILE CHECKSUM: 9cb87d941471b86c4041c142b29318f856e938d7
+PODFILE CHECKSUM: bdd99620cd904fb1427294c620e04bfbdd747a2a
 
 COCOAPODS: 1.1.0.rc.3
