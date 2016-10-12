@@ -8,18 +8,61 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, TourAPIDelegate {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let dbManager = DBManager()
+        let isBeginner = UserDefaults.standard.value(forKey: "isBeginner")
+        if isBeginner == nil {          // 처음 앱을 시작한 사람
+            // 카테고리 SQLite -> Realm DB화
+            dbManager.copyCategories()
+            
+            // 앱을 실행했음을 마킹
+            UserDefaults.standard.set(1, forKey: "isBeginner")
+        }
+        
+        let category = dbManager.categoriesDict()
+        
+        /*
+        let routeView = RouteView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 150))
+        routeView.backgroundColor = UIColor.orange
+        let tourist = SpotModel()
+        tourist.title = "실험"
+        routeView.append(spot: tourist)
+        routeView.title = "연습타이틀"
+        self.view.addSubview(routeView)
+        routeView.setNeedsDisplay()
+ 
+        let apiManager = TourAPIManager()
+        let spot = SpotModel()
+        spot.contentTypeId = "12"
+        spot.contentId = "636266"
+        apiManager.delegate = self
+        try! apiManager.querySearchById(spot: spot)
+        */
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func searchById(spot: SpotModel) {
+        print(spot.toString())
     }
 
-
+    func searchByIdFailed() {
+        
+    }
+    
+    
+    func searchByKeyword(spots: [SpotModel]) {
+        print("Success")
+        spots.map({
+            spot in
+            print(spot.toString())
+        })
+    }
+    
+    func searchByKeywordFailed() {
+        
+    }
 }
 

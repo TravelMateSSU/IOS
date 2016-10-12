@@ -48,6 +48,16 @@
                ReferencedContainer = "container:TravelMate.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "903261F81D9FB83300CE31DC"
+               BuildableName = "TravelMateUITestsSnapshot.xctest"
+               BlueprintName = "TravelMateUITestsSnapshot"
+               ReferencedContainer = "container:TravelMate.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
