@@ -7,17 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0DD218A91E2284BBCD60AF2B /* Pods_TravelMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BD6D688F1123D74C1FAF7CA /* Pods_TravelMate.framework */; };
-		90119DD41DAD4DAF00FC6C56 /* TravelMate in Resources */ = {isa = PBXBuildFile; fileRef = 90119DCE1DAD4DAF00FC6C56 /* TravelMate */; };
+		778B4C0E109A1C146408F4B5 /* Pods_TravelMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B13FA2517ECE3540B6A1D624 /* Pods_TravelMate.framework */; };
+		90119CF01DA6543E00FC6C56 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90119CEF1DA6543E00FC6C56 /* Error.swift */; };
+		902A2D861DA36C8B001FEA9F /* SpotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902A2D851DA36C8B001FEA9F /* SpotModel.swift */; };
 		902A2EB11DA4E14E001FEA9F /* travelmate.db in Resources */ = {isa = PBXBuildFile; fileRef = 902A2EB01DA4E14E001FEA9F /* travelmate.db */; };
+		902A2EB41DA4E478001FEA9F /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902A2EB31DA4E478001FEA9F /* DBManager.swift */; };
+		902A2EB71DA4F93F001FEA9F /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902A2EB61DA4F93F001FEA9F /* CategoryModel.swift */; };
+		903261A11D9E2E2A00CE31DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903261A01D9E2E2A00CE31DC /* AppDelegate.swift */; };
+		903261A31D9E2E2A00CE31DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903261A21D9E2E2A00CE31DC /* ViewController.swift */; };
 		903261A61D9E2E2A00CE31DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 903261A41D9E2E2A00CE31DC /* Main.storyboard */; };
 		903261A81D9E2E2A00CE31DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 903261A71D9E2E2A00CE31DC /* Assets.xcassets */; };
 		903261AB1D9E2E2A00CE31DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 903261A91D9E2E2A00CE31DC /* LaunchScreen.storyboard */; };
 		903261B61D9E2E2A00CE31DC /* TravelMateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903261B51D9E2E2A00CE31DC /* TravelMateTests.swift */; };
 		903261C11D9E2E2A00CE31DC /* TravelMateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903261C01D9E2E2A00CE31DC /* TravelMateUITests.swift */; };
 		903261CF1D9E2F4D00CE31DC /* Route.xib in Resources */ = {isa = PBXBuildFile; fileRef = 903261CE1D9E2F4D00CE31DC /* Route.xib */; };
+		903261E41D9E4C6500CE31DC /* RouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903261E31D9E4C6500CE31DC /* RouteView.swift */; };
 		903262041D9FB92000CE31DC /* TravelMateUITestsSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903262031D9FB92000CE31DC /* TravelMateUITestsSnapshot.swift */; };
 		903262061D9FB98300CE31DC /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903262051D9FB98300CE31DC /* SnapshotHelper.swift */; };
+		903262081DA255D500CE31DC /* TourAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903262071DA255D500CE31DC /* TourAPIManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,23 +52,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		187096EA01958C665C858A4B /* Pods-TravelMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelMate/Pods-TravelMate.debug.xcconfig"; sourceTree = "<group>"; };
-		4E5913F7D9BE7DFCEFD84E11 /* Pods-TravelMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMate.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravelMate/Pods-TravelMate.release.xcconfig"; sourceTree = "<group>"; };
-		7BD6D688F1123D74C1FAF7CA /* Pods_TravelMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		90119DCE1DAD4DAF00FC6C56 /* TravelMate */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TravelMate; path = /Users/IronFactory/SwiftProject/IOS/TravelMate; sourceTree = "<absolute>"; };
-		9016062D1DADB5D500649892 /* TravelMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9016062E1DADB5D500649892 /* TravelMateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravelMateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9016062F1DADB5D500649892 /* TravelMateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravelMateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		901606301DADB5D500649892 /* TravelMateUITestsSnapshot.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravelMateUITestsSnapshot.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		272ED57CF35E4DD33E650BEA /* Pods-TravelMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelMate/Pods-TravelMate.debug.xcconfig"; sourceTree = "<group>"; };
+		581729D83643D3975C9EC6C2 /* Pods-TravelMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMate.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravelMate/Pods-TravelMate.release.xcconfig"; sourceTree = "<group>"; };
+		90119CEF1DA6543E00FC6C56 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		902A2D851DA36C8B001FEA9F /* SpotModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotModel.swift; sourceTree = "<group>"; };
 		902A2EB01DA4E14E001FEA9F /* travelmate.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = travelmate.db; sourceTree = SOURCE_ROOT; };
+		902A2EB31DA4E478001FEA9F /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		902A2EB61DA4F93F001FEA9F /* CategoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		9032619D1D9E2E2A00CE31DC /* TravelMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		903261A01D9E2E2A00CE31DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		903261A21D9E2E2A00CE31DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		903261A51D9E2E2A00CE31DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		903261A71D9E2E2A00CE31DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		903261AA1D9E2E2A00CE31DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		903261AC1D9E2E2A00CE31DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		903261B11D9E2E2A00CE31DC /* TravelMateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravelMateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		903261B51D9E2E2A00CE31DC /* TravelMateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelMateTests.swift; sourceTree = "<group>"; };
+		903261B71D9E2E2A00CE31DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		903261BC1D9E2E2A00CE31DC /* TravelMateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravelMateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		903261C01D9E2E2A00CE31DC /* TravelMateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelMateUITests.swift; sourceTree = "<group>"; };
+		903261C21D9E2E2A00CE31DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		903261CE1D9E2F4D00CE31DC /* Route.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Route.xib; sourceTree = "<group>"; };
+		903261E31D9E4C6500CE31DC /* RouteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteView.swift; sourceTree = "<group>"; };
+		903261F91D9FB83300CE31DC /* TravelMateUITestsSnapshot.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravelMateUITestsSnapshot.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		903261FD1D9FB83300CE31DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		903262031D9FB92000CE31DC /* TravelMateUITestsSnapshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelMateUITestsSnapshot.swift; sourceTree = "<group>"; };
 		903262051D9FB98300CE31DC /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
+		903262071DA255D500CE31DC /* TourAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourAPIManager.swift; sourceTree = "<group>"; };
+		B13FA2517ECE3540B6A1D624 /* Pods_TravelMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DD218A91E2284BBCD60AF2B /* Pods_TravelMate.framework in Frameworks */,
+				778B4C0E109A1C146408F4B5 /* Pods_TravelMate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,42 +115,118 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5659C48A9039EFE1D5732757 /* Frameworks */ = {
+		90119CEE1DA6542A00FC6C56 /* error */ = {
 			isa = PBXGroup;
 			children = (
-				7BD6D688F1123D74C1FAF7CA /* Pods_TravelMate.framework */,
+				90119CEF1DA6543E00FC6C56 /* Error.swift */,
 			);
-			name = Frameworks;
+			name = error;
 			sourceTree = "<group>";
 		};
-		90B571B01DAD4D66003B7522 /* /Users/IronFactory/SwiftProject/IOS/TravelMate.xcodeproj */ = {
+		902A2EB21DA4E464001FEA9F /* db */ = {
 			isa = PBXGroup;
 			children = (
-				AC9F80153AC40E9C7D210EF2 /* Products */,
-				E08586895A21ABB7761E5738 /* Pods */,
-				5659C48A9039EFE1D5732757 /* Frameworks */,
+				902A2EB01DA4E14E001FEA9F /* travelmate.db */,
+				902A2EB31DA4E478001FEA9F /* DBManager.swift */,
 			);
-			path = /Users/IronFactory/SwiftProject/IOS/TravelMate.xcodeproj;
-			sourceTree = "<absolute>";
+			name = db;
+			sourceTree = "<group>";
 		};
-		AC9F80153AC40E9C7D210EF2 /* Products */ = {
+		902A2EB51DA4F929001FEA9F /* models */ = {
 			isa = PBXGroup;
 			children = (
-				9016062D1DADB5D500649892 /* TravelMate.app */,
-				9016062E1DADB5D500649892 /* TravelMateTests.xctest */,
-				9016062F1DADB5D500649892 /* TravelMateUITests.xctest */,
-				901606301DADB5D500649892 /* TravelMateUITestsSnapshot.xctest */,
+				902A2D851DA36C8B001FEA9F /* SpotModel.swift */,
+				902A2EB61DA4F93F001FEA9F /* CategoryModel.swift */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
+		903261941D9E2E2900CE31DC = {
+			isa = PBXGroup;
+			children = (
+				9032619F1D9E2E2A00CE31DC /* TravelMate */,
+				903261B41D9E2E2A00CE31DC /* TravelMateTests */,
+				903261BF1D9E2E2A00CE31DC /* TravelMateUITests */,
+				903261FA1D9FB83300CE31DC /* TravelMateUITestsSnapshot */,
+				9032619E1D9E2E2A00CE31DC /* Products */,
+				F141A3767DAE549EFAF6A3E7 /* Pods */,
+				FDB2DAB59323D997234F8AC2 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9032619E1D9E2E2A00CE31DC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9032619D1D9E2E2A00CE31DC /* TravelMate.app */,
+				903261B11D9E2E2A00CE31DC /* TravelMateTests.xctest */,
+				903261BC1D9E2E2A00CE31DC /* TravelMateUITests.xctest */,
+				903261F91D9FB83300CE31DC /* TravelMateUITestsSnapshot.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E08586895A21ABB7761E5738 /* Pods */ = {
+		9032619F1D9E2E2A00CE31DC /* TravelMate */ = {
 			isa = PBXGroup;
 			children = (
-				187096EA01958C665C858A4B /* Pods-TravelMate.debug.xcconfig */,
-				4E5913F7D9BE7DFCEFD84E11 /* Pods-TravelMate.release.xcconfig */,
+				90119CEE1DA6542A00FC6C56 /* error */,
+				902A2EB51DA4F929001FEA9F /* models */,
+				902A2EB21DA4E464001FEA9F /* db */,
+				903261A01D9E2E2A00CE31DC /* AppDelegate.swift */,
+				903261A21D9E2E2A00CE31DC /* ViewController.swift */,
+				903261A41D9E2E2A00CE31DC /* Main.storyboard */,
+				903261A71D9E2E2A00CE31DC /* Assets.xcassets */,
+				903261A91D9E2E2A00CE31DC /* LaunchScreen.storyboard */,
+				903261AC1D9E2E2A00CE31DC /* Info.plist */,
+				903261CE1D9E2F4D00CE31DC /* Route.xib */,
+				903261E31D9E4C6500CE31DC /* RouteView.swift */,
+				903262071DA255D500CE31DC /* TourAPIManager.swift */,
+			);
+			path = TravelMate;
+			sourceTree = "<group>";
+		};
+		903261B41D9E2E2A00CE31DC /* TravelMateTests */ = {
+			isa = PBXGroup;
+			children = (
+				903261B51D9E2E2A00CE31DC /* TravelMateTests.swift */,
+				903261B71D9E2E2A00CE31DC /* Info.plist */,
+			);
+			path = TravelMateTests;
+			sourceTree = "<group>";
+		};
+		903261BF1D9E2E2A00CE31DC /* TravelMateUITests */ = {
+			isa = PBXGroup;
+			children = (
+				903261C01D9E2E2A00CE31DC /* TravelMateUITests.swift */,
+				903261C21D9E2E2A00CE31DC /* Info.plist */,
+			);
+			path = TravelMateUITests;
+			sourceTree = "<group>";
+		};
+		903261FA1D9FB83300CE31DC /* TravelMateUITestsSnapshot */ = {
+			isa = PBXGroup;
+			children = (
+				903262051D9FB98300CE31DC /* SnapshotHelper.swift */,
+				903262031D9FB92000CE31DC /* TravelMateUITestsSnapshot.swift */,
+				903261FD1D9FB83300CE31DC /* Info.plist */,
+			);
+			path = TravelMateUITestsSnapshot;
+			sourceTree = "<group>";
+		};
+		F141A3767DAE549EFAF6A3E7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				272ED57CF35E4DD33E650BEA /* Pods-TravelMate.debug.xcconfig */,
+				581729D83643D3975C9EC6C2 /* Pods-TravelMate.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		FDB2DAB59323D997234F8AC2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B13FA2517ECE3540B6A1D624 /* Pods_TravelMate.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,12 +236,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 903261C51D9E2E2A00CE31DC /* Build configuration list for PBXNativeTarget "TravelMate" */;
 			buildPhases = (
-				73210C5D994B7D2F83202C3C /* [CP] Check Pods Manifest.lock */,
+				9A4887EE05889DBD978EBE97 /* [CP] Check Pods Manifest.lock */,
 				903261991D9E2E2900CE31DC /* Sources */,
 				9032619A1D9E2E2900CE31DC /* Frameworks */,
 				9032619B1D9E2E2900CE31DC /* Resources */,
-				BEA6185A9D711B6A27205D73 /* [CP] Embed Pods Frameworks */,
-				89DF98E216591C66F569F6DB /* [CP] Copy Pods Resources */,
+				277EB84063DB784FFE8BFF5A /* [CP] Embed Pods Frameworks */,
+				160BF2C30E93CC410B3C51DE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -155,7 +249,7 @@
 			);
 			name = TravelMate;
 			productName = TravelMate;
-			productReference = 9016062D1DADB5D500649892 /* TravelMate.app */;
+			productReference = 9032619D1D9E2E2A00CE31DC /* TravelMate.app */;
 			productType = "com.apple.product-type.application";
 		};
 		903261B01D9E2E2A00CE31DC /* TravelMateTests */ = {
@@ -173,7 +267,7 @@
 			);
 			name = TravelMateTests;
 			productName = TravelMateTests;
-			productReference = 9016062E1DADB5D500649892 /* TravelMateTests.xctest */;
+			productReference = 903261B11D9E2E2A00CE31DC /* TravelMateTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		903261BB1D9E2E2A00CE31DC /* TravelMateUITests */ = {
@@ -191,7 +285,7 @@
 			);
 			name = TravelMateUITests;
 			productName = TravelMateUITests;
-			productReference = 9016062F1DADB5D500649892 /* TravelMateUITests.xctest */;
+			productReference = 903261BC1D9E2E2A00CE31DC /* TravelMateUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		903261F81D9FB83300CE31DC /* TravelMateUITestsSnapshot */ = {
@@ -209,7 +303,7 @@
 			);
 			name = TravelMateUITestsSnapshot;
 			productName = TravelMateUITestsSnapshot;
-			productReference = 901606301DADB5D500649892 /* TravelMateUITestsSnapshot.xctest */;
+			productReference = 903261F91D9FB83300CE31DC /* TravelMateUITestsSnapshot.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -256,8 +350,8 @@
 				en,
 				Base,
 			);
-			mainGroup = 90B571B01DAD4D66003B7522 /* /Users/IronFactory/SwiftProject/IOS/TravelMate.xcodeproj */;
-			productRefGroup = AC9F80153AC40E9C7D210EF2 /* Products */;
+			mainGroup = 903261941D9E2E2900CE31DC;
+			productRefGroup = 9032619E1D9E2E2A00CE31DC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -277,7 +371,6 @@
 				902A2EB11DA4E14E001FEA9F /* travelmate.db in Resources */,
 				903261AB1D9E2E2A00CE31DC /* LaunchScreen.storyboard in Resources */,
 				903261CF1D9E2F4D00CE31DC /* Route.xib in Resources */,
-				90119DD41DAD4DAF00FC6C56 /* TravelMate in Resources */,
 				903261A81D9E2E2A00CE31DC /* Assets.xcassets in Resources */,
 				903261A61D9E2E2A00CE31DC /* Main.storyboard in Resources */,
 			);
@@ -307,22 +400,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		73210C5D994B7D2F83202C3C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		89DF98E216591C66F569F6DB /* [CP] Copy Pods Resources */ = {
+		160BF2C30E93CC410B3C51DE /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -337,7 +415,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TravelMate/Pods-TravelMate-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BEA6185A9D711B6A27205D73 /* [CP] Embed Pods Frameworks */ = {
+		277EB84063DB784FFE8BFF5A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -352,6 +430,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TravelMate/Pods-TravelMate-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9A4887EE05889DBD978EBE97 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -359,6 +452,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90119CF01DA6543E00FC6C56 /* Error.swift in Sources */,
+				903261A31D9E2E2A00CE31DC /* ViewController.swift in Sources */,
+				902A2EB41DA4E478001FEA9F /* DBManager.swift in Sources */,
+				903261E41D9E4C6500CE31DC /* RouteView.swift in Sources */,
+				902A2EB71DA4F93F001FEA9F /* CategoryModel.swift in Sources */,
+				903262081DA255D500CE31DC /* TourAPIManager.swift in Sources */,
+				903261A11D9E2E2A00CE31DC /* AppDelegate.swift in Sources */,
+				902A2D861DA36C8B001FEA9F /* SpotModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,7 +625,7 @@
 		};
 		903261C61D9E2E2A00CE31DC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 187096EA01958C665C858A4B /* Pods-TravelMate.debug.xcconfig */;
+			baseConfigurationReference = 272ED57CF35E4DD33E650BEA /* Pods-TravelMate.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -542,7 +643,7 @@
 		};
 		903261C71D9E2E2A00CE31DC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4E5913F7D9BE7DFCEFD84E11 /* Pods-TravelMate.release.xcconfig */;
+			baseConfigurationReference = 581729D83643D3975C9EC6C2 /* Pods-TravelMate.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -560,6 +661,7 @@
 		903261C91D9E2E2A00CE31DC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = TravelMateTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -573,6 +675,7 @@
 		903261CA1D9E2E2A00CE31DC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = TravelMateTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -586,6 +689,7 @@
 		903261CC1D9E2E2A00CE31DC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = TravelMateUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ironfactory.TravelMateUITests;
@@ -598,6 +702,7 @@
 		903261CD1D9E2E2A00CE31DC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = TravelMateUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ironfactory.TravelMateUITests;
