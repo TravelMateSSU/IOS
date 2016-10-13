@@ -1,5 +1,6 @@
-//
-//  Use this file to import your target's public headers that you would like to expose to Swift.
-//
+#ifndef TravelMate_Bridging_Header_h
+#define TravelMate_Bridging_Header_h
 
+#import <KakaoOpenSDK/KakaoOpenSDK.h>
 
+#endif
