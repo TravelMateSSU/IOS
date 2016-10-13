@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		086318671DAFA6A90057DE9A /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086318661DAFA6A90057DE9A /* KakaoOpenSDK.framework */; };
+		0863186B1DAFE5C40057DE9A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0863186A1DAFE5C40057DE9A /* LoginViewController.swift */; };
 		61AEBA0C5F49F7754471EF39 /* Pods_TravelMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6285CE044243A7D743C74E47 /* Pods_TravelMate.framework */; };
 		90119CF01DA6543E00FC6C56 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90119CEF1DA6543E00FC6C56 /* Error.swift */; };
 		902A2D861DA36C8B001FEA9F /* SpotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902A2D851DA36C8B001FEA9F /* SpotModel.swift */; };
@@ -67,6 +68,7 @@
 
 /* Begin PBXFileReference section */
 		086318661DAFA6A90057DE9A /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
+		0863186A1DAFE5C40057DE9A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		272ED57CF35E4DD33E650BEA /* Pods-TravelMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelMate/Pods-TravelMate.debug.xcconfig"; sourceTree = "<group>"; };
 		581729D83643D3975C9EC6C2 /* Pods-TravelMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMate.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravelMate/Pods-TravelMate.release.xcconfig"; sourceTree = "<group>"; };
 		6285CE044243A7D743C74E47 /* Pods_TravelMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,6 +198,7 @@
 				903261CE1D9E2F4D00CE31DC /* Route.xib */,
 				903261E31D9E4C6500CE31DC /* RouteView.swift */,
 				903262071DA255D500CE31DC /* TourAPIManager.swift */,
+				0863186A1DAFE5C40057DE9A /* LoginViewController.swift */,
 			);
 			path = TravelMate;
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0863186B1DAFE5C40057DE9A /* LoginViewController.swift in Sources */,
 				90119CF01DA6543E00FC6C56 /* Error.swift in Sources */,
 				903261A31D9E2E2A00CE31DC /* ViewController.swift in Sources */,
 				902A2EB41DA4E478001FEA9F /* DBManager.swift in Sources */,
