@@ -154,10 +154,10 @@
             </objects>
             <point key="canvasLocation" x="-1215" y="771"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Menu Controller-->
         <scene sceneID="QBQ-UP-eem">
             <objects>
-                <tabBarController storyboardIdentifier="main" id="Plt-Gn-mPG" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="main" id="Plt-Gn-mPG" customClass="MainMenuController" customModule="TravelMate" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="xdO-Nb-xBi"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="uoK-L9-na2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
