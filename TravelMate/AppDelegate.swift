@@ -12,9 +12,70 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    var loginViewController: UIViewController?
+    var mainViewController: UIViewController?
+    
+    private func setupEntryController(){
+        let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let loginNavigationController = mainStoryBoard.instantiateViewController(withIdentifier: "navigator") as! UINavigationController
+        let mainNavigationController = mainStoryBoard.instantiateViewController(withIdentifier: "navigator") as! UINavigationController
+        
+        let viewController = mainStoryBoard.instantiateViewController(withIdentifier: "login") as UIViewController
+        loginNavigationController.pushViewController(viewController, animated: true)
+        self.loginViewController = loginNavigationController
+        
+        let viewController2 = mainStoryBoard.instantiateViewController(withIdentifier: "main") as UIViewController
+        mainNavigationController.pushViewController(viewController2, animated: true)
+        self.mainViewController = mainNavigationController
+    }
+    
+    private func reloadRootViewController(){
+        let isOpened = KOSession.shared().isOpen()
+        
+        if !isOpened{
+            let mainViewController = self.mainViewController as! UINavigationController
+            
+            mainViewController.popToRootViewController(animated: true)
+        }
+        
+        self.window?.rootViewController = isOpened ? self.mainViewController : self.loginViewController
+        self.window?.makeKeyAndVisible()
+    }
+    
+    // 카카오사용자 정보 얻어오는 함수
+    private func getUserInfo(){
+        KOSessionTask.meTask(completionHandler: { (user, error) in
+            if user != nil {
+                var koUser: KOUser
+                koUser = user as! KOUser
+                print("userid: \(koUser.id)")
+                print("nickname: \(koUser.property(forKey: "nickname"))")
+            }
+        })
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        // 최초 실행 시 2종류의 rootViewController 준비. (login, main)
+        setupEntryController()
+        
+        // KOSession 변경 시
+        NotificationCenter.default.addObserver(self, selector: #selector(kakaoSessionDidChangeWithNotification), name: NSNotification.Name.KOSessionDidChange, object: nil)
+        
+        reloadRootViewController()
+        
         return true
+    }
+    
+    func kakaoSessionDidChangeWithNotification(){
+        reloadRootViewController()
+    }
+    
+    func loadMainViewController(){
+        self.window?.rootViewController = self.mainViewController
+        self.window?.makeKeyAndVisible()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -25,10 +86,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+        KOSession.handleDidEnterBackground()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        
+        KOSession.handleDidBecomeActive()
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -38,7 +103,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        if KOSession.isKakaoAccountLoginCallback(url){
+            return KOSession.handleOpen(url)
+        }
+        return false
+    }
 }
 
