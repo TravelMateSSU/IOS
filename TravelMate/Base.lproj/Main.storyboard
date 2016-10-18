@@ -167,15 +167,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g1m-Zz-9rZ">
+                                <color key="backgroundColor" red="1" green="0.51764705879999995" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FXU-ip-R1c">
                                 <state key="normal" title="글쓰기 버튼2"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scX-Yq-LD8">
                                 <state key="normal" title="글쓰기 버튼1"/>
                             </button>
-                            <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g1m-Zz-9rZ">
-                                <color key="backgroundColor" red="1" green="0.51764705879999995" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="FXU-ip-R1c" firstAttribute="top" secondItem="scX-Yq-LD8" secondAttribute="bottom" constant="200" id="8kL-eE-KjJ"/>
