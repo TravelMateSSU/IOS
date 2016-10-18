@@ -9,7 +9,7 @@
 import UIKit
 
 class MainMenuController: UITabBarController{
-    
+    let win: UIWindow = ((UIApplication.shared.delegate?.window)!)!
     let writeBtn: UIButton = UIButton(type: .custom)
     
     override func viewDidLoad() {
@@ -19,7 +19,6 @@ class MainMenuController: UITabBarController{
     }
     
     func addWriteBtn(){
-        let win: UIWindow = ((UIApplication.shared.delegate?.window)!)!
         let writeBtnImage = UIImage(named: "ic_add_circle_36pt")
         
         writeBtn.frame = CGRect(x: 0.0, y: win.frame.size.height - 42, width: 42, height: 42)
@@ -32,7 +31,11 @@ class MainMenuController: UITabBarController{
     
     func doWrite(sender: UIButton!){
         UIView.animate(withDuration: 0.3, animations: { () -> Void in
-            if sender.transform.isIdentity {
+            let identity = sender.transform.isIdentity
+            
+            self.presentWriteMenu(identity: identity)
+            
+            if identity {
                 let rotationTransform = CGAffineTransform(rotationAngle: CGFloat(M_PI/4))
                 
                 sender.transform = rotationTransform
@@ -41,5 +44,23 @@ class MainMenuController: UITabBarController{
                 sender.transform = CGAffineTransform.identity
             }
         })
+    }
+    
+    func presentWriteMenu(identity: Bool){
+        
+        if identity {
+            let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+            let writeMenuController = mainStoryBoard.instantiateViewController(withIdentifier: "writemenu") as! UIViewController
+            
+            // make modalview background color 'transparent'
+            writeMenuController.providesPresentationContextTransitionStyle = true
+            writeMenuController.definesPresentationContext = true
+            writeMenuController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            
+            self.navigationController?.present(writeMenuController, animated: true, completion: nil)
+         
+        } else{
+            navigationController?.dismiss(animated: true, completion: nil)
+        }
     }
 }
