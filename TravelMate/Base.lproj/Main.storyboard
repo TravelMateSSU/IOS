@@ -106,7 +106,7 @@
         <scene sceneID="TlD-bu-i59">
             <objects>
                 <navigationController storyboardIdentifier="navigator" id="EHS-li-G4g" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QST-EB-bYH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="QST-EB-bYH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -155,6 +155,24 @@
             </objects>
             <point key="canvasLocation" x="-1215" y="771"/>
         </scene>
+        <!--Write Map Controller-->
+        <scene sceneID="jpO-iu-1YO">
+            <objects>
+                <viewController storyboardIdentifier="writemap" id="UMk-rk-qfx" customClass="WriteMapController" customModule="TravelMate" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1sy-Ma-IxN"/>
+                        <viewControllerLayoutGuide type="bottom" id="jxn-it-iIp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1ut-nM-6rh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qvX-1C-1I7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-463" y="-1828"/>
+        </scene>
         <!--Write Menu Controller-->
         <scene sceneID="YDj-g9-00k">
             <objects>
@@ -175,6 +193,9 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scX-Yq-LD8">
                                 <state key="normal" title="글쓰기 버튼1"/>
+                                <connections>
+                                    <action selector="doWrite_Map:" destination="yir-oT-e4T" eventType="touchUpInside" id="Q6H-tp-HQj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
@@ -191,7 +212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jna-QM-kdT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-463.19999999999999" y="-1066.4167916041979"/>
+            <point key="canvasLocation" x="-1215" y="-1828"/>
         </scene>
         <!--Main Menu Controller-->
         <scene sceneID="QBQ-UP-eem">
@@ -209,6 +230,7 @@
                         <segue destination="jwD-yO-y7B" kind="relationship" relationship="viewControllers" id="L9h-z0-MdR"/>
                         <segue destination="fbL-Ll-Odl" kind="relationship" relationship="viewControllers" id="Y2m-4S-fRO"/>
                         <segue destination="hfa-I6-MY6" kind="relationship" relationship="viewControllers" id="DZN-5R-0WA"/>
+                        <segue destination="UMk-rk-qfx" kind="show" identifier="writemap" id="BvR-yb-tt0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kZy-XR-0XW" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -13,22 +13,37 @@ class MainMenuController: UITabBarController{
     let writeBtn: UIButton = UIButton(type: .custom)
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
+        createWriteBtn()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         addWriteBtn()
     }
     
-    func addWriteBtn(){
+    override func viewWillDisappear(_ animated: Bool) {
+        removeWriteBtn()
+    }
+    
+    func createWriteBtn(){
         let writeBtnImage = UIImage(named: "ic_add_circle_36pt")
         
         writeBtn.frame = CGRect(x: 0.0, y: win.frame.size.height - 42, width: 42, height: 42)
         writeBtn.center = CGPoint(x: win.center.x, y: writeBtn.center.y)
         writeBtn.setBackgroundImage(writeBtnImage, for: .normal)
-        win.addSubview(writeBtn)
         
         writeBtn.addTarget(self, action: #selector(doWrite(sender:)), for: .touchUpInside)
     }
+
+    func addWriteBtn(){
+        writeBtn.transform = CGAffineTransform.identity
+        win.addSubview(writeBtn)
+    }
     
+    func removeWriteBtn(){
+        writeBtn.removeFromSuperview()
+    }
+    
+    // WriteBtn 클릭 이벤트
     func doWrite(sender: UIButton!){
         UIView.animate(withDuration: 0.3, animations: { () -> Void in
             let identity = sender.transform.isIdentity
@@ -46,19 +61,20 @@ class MainMenuController: UITabBarController{
         })
     }
     
+    // 1번째 WriteMenu 클릭 이벤트
     func presentWriteMenu(identity: Bool){
         
         if identity {
             let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
             let writeMenuController = mainStoryBoard.instantiateViewController(withIdentifier: "writemenu") as! UIViewController
-            
+         
             // make modalview background color 'transparent'
             writeMenuController.providesPresentationContextTransitionStyle = true
             writeMenuController.definesPresentationContext = true
             writeMenuController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-            
+ 
             self.navigationController?.present(writeMenuController, animated: true, completion: nil)
-         
+
         } else{
             navigationController?.dismiss(animated: true, completion: nil)
         }
