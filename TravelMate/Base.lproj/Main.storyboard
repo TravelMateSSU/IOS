@@ -166,8 +166,30 @@
                     <view key="view" contentMode="scaleToFill" id="1ut-nM-6rh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XUe-Dk-WU4" customClass="GMSMapView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jv3-gA-Wd0">
+                                <frame key="frameInset" minX="164" minY="318" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="testAction:" destination="UMk-rk-qfx" eventType="touchUpInside" id="sRn-vA-KrB"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XUe-Dk-WU4" firstAttribute="top" secondItem="1sy-Ma-IxN" secondAttribute="bottom" id="9cu-Pj-4PD"/>
+                            <constraint firstItem="XUe-Dk-WU4" firstAttribute="leading" secondItem="1ut-nM-6rh" secondAttribute="leading" id="CLY-l5-6Dv"/>
+                            <constraint firstItem="jxn-it-iIp" firstAttribute="top" secondItem="XUe-Dk-WU4" secondAttribute="bottom" id="Osl-Sn-fzH"/>
+                            <constraint firstAttribute="trailing" secondItem="XUe-Dk-WU4" secondAttribute="trailing" id="c0e-id-BlK"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapContainerView" destination="XUe-Dk-WU4" id="v9y-aw-c61"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qvX-1C-1I7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
