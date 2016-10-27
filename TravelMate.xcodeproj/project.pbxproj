@@ -12,6 +12,8 @@
 		0863186D1DB08A6F0057DE9A /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0863186C1DB08A6F0057DE9A /* MainMenuController.swift */; };
 		088ABCAF1DB8CB6F00AA2D19 /* WriteMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088ABCAE1DB8CB6F00AA2D19 /* WriteMapController.swift */; };
 		0896CFCB1DB4CD9B00FE2C47 /* WriteMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0896CFCA1DB4CD9B00FE2C47 /* WriteMenuController.swift */; };
+		0899E7081DC1CF6500AE3BF3 /* TravelSpotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0899E7071DC1CF6500AE3BF3 /* TravelSpotCell.xib */; };
+		0899E70C1DC21E5D00AE3BF3 /* TravelSpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899E70B1DC21E5D00AE3BF3 /* TravelSpotCell.swift */; };
 		61AEBA0C5F49F7754471EF39 /* Pods_TravelMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6285CE044243A7D743C74E47 /* Pods_TravelMate.framework */; };
 		90119CF01DA6543E00FC6C56 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90119CEF1DA6543E00FC6C56 /* Error.swift */; };
 		902A2D861DA36C8B001FEA9F /* SpotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902A2D851DA36C8B001FEA9F /* SpotModel.swift */; };
@@ -75,6 +77,8 @@
 		0863186C1DB08A6F0057DE9A /* MainMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
 		088ABCAE1DB8CB6F00AA2D19 /* WriteMapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteMapController.swift; sourceTree = "<group>"; };
 		0896CFCA1DB4CD9B00FE2C47 /* WriteMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteMenuController.swift; sourceTree = "<group>"; };
+		0899E7071DC1CF6500AE3BF3 /* TravelSpotCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TravelSpotCell.xib; sourceTree = "<group>"; };
+		0899E70B1DC21E5D00AE3BF3 /* TravelSpotCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelSpotCell.swift; sourceTree = "<group>"; };
 		272ED57CF35E4DD33E650BEA /* Pods-TravelMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelMate/Pods-TravelMate.debug.xcconfig"; sourceTree = "<group>"; };
 		581729D83643D3975C9EC6C2 /* Pods-TravelMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMate.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravelMate/Pods-TravelMate.release.xcconfig"; sourceTree = "<group>"; };
 		6285CE044243A7D743C74E47 /* Pods_TravelMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,6 +220,8 @@
 				903261CE1D9E2F4D00CE31DC /* Route.xib */,
 				903261E31D9E4C6500CE31DC /* RouteView.swift */,
 				903262071DA255D500CE31DC /* TourAPIManager.swift */,
+				0899E7071DC1CF6500AE3BF3 /* TravelSpotCell.xib */,
+				0899E70B1DC21E5D00AE3BF3 /* TravelSpotCell.swift */,
 			);
 			path = TravelMate;
 			sourceTree = "<group>";
@@ -407,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				902A2EB11DA4E14E001FEA9F /* travelmate.db in Resources */,
+				0899E7081DC1CF6500AE3BF3 /* TravelSpotCell.xib in Resources */,
 				903261AB1D9E2E2A00CE31DC /* LaunchScreen.storyboard in Resources */,
 				903261CF1D9E2F4D00CE31DC /* Route.xib in Resources */,
 				903261A81D9E2E2A00CE31DC /* Assets.xcassets in Resources */,
@@ -494,6 +501,7 @@
 				0863186B1DAFE5C40057DE9A /* LoginViewController.swift in Sources */,
 				90119CF01DA6543E00FC6C56 /* Error.swift in Sources */,
 				903261A31D9E2E2A00CE31DC /* ViewController.swift in Sources */,
+				0899E70C1DC21E5D00AE3BF3 /* TravelSpotCell.swift in Sources */,
 				902A2EB41DA4E478001FEA9F /* DBManager.swift in Sources */,
 				903261E41D9E4C6500CE31DC /* RouteView.swift in Sources */,
 				902A2EB71DA4F93F001FEA9F /* CategoryModel.swift in Sources */,

@@ -11,11 +11,20 @@ import GoogleMaps
 
 class WriteMapController: UIViewController{
     @IBOutlet weak var mapContainerView: GMSMapView!
+    @IBOutlet weak var pathCollectionView: UICollectionView!
+    
+    var searchController: UISearchController!
     
     var path: GMSMutablePath!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        initNavigationBar()
+        
+        self.pathCollectionView.register(UINib(nibName: "TravelSpotCell", bundle: nil), forCellWithReuseIdentifier: "spotcell")
+        pathCollectionView.delegate = self
+        pathCollectionView.dataSource = self
         
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2DMake(37.5693679015, 126.9838371210)
@@ -46,5 +55,45 @@ class WriteMapController: UIViewController{
         let bounds = GMSCoordinateBounds(path: path)
         let update = GMSCameraUpdate.fit(bounds, withPadding: 100)
         mapContainerView.animate(with: update)
+    }
+    
+    func initNavigationBar(){
+        self.searchController = UISearchController(searchResultsController: nil)
+        
+        self.searchController.searchResultsUpdater = self
+        self.searchController.delegate = self
+        self.searchController.searchBar.delegate = self
+        
+        self.searchController.hidesNavigationBarDuringPresentation = false
+        self.searchController.dimsBackgroundDuringPresentation = true
+        
+        self.navigationItem.titleView = searchController.searchBar
+        
+        self.definesPresentationContext = true
+    }
+}
+
+extension WriteMapController: UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate{
+    func updateSearchResults(for searchController: UISearchController) {
+        print("update")
+    }
+}
+
+extension WriteMapController: UICollectionViewDataSource, UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: TravelSpotCell = pathCollectionView.dequeueReusableCell(withReuseIdentifier: "spotcell", for: indexPath) as! TravelSpotCell
+        //let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "spotcell", for: indexPath)
+        
+        cell.spotName.text = "test+\(indexPath.row)"
+        
+        return cell
     }
 }
