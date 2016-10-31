@@ -25,10 +25,8 @@ class RemovableImageView: UIView {
     }
 
     @IBAction func removeImagePressed(_ sender: AnyObject) {
-        self.isHidden = true
         if let delegate = self.delegate {
             delegate.removeImagePressed()
-            
         } else {
             print("Error! Please regist RemovableDelegate to RemovableImageView")
         }
