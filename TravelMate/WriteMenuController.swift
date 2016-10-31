@@ -8,6 +8,16 @@
 
 import UIKit
 
-class WriteMenuController: UIViewController{
+class WriteMenuController: UIViewController {
 
+    
+    
+    @IBAction func writeEpiloguePressed(_ sender: UIButton) {
+        // WriteEpilogue Storyboard를 띄워줍니다.
+        let storyboard = UIStoryboard(name: "WriteEpilogue", bundle: nil)
+        let writeEpilogueNavigationController = storyboard.instantiateViewController(withIdentifier: "RootNavigationController")
+        
+        self.present(writeEpilogueNavigationController, animated: true, completion: nil)
+    }
+    
 }
