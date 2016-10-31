@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="descriptionPanGesture" destination="MvY-iD-Loy" id="NeO-iy-22P"/>
                 <outlet property="descriptionTextView" destination="HV4-20-FIs" id="6af-eW-5lG"/>
+                <outlet property="evaluationView" destination="Ey0-dk-7MN" id="MVb-Bz-vXm"/>
                 <outlet property="imageCollectionView" destination="G24-Im-mYu" id="Jf3-T0-5ff"/>
                 <outlet property="imageCollectionViewHeight" destination="cdL-BC-5R9" id="HM7-Po-xmY"/>
             </connections>

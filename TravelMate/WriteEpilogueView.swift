@@ -23,6 +23,8 @@ class WriteEpilogueView: UIView, UICollectionViewDelegate, UICollectionViewDataS
     
     @IBOutlet var descriptionPanGesture: UIPanGestureRecognizer!
     
+    @IBOutlet var evaluationView: EvaluationView!
+    
     var height: CGFloat?
     
     var epilogue: EpilogueModel!
@@ -91,6 +93,8 @@ class WriteEpilogueView: UIView, UICollectionViewDelegate, UICollectionViewDataS
         imageCollectionViewHeight.constant = 0
         
         imageCollectionView.register(UINib(nibName: "WriteEpilogueCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "WriteEpilogueCollectionViewCell")
+        
+        evaluationView.score = 0
         
         addGestureRecognizer(descriptionPanGesture)
     }
