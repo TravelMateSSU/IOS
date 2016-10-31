@@ -8,6 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WriteEpilogueView" customModule="TravelMate" customModuleProvider="target">
             <connections>
+                <outlet property="descriptionPanGesture" destination="MvY-iD-Loy" id="NeO-iy-22P"/>
                 <outlet property="descriptionTextView" destination="HV4-20-FIs" id="6af-eW-5lG"/>
                 <outlet property="imageCollectionView" destination="G24-Im-mYu" id="Jf3-T0-5ff"/>
                 <outlet property="imageCollectionViewHeight" destination="cdL-BC-5R9" id="HM7-Po-xmY"/>
@@ -47,14 +48,19 @@
                 </collectionView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="descriptionTextView" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HV4-20-FIs">
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <gestureRecognizers/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="283" id="EPE-s5-6aq"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="MvY-iD-Loy" appends="YES" id="Hzy-R6-kgk"/>
+                    </connections>
                 </textView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="G24-Im-mYu" secondAttribute="trailing" id="2f8-bk-ToE"/>
                 <constraint firstAttribute="trailing" secondItem="Ey0-dk-7MN" secondAttribute="trailing" id="6sB-cD-K80"/>
@@ -73,5 +79,10 @@
             </constraints>
             <point key="canvasLocation" x="43.5" y="85.5"/>
         </view>
+        <panGestureRecognizer minimumNumberOfTouches="1" id="MvY-iD-Loy">
+            <connections>
+                <action selector="handlePanGesture:" destination="-1" id="QHY-q8-3so"/>
+            </connections>
+        </panGestureRecognizer>
     </objects>
 </document>

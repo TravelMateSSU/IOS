@@ -15,17 +15,23 @@ protocol ImagePickDelegate {
 // 후기 작성 뷰
 class WriteEpilogueView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, RemovableCellDelegate {
     
+    @IBOutlet weak var descriptionTextView: UITextView!
+    
+    @IBOutlet var imageCollectionViewHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var imageCollectionView: UICollectionView!
+    
+    @IBOutlet var descriptionPanGesture: UIPanGestureRecognizer!
+    
     var height: CGFloat?
     
     var epilogue: EpilogueModel!
     
-    @IBOutlet weak var descriptionTextView: UITextView!
-    
     let imagePicker = UIImagePickerController()
     
-    @IBOutlet weak var imageCollectionView: UICollectionView!
-    
     var delegate: ImagePickDelegate?
+    
+    var panY: CGFloat!
     
     @IBAction func insertImagePressed(_ sender: UIButton) {
         imagePicker.allowsEditing = false
@@ -37,7 +43,6 @@ class WriteEpilogueView: UIView, UICollectionViewDelegate, UICollectionViewDataS
         }
     }
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -48,6 +53,23 @@ class WriteEpilogueView: UIView, UICollectionViewDelegate, UICollectionViewDataS
         setup()
     }
     
+    @IBAction func handlePanGesture(_ sender: UIPanGestureRecognizer) {
+        if sender.state == .began {
+            panY = sender.location(in: self).y
+        } else {
+            let curY = sender.location(in: self).y
+            
+            // 아래로 스와이프
+            if panY < curY {
+                let diffY = curY - panY
+                
+                // TODO: 스르륵 키보드 내려가기
+                if diffY > 100 {
+                    self.endEditing(true)
+                }
+            }
+        }
+    }
     
     fileprivate func setup() {
         let view = loadFromXibName()
@@ -59,8 +81,6 @@ class WriteEpilogueView: UIView, UICollectionViewDelegate, UICollectionViewDataS
         epilogue = EpilogueModel()
     }
     
-    @IBOutlet var imageCollectionViewHeight: NSLayoutConstraint!
-    
     override func awakeFromNib() {
         // 텍스트 뷰 top에서 부터 시작
         descriptionTextView.setContentOffset(.zero, animated: false)
@@ -71,6 +91,8 @@ class WriteEpilogueView: UIView, UICollectionViewDelegate, UICollectionViewDataS
         imageCollectionViewHeight.constant = 0
         
         imageCollectionView.register(UINib(nibName: "WriteEpilogueCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "WriteEpilogueCollectionViewCell")
+        
+        addGestureRecognizer(descriptionPanGesture)
     }
     
     

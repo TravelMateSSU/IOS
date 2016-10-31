@@ -9,5 +9,7 @@
 import UIKit
 
 class WriteMenuController: UIViewController {
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 }
