@@ -17,15 +17,17 @@ class WriteEpilogueViewController: UIViewController, UINavigationControllerDeleg
         let networkManager = NetworkManager()
         networkManager.insertEpilogue(epilogue: writeEpilogueView.epilogue) { (err, code) in
             if err {
+                // 실패
                 print("실패")
             } else {
-                print("성공")
+                // 성공
+                dismiss(animated: true, completion: nil)
             }
         }
     }
     
     @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
-        
+        dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
