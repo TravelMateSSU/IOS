@@ -15,6 +15,8 @@ protocol ImagePickDelegate {
 // 후기 작성 뷰
 class WriteEpilogueView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, RemovableCellDelegate {
     
+    var height: CGFloat?
+    
     var epilogue: EpilogueModel!
     
     @IBOutlet weak var descriptionTextView: UITextView!
@@ -57,6 +59,7 @@ class WriteEpilogueView: UIView, UICollectionViewDelegate, UICollectionViewDataS
         epilogue = EpilogueModel()
     }
     
+    @IBOutlet var imageCollectionViewHeight: NSLayoutConstraint!
     
     override func awakeFromNib() {
         // 텍스트 뷰 top에서 부터 시작
@@ -64,8 +67,8 @@ class WriteEpilogueView: UIView, UICollectionViewDelegate, UICollectionViewDataS
         
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self
-        imageCollectionView.isHidden = true
-        imageCollectionView.contentSize = CGSize(width: 100, height: 100)
+        height = imageCollectionViewHeight.constant
+        imageCollectionViewHeight.constant = 0
         
         imageCollectionView.register(UINib(nibName: "WriteEpilogueCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "WriteEpilogueCollectionViewCell")
     }
@@ -121,7 +124,9 @@ class WriteEpilogueView: UIView, UICollectionViewDelegate, UICollectionViewDataS
         imageCollectionView.reloadData()
         
         if epilogue.images.count == 1 {
-            imageCollectionView.isHidden = false
+            if let height = self.height {
+                imageCollectionViewHeight.constant = height
+            }
         }
     }
     
@@ -130,5 +135,9 @@ class WriteEpilogueView: UIView, UICollectionViewDelegate, UICollectionViewDataS
         // 해당 position의 이미지 삭제
         self.epilogue.images.remove(objectAtIndex: position)
         imageCollectionView.reloadData()
+        
+        if self.epilogue.images.isEmpty {
+            imageCollectionViewHeight.constant = 0
+        }
     }
 }

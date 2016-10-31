@@ -45,6 +45,14 @@
             </objects>
             <point key="canvasLocation" x="492" y="-392"/>
         </scene>
+        <!--WriteEpilogue-->
+        <scene sceneID="7NH-kd-HpG">
+            <objects>
+                <viewControllerPlaceholder storyboardName="WriteEpilogue" id="kdk-4Y-7ja" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hbE-oS-8L4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-524" y="-1451"/>
+        </scene>
         <!--마이페이지-->
         <scene sceneID="meU-lu-kgh">
             <objects>
@@ -173,7 +181,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FXU-ip-R1c">
                                 <state key="normal" title="글쓰기 버튼2"/>
                                 <connections>
-                                    <action selector="writeEpiloguePressed:" destination="yir-oT-e4T" eventType="touchUpInside" id="ctx-Lw-CA0"/>
+                                    <segue destination="kdk-4Y-7ja" kind="show" id="Uta-AI-44I"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scX-Yq-LD8">
@@ -194,7 +202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jna-QM-kdT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-463.19999999999999" y="-1066.4167916041979"/>
+            <point key="canvasLocation" x="-1215" y="-1058"/>
         </scene>
         <!--Main Menu Controller-->
         <scene sceneID="QBQ-UP-eem">

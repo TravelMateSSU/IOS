@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aeI-mn-zFc">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -31,7 +31,7 @@
                             <constraint firstItem="veW-zo-QIM" firstAttribute="leading" secondItem="Svj-Tm-74B" secondAttribute="leadingMargin" id="wHz-pE-qRM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="btO-1S-pWP">
+                    <navigationItem key="navigationItem" title="후기 작성" id="btO-1S-pWP">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="OzN-6i-q1w">
                             <connections>
                                 <action selector="backButtonPressed:" destination="Bf3-4d-8w8" id="MAt-JC-gdp"/>
