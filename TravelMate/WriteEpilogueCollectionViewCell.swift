@@ -8,13 +8,34 @@
 
 import UIKit
 
-class WriteEpilogueCollectionViewCell: UICollectionViewCell {
+protocol RemovableCellDelegate {
+    func remove(position: Int)
+}
+
+
+class WriteEpilogueCollectionViewCell: UICollectionViewCell, RemovableDelegate {
 
     @IBOutlet var removableImageView: RemovableImageView!
     
-    var delegate: RemovableDelegate? {
-        willSet(delegate) {
-            self.removableImageView.delegate = delegate
+    var position: Int?
+    
+    var delegate: RemovableCellDelegate?
+    
+    override func awakeFromNib() {
+        removableImageView.delegate = self
+    }
+    
+    func removeImagePressed() {
+        guard let delegate = self.delegate else {
+            print("Error! Please regist delegate: RemovableCellDelegate in WriteEpilogueCollectionViewCell")
+            return
         }
+        
+        guard let position = self.position else {
+            print("Error! Please assign position: in RemovableCellDelegate : WriteEpilogueCollectionViewCell")
+            return
+        }
+        
+        delegate.remove(position: position)
     }
 }

@@ -13,7 +13,7 @@ protocol ImagePickDelegate {
 }
 
 // 후기 작성 뷰
-class WriteEpilogueView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, RemovableDelegate {
+class WriteEpilogueView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, RemovableCellDelegate {
     
     var epilogue: EpilogueModel!
     
@@ -80,6 +80,11 @@ class WriteEpilogueView: UIView, UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WriteEpilogueCollectionViewCell", for: indexPath) as? WriteEpilogueCollectionViewCell
+        
+        // Removable ImageView의 x버튼을 통해 이미지 삭제하기 위해
+        // 각 셀마다 position값을 부여한 뒤 x를 누르면 position값 delegation
+        cell?.position = indexPath.row
+        
         guard let imageCell = cell else {
             return UICollectionViewCell()
         }
@@ -92,6 +97,8 @@ class WriteEpilogueView: UIView, UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        // cell's height = collectionView's height
         return CGSize(width: collectionView.frame.size.height, height: collectionView.frame.size.height)
     }
     
@@ -114,13 +121,14 @@ class WriteEpilogueView: UIView, UICollectionViewDelegate, UICollectionViewDataS
         imageCollectionView.reloadData()
         
         if epilogue.images.count == 1 {
-            print("checkout hidden")
             imageCollectionView.isHidden = false
         }
     }
     
     // 이미지 삭제 클릭
-    func removeImagePressed() {
-        
+    func remove(position: Int) {
+        // 해당 position의 이미지 삭제
+        self.epilogue.images.remove(objectAtIndex: position)
+        imageCollectionView.reloadData()
     }
 }
