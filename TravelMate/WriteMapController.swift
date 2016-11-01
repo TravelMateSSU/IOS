@@ -14,8 +14,10 @@ class WriteMapController: UIViewController{
     @IBOutlet weak var pathCollectionView: UICollectionView!
     
     var searchController: UISearchController!
+    var autoCompleteCollectionView: UICollectionView!
     
     let pathCVIdentifier = "PathCell"
+    let AutoCompleteCVIdentifier = "AutoCompleteCell"
     
     var path: GMSMutablePath!
     
@@ -23,6 +25,8 @@ class WriteMapController: UIViewController{
         super.viewDidLoad()
         
         initNavigationBar()
+        initAutoComplete()
+        //autoCompleteCollectionView.removeFromSuperview()
         
         initPathCollectionView()
         
@@ -44,11 +48,28 @@ class WriteMapController: UIViewController{
         self.searchController.searchBar.delegate = self
         
         self.searchController.hidesNavigationBarDuringPresentation = false
-        self.searchController.dimsBackgroundDuringPresentation = true
+        self.searchController.dimsBackgroundDuringPresentation = false
         
         self.navigationItem.titleView = searchController.searchBar
         
         self.definesPresentationContext = true
+    }
+    
+    func initAutoComplete(){
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        layout.itemSize = CGSize(width: 90, height: 77)
+        layout.scrollDirection = .horizontal
+
+        autoCompleteCollectionView = UICollectionView(frame: CGRect(x: 0, y: (self.navigationController?.navigationBar.frame.height)!+20, width: self.view.frame.width, height: 80), collectionViewLayout: layout)
+        self.autoCompleteCollectionView.register(UINib(nibName: "TravelSpotCell", bundle: nil) , forCellWithReuseIdentifier: AutoCompleteCVIdentifier)
+        
+        autoCompleteCollectionView.backgroundColor = UIColor.white
+        
+        autoCompleteCollectionView.delegate = self
+        autoCompleteCollectionView.dataSource = self
+        autoCompleteCollectionView.isScrollEnabled = true
+        
     }
     
     func initPathCollectionView(){
@@ -87,7 +108,20 @@ class WriteMapController: UIViewController{
 
 extension WriteMapController: UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate{
     func updateSearchResults(for searchController: UISearchController) {
-        print("update")
+        
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        print("test")
+
+        self.view.addSubview(self.autoCompleteCollectionView)
+
+        //initAutoComplete()
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        print("test end")
+        autoCompleteCollectionView.removeFromSuperview()
     }
 }
 
@@ -97,7 +131,7 @@ extension WriteMapController: UICollectionViewDataSource, UICollectionViewDelega
         case pathCollectionView:
             return 5
         default:
-            return 0
+            return 5
         }
     }
     
@@ -114,7 +148,11 @@ extension WriteMapController: UICollectionViewDataSource, UICollectionViewDelega
             
             return cell
         default:
-            return UICollectionViewCell()
+            let cell: TravelSpotCell = autoCompleteCollectionView.dequeueReusableCell(withReuseIdentifier: AutoCompleteCVIdentifier, for: indexPath) as! TravelSpotCell
+            
+            cell.spotName.text = "auto\(indexPath.row)"
+            
+            return cell
         }
     }
 }
