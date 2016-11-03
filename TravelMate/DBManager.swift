@@ -63,9 +63,6 @@ class DBManager {
         for i in 0 ..< results.count {
             let CategoryModel = results[i]
             if let code = CategoryModel.code, let name = CategoryModel.name {
-                print("code = \(code)")
-                print("name = \(name)")
-                
                 categories.append(CategoryModel)
             }
         }
@@ -79,9 +76,6 @@ class DBManager {
         for i in 0 ..< results.count {
             let CategoryModel = results[i]
             if let code = CategoryModel.code, let name = CategoryModel.name {
-                print("code = \(code)")
-                print("name = \(name)")
-                
                 categories[code] = name
             }
         }
