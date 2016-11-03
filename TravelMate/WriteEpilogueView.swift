@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ImagePickDelegate {
-    func imagePickPressed(imagePicker: UIImagePickerController)
+    func imagePickPressed()
 }
 
 // 후기 작성 뷰
@@ -39,7 +39,7 @@ class WriteEpilogueView: UIView, UICollectionViewDelegate, UICollectionViewDataS
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary
         if let delegate = self.delegate {
-            delegate.imagePickPressed(imagePicker: imagePicker)
+            delegate.imagePickPressed()
         } else {
             print("Error! Please assign imageViewController in WriteEpilogueView")
         }

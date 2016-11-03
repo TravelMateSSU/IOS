@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import DKImagePickerController
 
 // 후기 작성 뷰컨트롤러
-class WriteEpilogueViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, ImagePickDelegate {
+class WriteEpilogueViewController: UIViewController, ImagePickDelegate {
     
     @IBOutlet weak var writeEpilogueView: WriteEpilogueView!
     
@@ -36,21 +37,22 @@ class WriteEpilogueViewController: UIViewController, UINavigationControllerDeleg
         writeEpilogueView.delegate = self
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            writeEpilogueView.imagePick(image: pickedImage)
+    func imagePickPressed() {
+        let pickerController = DKImagePickerController()
+        pickerController.singleSelect = false
+        
+        pickerController.didSelectAssets = { (assets: [DKAsset]) in
+            for asset in assets {
+                asset.fetchOriginalImage(false, completeBlock: { (image, hashable) in
+                    guard let image = image else {
+                        return
+                    }
+                    
+                    self.writeEpilogueView.imagePick(image: image)
+                })
+            }
         }
         
-        dismiss(animated: true, completion: nil)
-    }
-    
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func imagePickPressed(imagePicker: UIImagePickerController) {
-        imagePicker.delegate = self
-        present(imagePicker, animated: true, completion: nil)
+        self.present(pickerController, animated: true, completion: nil)
     }
 }
