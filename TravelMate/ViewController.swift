@@ -23,7 +23,7 @@ class ViewController: UIViewController {
             UserDefaults.standard.set(1, forKey: "isBeginner")
         }
         
-        let category = dbManager.categoriesDict()
+//        let category = dbManager.categoriesDict()
         
         
         // 사용법

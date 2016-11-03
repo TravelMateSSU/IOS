@@ -66,7 +66,7 @@ class MainMenuController: UITabBarController{
         
         if identity {
             let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-            let writeMenuController = mainStoryBoard.instantiateViewController(withIdentifier: "writemenu") as! UIViewController
+            let writeMenuController = mainStoryBoard.instantiateViewController(withIdentifier: "writemenu")
          
             // make modalview background color 'transparent'
             writeMenuController.providesPresentationContextTransitionStyle = true

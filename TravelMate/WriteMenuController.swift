@@ -18,7 +18,7 @@ class WriteMenuController: UIViewController{
     
     func pushWriteMapController(){
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-        let writeMapController = mainStoryBoard.instantiateViewController(withIdentifier: "writemap") as! UIViewController
+        let writeMapController = mainStoryBoard.instantiateViewController(withIdentifier: "writemap") 
         
         let mainViewController = self.presentingViewController as! UINavigationController
         

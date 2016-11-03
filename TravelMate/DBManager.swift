@@ -62,7 +62,7 @@ class DBManager {
         var categories: [CategoryModel] = []
         for i in 0 ..< results.count {
             let CategoryModel = results[i]
-            if let code = CategoryModel.code, let name = CategoryModel.name {
+            if CategoryModel.code != nil, CategoryModel.name != nil {
                 categories.append(CategoryModel)
             }
         }
