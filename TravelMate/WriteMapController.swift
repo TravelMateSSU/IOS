@@ -14,33 +14,33 @@ class WriteMapController: UIViewController{
     @IBOutlet weak var pathCollectionView: UICollectionView!
     
     var searchController: UISearchController!
-    var autoCompleteCollectionView: UICollectionView!
+    var SearchResultCollectionView: UICollectionView!
     
     let pathCVIdentifier = "PathCell"
-    let AutoCompleteCVIdentifier = "AutoCompleteCell"
+    let AutoCompleteCVIdentifier = "SearchResultCell"
+    
+    let tourAPIManager: TourAPIManager = TourAPIManager()
+    var searchResult: [SpotModel] = []
     
     var path: GMSMutablePath!
+    var polyline: GMSPolyline!
+    var markers: [GMSMarker] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initNavigationBar()
-        initAutoComplete()
-        //autoCompleteCollectionView.removeFromSuperview()
+        initNavigationSearchBar()
         
         initPathCollectionView()
         
         initMapData()
         
+        initTourAPIManager()
+        
+        initAutoComplete()
     }
-    
-    @IBAction func testAction(_ sender: AnyObject) {
-        let bounds = GMSCoordinateBounds(path: path)
-        let update = GMSCameraUpdate.fit(bounds, withPadding: 100)
-        mapContainerView.animate(with: update)
-    }
-    
-    func initNavigationBar(){
+
+    func initNavigationSearchBar(){
         self.searchController = UISearchController(searchResultsController: nil)
         
         self.searchController.searchResultsUpdater = self
@@ -61,15 +61,13 @@ class WriteMapController: UIViewController{
         layout.itemSize = CGSize(width: 90, height: 77)
         layout.scrollDirection = .horizontal
 
-        autoCompleteCollectionView = UICollectionView(frame: CGRect(x: 0, y: (self.navigationController?.navigationBar.frame.height)!+20, width: self.view.frame.width, height: 80), collectionViewLayout: layout)
-        self.autoCompleteCollectionView.register(UINib(nibName: "TravelSpotCell", bundle: nil) , forCellWithReuseIdentifier: AutoCompleteCVIdentifier)
+        SearchResultCollectionView = UICollectionView(frame: CGRect(x: 0, y: (self.navigationController?.navigationBar.frame.height)!+20, width: self.view.frame.width, height: 80), collectionViewLayout: layout)
+        self.SearchResultCollectionView.register(UINib(nibName: "TravelSpotCell", bundle: nil) , forCellWithReuseIdentifier: AutoCompleteCVIdentifier)
         
-        autoCompleteCollectionView.backgroundColor = UIColor.white
-        
-        autoCompleteCollectionView.delegate = self
-        autoCompleteCollectionView.dataSource = self
-        autoCompleteCollectionView.isScrollEnabled = true
-        
+        SearchResultCollectionView.backgroundColor = UIColor.white
+        SearchResultCollectionView.delegate = self
+        SearchResultCollectionView.dataSource = self
+        SearchResultCollectionView.isScrollEnabled = true
     }
     
     func initPathCollectionView(){
@@ -80,48 +78,52 @@ class WriteMapController: UIViewController{
     }
     
     func initMapData(){
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2DMake(37.5693679015, 126.9838371210)
-        marker.title = "가마목"
-        marker.map = mapContainerView
-        
-        let marker2 = GMSMarker()
-        marker2.position = CLLocationCoordinate2DMake(37.5706149055, 126.9797346814)
-        marker2.title = "광화문 미진"
-        marker2.map = mapContainerView
-        
-        let marker3 = GMSMarker()
-        marker3.position = CLLocationCoordinate2DMake(37.5655100385, 126.9850482312)
-        marker3.title = "나석주의사동상"
-        marker3.map = mapContainerView
-        
         path = GMSMutablePath()
-        path.add(CLLocationCoordinate2DMake(37.5693679015, 126.9838371210))
-        path.add(CLLocationCoordinate2DMake(37.5706149055, 126.9797346814))
-        path.add(CLLocationCoordinate2DMake(37.5655100385, 126.9850482312))
-        path.add(CLLocationCoordinate2DMake(37.496375, 126.9546903))
-        let polyline = GMSPolyline(path: path)
-        polyline.strokeWidth = 3
+        polyline = GMSPolyline()
+    }
+    
+    func initTourAPIManager(){
+        tourAPIManager.delegate = self
+    }
+    
+    func mapPolylineUpdateByPath(path: GMSPath){
+        polyline.map = nil // 이전 경로를 지도에서 지움
+        
+        polyline = GMSPolyline(path: path)
+        polyline.strokeWidth = 2
         polyline.map = mapContainerView
+    }
+    
+    func mapCameraUpdateToPath(path: GMSPath){
+        let bounds = GMSCoordinateBounds(path: path)
+        let update = GMSCameraUpdate.fit(bounds, withPadding: 100)
+        mapContainerView.animate(with: update)
+    }
+    
+    func mapCameraUpdateToMarker(marker: GMSMarker){
+        let update = GMSCameraUpdate.setTarget(marker.position, zoom: 15)
+        mapContainerView.animate(with: update)
     }
 }
 
 extension WriteMapController: UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate{
     func updateSearchResults(for searchController: UISearchController) {
         
+         do {
+            try? tourAPIManager.querySearchByKeyword(keyword: searchController.searchBar.text!)
+         } catch APIError.DelegateNotFound {
+            print("delegate error")
+         } catch APIError.HttpResponseFailed {
+            print("http error")
+         }
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        print("test")
-
-        self.view.addSubview(self.autoCompleteCollectionView)
-
-        //initAutoComplete()
+        self.view.addSubview(self.SearchResultCollectionView)
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        print("test end")
-        autoCompleteCollectionView.removeFromSuperview()
+        SearchResultCollectionView.removeFromSuperview()
     }
 }
 
@@ -130,8 +132,10 @@ extension WriteMapController: UICollectionViewDataSource, UICollectionViewDelega
         switch collectionView {
         case pathCollectionView:
             return 5
+        case SearchResultCollectionView:
+            return searchResult.count
         default:
-            return 5
+            return 0
         }
     }
     
@@ -147,12 +151,62 @@ extension WriteMapController: UICollectionViewDataSource, UICollectionViewDelega
             cell.spotName.text = "test+\(indexPath.row)"
             
             return cell
-        default:
-            let cell: TravelSpotCell = autoCompleteCollectionView.dequeueReusableCell(withReuseIdentifier: AutoCompleteCVIdentifier, for: indexPath) as! TravelSpotCell
+        case SearchResultCollectionView:
+            let cell: TravelSpotCell = SearchResultCollectionView.dequeueReusableCell(withReuseIdentifier: AutoCompleteCVIdentifier, for: indexPath) as! TravelSpotCell
             
-            cell.spotName.text = "auto\(indexPath.row)"
+            cell.spotName.text = searchResult[indexPath.row].title
             
             return cell
+        default:
+            return UICollectionViewCell()
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView {
+        case pathCollectionView:
+            return
+        case SearchResultCollectionView:
+            let selectedSpot = searchResult[indexPath.row]
+            let marker = GMSMarker()
+            marker.position = CLLocationCoordinate2DMake(selectedSpot.y, selectedSpot.x)
+            marker.title = selectedSpot.title
+            marker.map = mapContainerView
+            
+            markers.append(marker)
+            path.add(marker.position)
+            
+            mapPolylineUpdateByPath(path: path)
+            
+            // camera update
+            if markers.count < 2 {
+                mapCameraUpdateToMarker(marker: marker)
+            } else{
+                mapCameraUpdateToPath(path: path)
+            }
+            
+        default:
+            return
+        }
+    }
+}
+
+extension WriteMapController: TourAPIDelegate{
+    func searchByKeyword(spots: [SpotModel]) {
+        searchResult = spots
+        
+        SearchResultCollectionView.reloadData()
+    }
+    
+    func searchById(spot: SpotModel) {
+        print(spot)
+    }
+    
+    func searchByKeywordFailed() {
+        print("keyword fail")
+    }
+    
+    func searchByIdFailed() {
+        print("id fail")
     }
 }

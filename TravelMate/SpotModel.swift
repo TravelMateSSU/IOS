@@ -23,8 +23,8 @@ class SpotModel: Object {
     let PROPERTY_ADDRESS_1 = "addr1"
     let PROPERTY_ADDRESS_2 = "addr2"
     let PROPERTY_ZIP_CODE = "zipcode"
-    let PROPERTY_MAP_X = "mapX"
-    let PROPERTY_MAP_Y = "mapY"
+    let PROPERTY_MAP_X = "mapx"
+    let PROPERTY_MAP_Y = "mapy"
     
     
     
@@ -82,7 +82,7 @@ class SpotModel: Object {
     
     func setData(dict: [String: Any]) {
         let dbManager = DBManager()
-        
+
         if dict[PROPERTY_TITLE] != nil {
             title = dict[PROPERTY_TITLE] as! String
         }
@@ -137,11 +137,13 @@ class SpotModel: Object {
         }
         
         if dict[PROPERTY_MAP_X] != nil {
-            x = dict[PROPERTY_MAP_X] as! Double
+            let stringX = dict[PROPERTY_MAP_X] as! String
+            x = Double(stringX)!
         }
         
         if dict[PROPERTY_MAP_Y] != nil {
-            y = dict[PROPERTY_MAP_Y] as! Double
+            let stringY = dict[PROPERTY_MAP_Y] as! String
+            y = Double(stringY)!
         }
     }
     
