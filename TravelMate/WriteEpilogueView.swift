@@ -104,7 +104,6 @@ class WriteEpilogueView: UIView, UICollectionViewDelegate, UICollectionViewDataS
     // CollectionView
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(epilogue.images.count)
         return epilogue.images.count
     }
     
@@ -115,16 +114,12 @@ class WriteEpilogueView: UIView, UICollectionViewDelegate, UICollectionViewDataS
             return UICollectionViewCell()
         }
         
-        print(imageCell.isHidden)
-        
         // Removable ImageView의 x버튼을 통해 이미지 삭제하기 위해
         // 각 셀마다 position값을 부여한 뒤 x를 누르면 position값 delegation
         imageCell.delegate = self
         imageCell.position = indexPath.row
         
-        if let imageData = Data(base64Encoded: epilogue.images[indexPath.row].string) {
-            imageCell.removableImageView.image = UIImage(data: imageData)
-        }
+        imageCell.removableImageView.image = epilogue.images[indexPath.row]
         return imageCell
     }
     
@@ -144,12 +139,8 @@ class WriteEpilogueView: UIView, UICollectionViewDelegate, UICollectionViewDataS
     
     // imagePicker
     func imagePick(image: UIImage) {
-        guard let pngData = UIImagePNGRepresentation(image) else {
-            return
-        }
-        
         // epilogue.images에 추가
-        epilogue.images.append(RealmString(value: [pngData.base64EncodedString()]))
+        epilogue.images.append(image)
         DispatchQueue.main.async {
             self.imageCollectionView.reloadData()
         }
@@ -164,7 +155,7 @@ class WriteEpilogueView: UIView, UICollectionViewDelegate, UICollectionViewDataS
     // 이미지 삭제 클릭
     func remove(position: Int) {
         // 해당 position의 이미지 삭제
-        self.epilogue.images.remove(objectAtIndex: position)
+        self.epilogue.images.remove(at: position)
         self.imageCollectionView.reloadData()
         
         if self.epilogue.images.isEmpty {
