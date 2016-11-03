@@ -30,6 +30,9 @@
 		903262041D9FB92000CE31DC /* TravelMateUITestsSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903262031D9FB92000CE31DC /* TravelMateUITestsSnapshot.swift */; };
 		903262061D9FB98300CE31DC /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903262051D9FB98300CE31DC /* SnapshotHelper.swift */; };
 		903262081DA255D500CE31DC /* TourAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903262071DA255D500CE31DC /* TourAPIManager.swift */; };
+		905D0AF41DCB6D8000CDAF47 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905D0AF31DCB6D8000CDAF47 /* TimelineViewController.swift */; };
+		905D0AF61DCB760900CDAF47 /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905D0AF51DCB760900CDAF47 /* CourseViewController.swift */; };
+		905D0AF81DCB764200CDAF47 /* EpilogueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905D0AF71DCB764200CDAF47 /* EpilogueViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +106,9 @@
 		903262031D9FB92000CE31DC /* TravelMateUITestsSnapshot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelMateUITestsSnapshot.swift; sourceTree = "<group>"; };
 		903262051D9FB98300CE31DC /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		903262071DA255D500CE31DC /* TourAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourAPIManager.swift; sourceTree = "<group>"; };
+		905D0AF31DCB6D8000CDAF47 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
+		905D0AF51DCB760900CDAF47 /* CourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
+		905D0AF71DCB764200CDAF47 /* EpilogueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpilogueViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +222,9 @@
 				903261CE1D9E2F4D00CE31DC /* Route.xib */,
 				903261E31D9E4C6500CE31DC /* RouteView.swift */,
 				903262071DA255D500CE31DC /* TourAPIManager.swift */,
+				905D0AF31DCB6D8000CDAF47 /* TimelineViewController.swift */,
+				905D0AF51DCB760900CDAF47 /* CourseViewController.swift */,
+				905D0AF71DCB764200CDAF47 /* EpilogueViewController.swift */,
 			);
 			path = TravelMate;
 			sourceTree = "<group>";
@@ -492,6 +501,7 @@
 			files = (
 				088ABCAF1DB8CB6F00AA2D19 /* WriteMapController.swift in Sources */,
 				0863186B1DAFE5C40057DE9A /* LoginViewController.swift in Sources */,
+				905D0AF81DCB764200CDAF47 /* EpilogueViewController.swift in Sources */,
 				90119CF01DA6543E00FC6C56 /* Error.swift in Sources */,
 				903261A31D9E2E2A00CE31DC /* ViewController.swift in Sources */,
 				902A2EB41DA4E478001FEA9F /* DBManager.swift in Sources */,
@@ -499,9 +509,11 @@
 				902A2EB71DA4F93F001FEA9F /* CategoryModel.swift in Sources */,
 				903262081DA255D500CE31DC /* TourAPIManager.swift in Sources */,
 				903261A11D9E2E2A00CE31DC /* AppDelegate.swift in Sources */,
+				905D0AF41DCB6D8000CDAF47 /* TimelineViewController.swift in Sources */,
 				0896CFCB1DB4CD9B00FE2C47 /* WriteMenuController.swift in Sources */,
 				902A2D861DA36C8B001FEA9F /* SpotModel.swift in Sources */,
 				0863186D1DB08A6F0057DE9A /* MainMenuController.swift in Sources */,
+				905D0AF61DCB760900CDAF47 /* CourseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
