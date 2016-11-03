@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -55,6 +56,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         })
     }
+    
+    // GoogleMaps
+    private func settingGoogleMaps(){
+        GMSServices.provideAPIKey("AIzaSyCOFon9DyJWvpHefxRNVGOfuvi1ZkASdiY")
+    }
+    
+    func loadWriteView(){
+        let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+        let writeMapController = mainStoryBoard.instantiateViewController(withIdentifier: "writemap") as! UIViewController
+        
+        let mainViewController = self.mainViewController as! UINavigationController
+        
+        mainViewController.pushViewController(writeMapController, animated: true)
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -65,6 +80,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(kakaoSessionDidChangeWithNotification), name: NSNotification.Name.KOSessionDidChange, object: nil)
         
         reloadRootViewController()
+        
+        settingGoogleMaps()
         
         return true
     }
