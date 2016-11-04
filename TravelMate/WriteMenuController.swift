@@ -8,20 +8,8 @@
 
 import UIKit
 
-class WriteMenuController: UIViewController{
-
-    @IBAction func doWrite_Map(_ sender: AnyObject) {
-        pushWriteMapController()
-        
-        self.dismiss(animated: false, completion: nil)
-    }
-    
-    func pushWriteMapController(){
-        let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-        let writeMapController = mainStoryBoard.instantiateViewController(withIdentifier: "writemap") as! UIViewController
-        
-        let mainViewController = self.presentingViewController as! UINavigationController
-        
-        mainViewController.pushViewController(writeMapController, animated: true)
+class WriteMenuController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
 }
