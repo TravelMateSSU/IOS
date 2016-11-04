@@ -14,6 +14,10 @@ class WriteEpilogueViewController: UIViewController, ImagePickDelegate {
     
     @IBOutlet weak var writeEpilogueView: WriteEpilogueView!
     
+    @IBAction func writeCompletionPressed(_ sender: UIBarButtonItem) {
+        self.view.endEditing(true)
+    }
+    
     @IBAction func submitPressed(_ sender: UIBarButtonItem) {
         let networkManager = NetworkManager()
         networkManager.insertEpilogue(epilogue: writeEpilogueView.epilogue) { (err, code) in
