@@ -1,5 +1,10 @@
 PODS:
   - Alamofire (4.0.1)
+  - DKImagePickerController (3.4.0):
+    - DKImagePickerController/Camera (= 3.4.0)
+    - DKImagePickerController/ImageManager (= 3.4.0)
+  - DKImagePickerController/Camera (3.4.0)
+  - DKImagePickerController/ImageManager (3.4.0)
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
@@ -16,17 +21,19 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
+  - DKImagePickerController
   - FMDB
   - GoogleMaps
   - RealmSwift (~> 2.0.1)
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  DKImagePickerController: 5e64adbe34c27cc63bc38cccdaf3a40c3b4f729c
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   GoogleMaps: 06589b9a38097bce0cd6e90f0fd9b5e4b4a9344c
   Realm: 0f5a194af0b7e6158b83db41b4ee1a00be7ddf1a
   RealmSwift: 0eb5070d851cba7c66e841ca756d83609dc78bc8
 
-PODFILE CHECKSUM: 01c26b075319af39b077e0ee8602cd5fc53d68d9
+PODFILE CHECKSUM: f03c3bbb1480321f30ab1bfeff10b53602b71d74
 
-COCOAPODS: 1.1.0
+COCOAPODS: 1.1.1

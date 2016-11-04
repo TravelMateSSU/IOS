@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EvaluationView" customModule="TravelMate" customModuleProvider="target">
+            <connections>
+                <outlet property="evaluationImageView1" destination="Iov-OH-5hj" id="yR1-Sa-A4u"/>
+                <outlet property="evaluationImageView2" destination="zc7-qZ-LTI" id="NRx-FB-oBU"/>
+                <outlet property="evaluationImageView3" destination="FbD-SJ-Ej8" id="FW4-3l-UXM"/>
+                <outlet property="evaluationImageView4" destination="n8L-8W-wYJ" id="wFf-JK-iRV"/>
+                <outlet property="evaluationImageView5" destination="8Yv-UJ-3Po" id="beX-Nr-T8A"/>
+                <outlet property="evaluationImageViewTapGesture1" destination="WE9-hT-vcI" id="uLc-d4-nXH"/>
+                <outlet property="evaluationImageViewTapGesture2" destination="vdz-QS-WCe" id="CPB-va-Wpo"/>
+                <outlet property="evaluationImageViewTapGesture3" destination="bkp-3x-Frq" id="FLT-5v-ecD"/>
+                <outlet property="evaluationImageViewTapGesture4" destination="csu-9C-J3v" id="t2f-Xv-qDO"/>
+                <outlet property="evaluationImageViewTapGesture5" destination="iAa-qj-wVm" id="Uza-XL-wuC"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zzr-Fl-Dk8">
+                    <subviews>
+                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iov-OH-5hj">
+                            <gestureRecognizers/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="WE9-hT-vcI" appends="YES" id="Ice-o5-IDK"/>
+                            </connections>
+                        </imageView>
+                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zc7-qZ-LTI">
+                            <gestureRecognizers/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="vdz-QS-WCe" appends="YES" id="25c-c4-uVC"/>
+                            </connections>
+                        </imageView>
+                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FbD-SJ-Ej8">
+                            <gestureRecognizers/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="bkp-3x-Frq" appends="YES" id="dF4-hC-T7U"/>
+                            </connections>
+                        </imageView>
+                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n8L-8W-wYJ">
+                            <gestureRecognizers/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="csu-9C-J3v" appends="YES" id="Ltf-41-1jf"/>
+                            </connections>
+                        </imageView>
+                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Yv-UJ-3Po">
+                            <gestureRecognizers/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="iAa-qj-wVm" appends="YES" id="WXy-KX-Qqd"/>
+                            </connections>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Iov-OH-5hj" firstAttribute="height" secondItem="zzr-Fl-Dk8" secondAttribute="height" id="D4I-cw-4Tg"/>
+                        <constraint firstAttribute="height" priority="250" constant="221" id="fET-yV-gWg"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="zzr-Fl-Dk8" secondAttribute="trailing" id="24m-ce-SlP"/>
+                <constraint firstItem="zzr-Fl-Dk8" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="6fK-Ld-YTv"/>
+                <constraint firstItem="zzr-Fl-Dk8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="PwB-kX-xfb"/>
+                <constraint firstItem="zzr-Fl-Dk8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="UPO-XU-pl7"/>
+            </constraints>
+            <point key="canvasLocation" x="65" y="209"/>
+        </view>
+        <tapGestureRecognizer id="WE9-hT-vcI">
+            <connections>
+                <action selector="evaluationImageView1Tapped:" destination="-1" id="9xz-Gr-ufo"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="vdz-QS-WCe">
+            <connections>
+                <action selector="evaluationImageView2Tapped:" destination="-1" id="4WX-pD-bxf"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="bkp-3x-Frq">
+            <connections>
+                <action selector="evaluationImageView3Tapped:" destination="-1" id="0Dc-do-rWs"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="csu-9C-J3v">
+            <connections>
+                <action selector="evaluationImageView4Tapped:" destination="-1" id="dvw-UR-orh"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="iAa-qj-wVm">
+            <connections>
+                <action selector="evaluationImageView5Tapped:" destination="-1" id="VcA-HW-X50"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+</document>
