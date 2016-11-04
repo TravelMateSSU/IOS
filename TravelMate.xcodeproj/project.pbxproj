@@ -10,7 +10,6 @@
 		086318671DAFA6A90057DE9A /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086318661DAFA6A90057DE9A /* KakaoOpenSDK.framework */; };
 		0863186B1DAFE5C40057DE9A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0863186A1DAFE5C40057DE9A /* LoginViewController.swift */; };
 		0863186D1DB08A6F0057DE9A /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0863186C1DB08A6F0057DE9A /* MainMenuController.swift */; };
-		088ABCAF1DB8CB6F00AA2D19 /* WriteMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088ABCAE1DB8CB6F00AA2D19 /* WriteMapController.swift */; };
 		0896CFCB1DB4CD9B00FE2C47 /* WriteMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0896CFCA1DB4CD9B00FE2C47 /* WriteMenuController.swift */; };
 		61AEBA0C5F49F7754471EF39 /* Pods_TravelMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6285CE044243A7D743C74E47 /* Pods_TravelMate.framework */; };
 		90119CF01DA6543E00FC6C56 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90119CEF1DA6543E00FC6C56 /* Error.swift */; };
@@ -44,8 +43,12 @@
 		906EE1BD1DC5AFBF00A9A292 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906EE1BC1DC5AFBF00A9A292 /* NetworkManager.swift */; };
 		906EE1BF1DC5CF1800A9A292 /* WriteEpilogueCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 906EE1BE1DC5CF1800A9A292 /* WriteEpilogueCollectionViewCell.xib */; };
 		906EE1C11DC5CF8000A9A292 /* WriteEpilogueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906EE1C01DC5CF8000A9A292 /* WriteEpilogueCollectionViewCell.swift */; };
+		907CD1291DCC94870069B3BE /* EpilogueImageCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 907CD1281DCC94870069B3BE /* EpilogueImageCollectionCell.xib */; };
+		907CD12B1DCC94BE0069B3BE /* EpilogueImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907CD12A1DCC94BE0069B3BE /* EpilogueImageCollectionViewCell.swift */; };
 		90B2EA451DC373BE008FC3EE /* WriteEpilogue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90B2EA441DC373BE008FC3EE /* WriteEpilogue.storyboard */; };
 		90B2EA471DC373E0008FC3EE /* WriteEpilogueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B2EA461DC373E0008FC3EE /* WriteEpilogueController.swift */; };
+		90EBE7B11DCC843E00938D9F /* EpilogueTimelineTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90EBE7B01DCC843E00938D9F /* EpilogueTimelineTableCell.xib */; };
+		90EBE7B31DCC869400938D9F /* EpilogueTimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EBE7B21DCC869400938D9F /* EpilogueTimelineTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,7 +92,6 @@
 		086318661DAFA6A90057DE9A /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
 		0863186A1DAFE5C40057DE9A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0863186C1DB08A6F0057DE9A /* MainMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
-		088ABCAE1DB8CB6F00AA2D19 /* WriteMapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteMapController.swift; sourceTree = "<group>"; };
 		0896CFCA1DB4CD9B00FE2C47 /* WriteMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteMenuController.swift; sourceTree = "<group>"; };
 		272ED57CF35E4DD33E650BEA /* Pods-TravelMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelMate/Pods-TravelMate.debug.xcconfig"; sourceTree = "<group>"; };
 		581729D83643D3975C9EC6C2 /* Pods-TravelMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMate.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravelMate/Pods-TravelMate.release.xcconfig"; sourceTree = "<group>"; };
@@ -133,8 +135,12 @@
 		906EE1BC1DC5AFBF00A9A292 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		906EE1BE1DC5CF1800A9A292 /* WriteEpilogueCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WriteEpilogueCollectionViewCell.xib; sourceTree = "<group>"; };
 		906EE1C01DC5CF8000A9A292 /* WriteEpilogueCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteEpilogueCollectionViewCell.swift; sourceTree = "<group>"; };
+		907CD1281DCC94870069B3BE /* EpilogueImageCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpilogueImageCollectionCell.xib; sourceTree = "<group>"; };
+		907CD12A1DCC94BE0069B3BE /* EpilogueImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpilogueImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		90B2EA441DC373BE008FC3EE /* WriteEpilogue.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WriteEpilogue.storyboard; sourceTree = "<group>"; };
 		90B2EA461DC373E0008FC3EE /* WriteEpilogueController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteEpilogueController.swift; sourceTree = "<group>"; };
+		90EBE7B01DCC843E00938D9F /* EpilogueTimelineTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpilogueTimelineTableCell.xib; sourceTree = "<group>"; };
+		90EBE7B21DCC869400938D9F /* EpilogueTimelineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpilogueTimelineTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +189,7 @@
 				906EE1AF1DC4A3D800A9A292 /* EvaluationView.swift */,
 				906EE1B91DC511AE00A9A292 /* RemovableImageView.swift */,
 				906EE1C01DC5CF8000A9A292 /* WriteEpilogueCollectionViewCell.swift */,
+				907CD12A1DCC94BE0069B3BE /* EpilogueImageCollectionViewCell.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -248,6 +255,8 @@
 				905D0AF31DCB6D8000CDAF47 /* TimelineViewController.swift */,
 				905D0AF51DCB760900CDAF47 /* CourseViewController.swift */,
 				905D0AF71DCB764200CDAF47 /* EpilogueViewController.swift */,
+				90EBE7B01DCC843E00938D9F /* EpilogueTimelineTableCell.xib */,
+				90EBE7B21DCC869400938D9F /* EpilogueTimelineTableViewCell.swift */,
 			);
 			path = TravelMate;
 			sourceTree = "<group>";
@@ -299,6 +308,7 @@
 				906EE1B11DC4A3E300A9A292 /* EvaluationView.xib */,
 				906EE1B71DC5115700A9A292 /* RemovableImageView.xib */,
 				906EE1BE1DC5CF1800A9A292 /* WriteEpilogueCollectionViewCell.xib */,
+				907CD1281DCC94870069B3BE /* EpilogueImageCollectionCell.xib */,
 			);
 			name = UserInterface;
 			sourceTree = "<group>";
@@ -466,6 +476,8 @@
 				902A2EB11DA4E14E001FEA9F /* travelmate.db in Resources */,
 				906EE1B21DC4A3E300A9A292 /* EvaluationView.xib in Resources */,
 				906EE1BF1DC5CF1800A9A292 /* WriteEpilogueCollectionViewCell.xib in Resources */,
+				907CD1291DCC94870069B3BE /* EpilogueImageCollectionCell.xib in Resources */,
+				90EBE7B11DCC843E00938D9F /* EpilogueTimelineTableCell.xib in Resources */,
 				903261AB1D9E2E2A00CE31DC /* LaunchScreen.storyboard in Resources */,
 				903261CF1D9E2F4D00CE31DC /* Route.xib in Resources */,
 				903261A81D9E2E2A00CE31DC /* Assets.xcassets in Resources */,
@@ -552,6 +564,7 @@
 			files = (
 				906EE1BD1DC5AFBF00A9A292 /* NetworkManager.swift in Sources */,
 				0863186B1DAFE5C40057DE9A /* LoginViewController.swift in Sources */,
+				90EBE7B31DCC869400938D9F /* EpilogueTimelineTableViewCell.swift in Sources */,
 				905D0AF81DCB764200CDAF47 /* EpilogueViewController.swift in Sources */,
 				90119CF01DA6543E00FC6C56 /* Error.swift in Sources */,
 				903261A31D9E2E2A00CE31DC /* ViewController.swift in Sources */,
@@ -569,6 +582,7 @@
 				902A2D861DA36C8B001FEA9F /* SpotModel.swift in Sources */,
 				0863186D1DB08A6F0057DE9A /* MainMenuController.swift in Sources */,
 				905D0AF61DCB760900CDAF47 /* CourseViewController.swift in Sources */,
+				907CD12B1DCC94BE0069B3BE /* EpilogueImageCollectionViewCell.swift in Sources */,
 				906EE1B41DC4AD1100A9A292 /* EpilogueModel.swift in Sources */,
 				906EE1B01DC4A3D800A9A292 /* EvaluationView.swift in Sources */,
 				90B2EA471DC373E0008FC3EE /* WriteEpilogueController.swift in Sources */,

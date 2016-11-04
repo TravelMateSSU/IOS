@@ -87,12 +87,12 @@ class WriteEpilogueView: UIView, UICollectionViewDelegate, UICollectionViewDataS
         // 텍스트 뷰 top에서 부터 시작
         descriptionTextView.setContentOffset(.zero, animated: false)
         
+        imageCollectionView.register(UINib(nibName: "WriteEpilogueCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "WriteEpilogueCollectionViewCell")
+        
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self
         height = imageCollectionViewHeight.constant
         imageCollectionViewHeight.constant = 0
-        
-        imageCollectionView.register(UINib(nibName: "WriteEpilogueCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "WriteEpilogueCollectionViewCell")
         
         evaluationView.score = 0
         
