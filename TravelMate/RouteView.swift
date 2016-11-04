@@ -31,6 +31,10 @@ class RouteView: UIView {
         if points.count == 0 {
             initBasePoints()
         }
+        if ballNum <= 0 {
+            ballNum = 1
+        }
+        
         for i in 0 ..< points[ballNum - 1].count {
             let point = points[ballNum - 1][i]
             

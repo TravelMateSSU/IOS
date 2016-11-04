@@ -152,7 +152,7 @@
         <scene sceneID="TlD-bu-i59">
             <objects>
                 <navigationController storyboardIdentifier="navigator" id="EHS-li-G4g" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QST-EB-bYH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="QST-EB-bYH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -320,15 +320,6 @@
                     <view key="view" contentMode="scaleToFill" id="DOd-O6-epo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="505"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJ3-dT-EZU">
-                                <rect key="frame" x="55" y="20" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
@@ -336,10 +327,10 @@
             </objects>
             <point key="canvasLocation" x="1422" y="-768"/>
         </scene>
-        <!--Course View Controller-->
+        <!--Course Timeline View Controller-->
         <scene sceneID="1tW-Aj-aHy">
             <objects>
-                <viewController id="yQ3-a2-iNu" customClass="CourseViewController" customModule="TravelMate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yQ3-a2-iNu" customClass="CourseTimelineViewController" customModule="TravelMate" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NDX-Bq-ESf"/>
                         <viewControllerLayoutGuide type="bottom" id="trP-ex-BuC"/>
@@ -348,20 +339,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="505"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2l-5f-8BM">
-                                <rect key="frame" x="40" y="281" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="356" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qzd-zX-vgX">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="505"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CourseTimelineCell" rowHeight="356" id="QHP-N9-g9Q" customClass="CourseTimelineCell" customModule="TravelMate" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="356"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QHP-N9-g9Q" id="xRz-oa-yqy">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="355"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Qzd-zX-vgX" firstAttribute="top" secondItem="NDX-Bq-ESf" secondAttribute="bottom" id="EeK-Uo-TJt"/>
+                            <constraint firstItem="trP-ex-BuC" firstAttribute="top" secondItem="Qzd-zX-vgX" secondAttribute="bottom" id="wl0-dQ-5Cz"/>
+                            <constraint firstAttribute="trailing" secondItem="Qzd-zX-vgX" secondAttribute="trailing" id="wmh-58-j7h"/>
+                            <constraint firstItem="Qzd-zX-vgX" firstAttribute="leading" secondItem="LyM-Du-7uG" secondAttribute="leading" id="x2B-my-8lm"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Qzd-zX-vgX" id="0dj-DM-la0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nrT-rR-lxB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1422" y="-1343"/>
+            <point key="canvasLocation" x="1421.5999999999999" y="-1343.4782608695652"/>
         </scene>
     </scenes>
 </document>

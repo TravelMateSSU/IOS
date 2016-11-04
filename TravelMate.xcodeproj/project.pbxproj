@@ -31,8 +31,11 @@
 		903262061D9FB98300CE31DC /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903262051D9FB98300CE31DC /* SnapshotHelper.swift */; };
 		903262081DA255D500CE31DC /* TourAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903262071DA255D500CE31DC /* TourAPIManager.swift */; };
 		905D0AF41DCB6D8000CDAF47 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905D0AF31DCB6D8000CDAF47 /* TimelineViewController.swift */; };
-		905D0AF61DCB760900CDAF47 /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905D0AF51DCB760900CDAF47 /* CourseViewController.swift */; };
+		905D0AF61DCB760900CDAF47 /* CourseTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905D0AF51DCB760900CDAF47 /* CourseTimelineViewController.swift */; };
 		905D0AF81DCB764200CDAF47 /* EpilogueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905D0AF71DCB764200CDAF47 /* EpilogueViewController.swift */; };
+		90EBE7AB1DCB84A500938D9F /* CourseTimelineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90EBE7AA1DCB84A500938D9F /* CourseTimelineCell.xib */; };
+		90EBE7AD1DCB84D300938D9F /* CourseTimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EBE7AC1DCB84D300938D9F /* CourseTimelineCell.swift */; };
+		90EBE7AF1DCB86B100938D9F /* CourseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EBE7AE1DCB86B100938D9F /* CourseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,8 +110,11 @@
 		903262051D9FB98300CE31DC /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		903262071DA255D500CE31DC /* TourAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourAPIManager.swift; sourceTree = "<group>"; };
 		905D0AF31DCB6D8000CDAF47 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
-		905D0AF51DCB760900CDAF47 /* CourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
+		905D0AF51DCB760900CDAF47 /* CourseTimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseTimelineViewController.swift; sourceTree = "<group>"; };
 		905D0AF71DCB764200CDAF47 /* EpilogueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpilogueViewController.swift; sourceTree = "<group>"; };
+		90EBE7AA1DCB84A500938D9F /* CourseTimelineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseTimelineCell.xib; sourceTree = "<group>"; };
+		90EBE7AC1DCB84D300938D9F /* CourseTimelineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseTimelineCell.swift; sourceTree = "<group>"; };
+		90EBE7AE1DCB86B100938D9F /* CourseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +185,7 @@
 			children = (
 				902A2D851DA36C8B001FEA9F /* SpotModel.swift */,
 				902A2EB61DA4F93F001FEA9F /* CategoryModel.swift */,
+				90EBE7AE1DCB86B100938D9F /* CourseModel.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -223,8 +230,10 @@
 				903261E31D9E4C6500CE31DC /* RouteView.swift */,
 				903262071DA255D500CE31DC /* TourAPIManager.swift */,
 				905D0AF31DCB6D8000CDAF47 /* TimelineViewController.swift */,
-				905D0AF51DCB760900CDAF47 /* CourseViewController.swift */,
+				905D0AF51DCB760900CDAF47 /* CourseTimelineViewController.swift */,
 				905D0AF71DCB764200CDAF47 /* EpilogueViewController.swift */,
+				90EBE7AA1DCB84A500938D9F /* CourseTimelineCell.xib */,
+				90EBE7AC1DCB84D300938D9F /* CourseTimelineCell.swift */,
 			);
 			path = TravelMate;
 			sourceTree = "<group>";
@@ -360,7 +369,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "이동규";
 				TargetAttributes = {
 					9032619C1D9E2E2900CE31DC = {
@@ -418,6 +427,7 @@
 				902A2EB11DA4E14E001FEA9F /* travelmate.db in Resources */,
 				903261AB1D9E2E2A00CE31DC /* LaunchScreen.storyboard in Resources */,
 				903261CF1D9E2F4D00CE31DC /* Route.xib in Resources */,
+				90EBE7AB1DCB84A500938D9F /* CourseTimelineCell.xib in Resources */,
 				903261A81D9E2E2A00CE31DC /* Assets.xcassets in Resources */,
 				903261A61D9E2E2A00CE31DC /* Main.storyboard in Resources */,
 			);
@@ -500,6 +510,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				088ABCAF1DB8CB6F00AA2D19 /* WriteMapController.swift in Sources */,
+				90EBE7AF1DCB86B100938D9F /* CourseModel.swift in Sources */,
 				0863186B1DAFE5C40057DE9A /* LoginViewController.swift in Sources */,
 				905D0AF81DCB764200CDAF47 /* EpilogueViewController.swift in Sources */,
 				90119CF01DA6543E00FC6C56 /* Error.swift in Sources */,
@@ -510,10 +521,11 @@
 				903262081DA255D500CE31DC /* TourAPIManager.swift in Sources */,
 				903261A11D9E2E2A00CE31DC /* AppDelegate.swift in Sources */,
 				905D0AF41DCB6D8000CDAF47 /* TimelineViewController.swift in Sources */,
+				90EBE7AD1DCB84D300938D9F /* CourseTimelineCell.swift in Sources */,
 				0896CFCB1DB4CD9B00FE2C47 /* WriteMenuController.swift in Sources */,
 				902A2D861DA36C8B001FEA9F /* SpotModel.swift in Sources */,
 				0863186D1DB08A6F0057DE9A /* MainMenuController.swift in Sources */,
-				905D0AF61DCB760900CDAF47 /* CourseViewController.swift in Sources */,
+				905D0AF61DCB760900CDAF47 /* CourseTimelineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -683,7 +695,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 272ED57CF35E4DD33E650BEA /* Pods-TravelMate.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 87MXE3B593;
@@ -719,7 +731,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 581729D83643D3975C9EC6C2 /* Pods-TravelMate.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 87MXE3B593;
