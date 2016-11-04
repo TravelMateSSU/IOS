@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, TourAPIDelegate {
+class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +23,10 @@ class ViewController: UIViewController, TourAPIDelegate {
             UserDefaults.standard.set(1, forKey: "isBeginner")
         }
         
-        let category = dbManager.categoriesDict()
+//        let category = dbManager.categoriesDict()
         
+        
+        // 사용법
         /*
         let routeView = RouteView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 150))
         routeView.backgroundColor = UIColor.orange
@@ -34,31 +36,21 @@ class ViewController: UIViewController, TourAPIDelegate {
         routeView.title = "연습타이틀"
         self.view.addSubview(routeView)
         routeView.setNeedsDisplay()
- 
+        
         let apiManager = TourAPIManager()
         let spot = SpotModel()
         spot.contentTypeId = "12"
         spot.contentId = "636266"
-        apiManager.delegate = self
-        try! apiManager.querySearchById(spot: spot)
-        */
-    }
-
-    func searchById(spot: SpotModel) {
-        print(spot.toString())
-    }
-
-    func searchByIdFailed() {
-        
-    }
-    
-    
-    func searchByKeyword(spots: [SpotModel]) {
-        print("Success")
-    }
-    
-    func searchByKeywordFailed() {
-        
+        apiManager.querySearchByKeyword(keyword: "서울", completion: { spots in
+            apiManager.querySearchById(spot: spots[0], completion: {
+                spotModel in
+                guard let resSpot = spotModel else {
+                    return
+                }
+                
+                print(resSpot.title)
+            })
+        })*/
     }
 }
 
