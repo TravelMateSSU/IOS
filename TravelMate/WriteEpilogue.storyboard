@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aeI-mn-zFc">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--후기 작성-->
+        <scene sceneID="mbl-nR-b2Q">
+            <objects>
+                <viewController storyboardIdentifier="WriteEpilogueViewController" title="후기 작성" automaticallyAdjustsScrollViewInsets="NO" id="Bf3-4d-8w8" customClass="WriteEpilogueViewController" customModule="TravelMate" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rwa-0J-78y"/>
+                        <viewControllerLayoutGuide type="bottom" id="ned-0b-HZM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Svj-Tm-74B">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="veW-zo-QIM" customClass="WriteEpilogueView" customModule="TravelMate" customModuleProvider="target">
+                                <rect key="frame" x="16" y="64" width="343" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="veW-zo-QIM" firstAttribute="top" secondItem="Rwa-0J-78y" secondAttribute="bottom" id="Kob-Zr-ZAI"/>
+                            <constraint firstItem="ned-0b-HZM" firstAttribute="top" secondItem="veW-zo-QIM" secondAttribute="bottom" id="V1s-ke-XP3"/>
+                            <constraint firstItem="veW-zo-QIM" firstAttribute="trailing" secondItem="Svj-Tm-74B" secondAttribute="trailingMargin" id="jvX-PF-xEl"/>
+                            <constraint firstItem="veW-zo-QIM" firstAttribute="leading" secondItem="Svj-Tm-74B" secondAttribute="leadingMargin" id="wHz-pE-qRM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="후기 작성" id="btO-1S-pWP">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="OzN-6i-q1w">
+                            <connections>
+                                <action selector="backButtonPressed:" destination="Bf3-4d-8w8" id="MAt-JC-gdp"/>
+                            </connections>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="저장" id="sHm-5A-cXR">
+                                <connections>
+                                    <action selector="submitPressed:" destination="Bf3-4d-8w8" id="3Vc-QG-Kez"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="작성완료" id="TBG-25-Qdk">
+                                <connections>
+                                    <action selector="writeCompletionPressed:" destination="Bf3-4d-8w8" id="YCE-5M-nQL"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="writeEpilogueView" destination="veW-zo-QIM" id="Oia-Yg-fzG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YaX-DO-SMp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="671.20000000000005" y="-154.27286356821591"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vLu-7K-LSL">
+            <objects>
+                <navigationController storyboardIdentifier="RootNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="aeI-mn-zFc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pF5-WX-25M">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Bf3-4d-8w8" kind="relationship" relationship="rootViewController" id="fjp-bd-Bfq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sdw-Jw-lOt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-268" y="-154.27286356821591"/>
+        </scene>
+    </scenes>
+</document>
