@@ -8,27 +8,45 @@
 
 import UIKit
 
-class EpilogueViewController: UIViewController, UITableViewDataSource {
+class EpilogueViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    var epilogues: [EpilogueModel] = []
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorStyle = .none
         tableView.register(UINib(nibName: "EpilogueTimelineTableCell", bundle: nil), forCellReuseIdentifier: "EpilogueTimelineCell")
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return epilogues.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EpilogueTimelineCell") as? EpilogueTimelineTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EpilogueTimelineCell", for: indexPath) as? EpilogueTimelineTableViewCell
         
         guard let epilogueCell = cell else {
             return UITableViewCell()
         }
         
+        let epilogue = epilogues[indexPath.row]
+        epilogueCell.epilogue = epilogue
+        epilogueCell.nameLabel.text = epilogue.authorName
+        epilogueCell.createdAtLabel.text = Date(timeIntervalSince1970: Double(epilogue.createdAt)).description
+        epilogueCell.descriptionLabel.text = epilogue.description
         return epilogueCell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
     }
 }

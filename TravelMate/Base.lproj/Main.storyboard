@@ -118,13 +118,13 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3r2-Zy-7kO">
                                 <rect key="frame" x="0.0" y="113" width="375" height="505"/>
                                 <connections>
-                                    <segue destination="e6B-J3-shJ" kind="embed" id="rgE-rO-RbJ"/>
+                                    <segue destination="e6B-J3-shJ" kind="embed" identifier="EpilogueSegue" id="rgE-rO-RbJ"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5K2-ut-Zdm">
                                 <rect key="frame" x="0.0" y="113" width="375" height="505"/>
                                 <connections>
-                                    <segue destination="yQ3-a2-iNu" kind="embed" id="XSU-PX-bUR"/>
+                                    <segue destination="yQ3-a2-iNu" kind="embed" identifier="CourseSegue" id="XSU-PX-bUR"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -160,7 +160,7 @@
         <scene sceneID="TlD-bu-i59">
             <objects>
                 <navigationController storyboardIdentifier="navigator" id="EHS-li-G4g" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QST-EB-bYH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="QST-EB-bYH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -332,19 +332,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="505"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AAA-yL-abQ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="59" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AAA-yL-abQ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="505"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EpilogueTimelineCell" id="EEa-cx-9eX">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EEa-cx-9eX" id="DpY-Y4-m1R">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
