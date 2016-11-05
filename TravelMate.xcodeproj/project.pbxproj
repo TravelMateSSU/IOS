@@ -251,14 +251,6 @@
 				903261A71D9E2E2A00CE31DC /* Assets.xcassets */,
 				902A2EB01DA4E14E001FEA9F /* travelmate.db */,
 				903261AC1D9E2E2A00CE31DC /* Info.plist */,
-				903261CE1D9E2F4D00CE31DC /* Route.xib */,
-				903261E31D9E4C6500CE31DC /* RouteView.swift */,
-				903262071DA255D500CE31DC /* TourAPIManager.swift */,
-				905D0AF31DCB6D8000CDAF47 /* TimelineViewController.swift */,
-				905D0AF51DCB760900CDAF47 /* CourseViewController.swift */,
-				905D0AF71DCB764200CDAF47 /* EpilogueViewController.swift */,
-				90EBE7AA1DCB84A500938D9F /* CourseTimelineCell.xib */,
-				90EBE7AC1DCB84D300938D9F /* CourseTimelineCell.swift */,
 			);
 			path = TravelMate;
 			sourceTree = "<group>";
@@ -294,6 +286,7 @@
 		906EE1BB1DC5AFA000A9A292 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				903262071DA255D500CE31DC /* TourAPIManager.swift */,
 				902A2EB31DA4E478001FEA9F /* DBManager.swift */,
 				906EE1BC1DC5AFBF00A9A292 /* NetworkManager.swift */,
 			);
@@ -309,6 +302,9 @@
 				0863186C1DB08A6F0057DE9A /* MainMenuController.swift */,
 				0896CFCA1DB4CD9B00FE2C47 /* WriteMenuController.swift */,
 				90B2EA461DC373E0008FC3EE /* WriteEpilogueController.swift */,
+				905D0AF31DCB6D8000CDAF47 /* TimelineViewController.swift */,
+				905D0AF51DCB760900CDAF47 /* CourseViewController.swift */,
+				905D0AF71DCB764200CDAF47 /* EpilogueViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -316,6 +312,7 @@
 		907CD1371DCD81AE0069B3BE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				903261E31D9E4C6500CE31DC /* RouteView.swift */,
 				906EE1AD1DC4A1E000A9A292 /* WriteEpilogueView.swift */,
 				906EE1AF1DC4A3D800A9A292 /* EvaluationView.swift */,
 				906EE1B91DC511AE00A9A292 /* RemovableImageView.swift */,
@@ -326,6 +323,7 @@
 		907CD1381DCD81B40069B3BE /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				90EBE7AC1DCB84D300938D9F /* CourseTimelineCell.swift */,
 				90EBE7B21DCC869400938D9F /* EpilogueTimelineTableViewCell.swift */,
 				906EE1C01DC5CF8000A9A292 /* WriteEpilogueCollectionViewCell.swift */,
 				907CD12A1DCC94BE0069B3BE /* EpilogueImageCollectionViewCell.swift */,
@@ -346,6 +344,7 @@
 		907CD13A1DCD81E90069B3BE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				903261CE1D9E2F4D00CE31DC /* Route.xib */,
 				906EE1AB1DC4A1D100A9A292 /* WriteEpilogueView.xib */,
 				906EE1B11DC4A3E300A9A292 /* EvaluationView.xib */,
 				906EE1B71DC5115700A9A292 /* RemovableImageView.xib */,
@@ -356,6 +355,7 @@
 		907CD13B1DCD81F60069B3BE /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				90EBE7AA1DCB84A500938D9F /* CourseTimelineCell.xib */,
 				90EBE7B01DCC843E00938D9F /* EpilogueTimelineTableCell.xib */,
 				906EE1BE1DC5CF1800A9A292 /* WriteEpilogueCollectionViewCell.xib */,
 				907CD1281DCC94870069B3BE /* EpilogueImageCollectionCell.xib */,

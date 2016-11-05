@@ -50,9 +50,11 @@ class RouteView: UIView {
             
             /// 여행 경로 관광지 이름 label
             let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-            print(spots[i].title)
             titleLabel.text = spots[i].title
+            titleLabel.lineBreakMode = .byWordWrapping
+            titleLabel.numberOfLines = 1
             titleLabel.sizeToFit()
+            titleLabel.frame.size.width = CGFloat(Int(self.frame.size.width) >> 2)
             titleLabel.tintColor = UIColor.black
             if ballNum < 4 {
                 titleLabel.center = CGPoint(x: point.x, y: point.y + MIDDLE_SIZE + 10)
@@ -94,7 +96,7 @@ class RouteView: UIView {
 //        titlePoints.append((x: screenWidth >> 1, y: screenHeight >> 2 * 3))
         
         // 점 세 개
-        points.append([(x: screenWidth >> 2, y: screenHeight >> 1), (x: screenWidth >> 1, y: screenHeight >> 1), (x: screenWidth  - screenWidth >> 2, y: screenHeight >> 1)])
+        points.append([(x: screenWidth >> 3, y: screenHeight >> 1), (x: screenWidth >> 1, y: screenHeight >> 1), (x: screenWidth  - screenWidth >> 3, y: screenHeight >> 1)])
 //        titlePoints.append((x: screenWidth >> 1, y: screenHeight >> 2 * 3))
         
         // 점 네 개
@@ -102,11 +104,11 @@ class RouteView: UIView {
 //        titlePoints.append((x: screenWidth >> 1, y: screenHeight >> 1))
         
         // 점 다섯 개
-        points.append([(x: screenWidth >> 2, y: screenHeight / 3), (x: screenWidth >> 1, y: screenHeight / 3), (x: screenWidth  - screenWidth >> 2, y: screenHeight / 3), (x: screenWidth  - screenWidth >> 2, (y: screenHeight / 3) << 1), (x: screenWidth >> 2, y: (screenHeight / 3) << 1)])
+        points.append([(x: screenWidth >> 3, y: screenHeight / 3), (x: screenWidth >> 1, y: screenHeight / 3), (x: screenWidth  - screenWidth >> 3, y: screenHeight / 3), (x: screenWidth  - screenWidth >> 3, (y: screenHeight / 3) << 1), (x: screenWidth >> 3, y: (screenHeight / 3) << 1)])
 //        titlePoints.append((x: screenWidth >> 1, y: screenHeight >> 1))
         
         // 점 여섯 개
-        points.append([(x: screenWidth >> 2, y: screenHeight / 3), (x: screenWidth >> 1, y: screenHeight / 3), (x: screenWidth  - screenWidth >> 2, y: screenHeight / 3), (x: screenWidth  - screenWidth >> 2, y: (screenHeight / 3) << 1), (x: screenWidth >> 1, y: (screenHeight / 3) << 1), (x: screenWidth >> 2, y: (screenHeight / 3) << 1)])
+        points.append([(x: screenWidth >> 3, y: screenHeight / 3), (x: screenWidth >> 1, y: screenHeight / 3), (x: screenWidth  - screenWidth >> 3, y: screenHeight / 3), (x: screenWidth  - screenWidth >> 3, y: (screenHeight / 3) << 1), (x: screenWidth >> 1, y: (screenHeight / 3) << 1), (x: screenWidth >> 3, y: (screenHeight / 3) << 1)])
 //        titlePoints.append((x: screenWidth >> 1, y: screenHeight >> 1))
     }
     
