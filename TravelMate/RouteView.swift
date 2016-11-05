@@ -92,7 +92,7 @@ class RouteView: UIView {
 //        titlePoints.append((x: screenWidth >> 1, y: screenHeight >> 2 * 3))
         
         // 점 두 개
-        points.append([(x: (screenWidth / 3), y: screenHeight >> 1), (x: (screenWidth / 3) << 1, y: screenHeight >> 1)])
+        points.append([(x: (screenWidth >> 2), y: screenHeight >> 1), (x: (screenWidth >> 2) * 3, y: screenHeight >> 1)])
 //        titlePoints.append((x: screenWidth >> 1, y: screenHeight >> 2 * 3))
         
         // 점 세 개
@@ -100,7 +100,7 @@ class RouteView: UIView {
 //        titlePoints.append((x: screenWidth >> 1, y: screenHeight >> 2 * 3))
         
         // 점 네 개
-        points.append([(x: screenWidth / 3, y: screenHeight / 3), (x: (screenWidth / 3) << 1, y: screenHeight / 3), (x: (screenWidth / 3) << 1, y: (screenHeight / 3) << 1), (x: screenWidth / 3, y: (screenHeight / 3) << 1)])
+        points.append([(x: screenWidth >> 2, y: screenHeight / 3), (x: (screenWidth >> 2) * 3, y: screenHeight / 3), (x: (screenWidth >> 2) * 3, y: (screenHeight / 3) << 1), (x: screenWidth >> 2, y: (screenHeight / 3) << 1)])
 //        titlePoints.append((x: screenWidth >> 1, y: screenHeight >> 1))
         
         // 점 다섯 개
