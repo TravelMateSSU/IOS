@@ -51,8 +51,6 @@ class RouteView: UIView {
             /// 여행 경로 관광지 이름 label
             let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
             titleLabel.text = spots[i].title
-            titleLabel.lineBreakMode = .byWordWrapping
-            titleLabel.numberOfLines = 1
             titleLabel.sizeToFit()
             titleLabel.frame.size.width = CGFloat(Int(self.frame.size.width) >> 2)
             titleLabel.tintColor = UIColor.black
