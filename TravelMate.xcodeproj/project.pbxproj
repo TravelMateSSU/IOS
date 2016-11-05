@@ -48,6 +48,9 @@
 		907CD1351DCCE3C60069B3BE /* WriteMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907CD1341DCCE3C60069B3BE /* WriteMapController.swift */; };
 		90B2EA451DC373BE008FC3EE /* WriteEpilogue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90B2EA441DC373BE008FC3EE /* WriteEpilogue.storyboard */; };
 		90B2EA471DC373E0008FC3EE /* WriteEpilogueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B2EA461DC373E0008FC3EE /* WriteEpilogueController.swift */; };
+		90EBE7AB1DCB84A500938D9F /* CourseTimelineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90EBE7AA1DCB84A500938D9F /* CourseTimelineCell.xib */; };
+		90EBE7AD1DCB84D300938D9F /* CourseTimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EBE7AC1DCB84D300938D9F /* CourseTimelineCell.swift */; };
+		90EBE7AF1DCB86B100938D9F /* CourseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EBE7AE1DCB86B100938D9F /* CourseModel.swift */; };
 		90EBE7B11DCC843E00938D9F /* EpilogueTimelineTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90EBE7B01DCC843E00938D9F /* EpilogueTimelineTableCell.xib */; };
 		90EBE7B31DCC869400938D9F /* EpilogueTimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EBE7B21DCC869400938D9F /* EpilogueTimelineTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -141,6 +144,9 @@
 		907CD1341DCCE3C60069B3BE /* WriteMapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteMapController.swift; sourceTree = "<group>"; };
 		90B2EA441DC373BE008FC3EE /* WriteEpilogue.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WriteEpilogue.storyboard; sourceTree = "<group>"; };
 		90B2EA461DC373E0008FC3EE /* WriteEpilogueController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteEpilogueController.swift; sourceTree = "<group>"; };
+		90EBE7AA1DCB84A500938D9F /* CourseTimelineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseTimelineCell.xib; sourceTree = "<group>"; };
+		90EBE7AC1DCB84D300938D9F /* CourseTimelineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseTimelineCell.swift; sourceTree = "<group>"; };
+		90EBE7AE1DCB86B100938D9F /* CourseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseModel.swift; sourceTree = "<group>"; };
 		90EBE7B01DCC843E00938D9F /* EpilogueTimelineTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpilogueTimelineTableCell.xib; sourceTree = "<group>"; };
 		90EBE7B21DCC869400938D9F /* EpilogueTimelineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpilogueTimelineTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -202,6 +208,7 @@
 			children = (
 				902A2D851DA36C8B001FEA9F /* SpotModel.swift */,
 				902A2EB61DA4F93F001FEA9F /* CategoryModel.swift */,
+				90EBE7AE1DCB86B100938D9F /* CourseModel.swift */,
 				906EE1B31DC4AD1100A9A292 /* EpilogueModel.swift */,
 				906EE1B51DC4DE7900A9A292 /* RealmString.swift */,
 			);
@@ -244,6 +251,14 @@
 				903261A71D9E2E2A00CE31DC /* Assets.xcassets */,
 				902A2EB01DA4E14E001FEA9F /* travelmate.db */,
 				903261AC1D9E2E2A00CE31DC /* Info.plist */,
+				903261CE1D9E2F4D00CE31DC /* Route.xib */,
+				903261E31D9E4C6500CE31DC /* RouteView.swift */,
+				903262071DA255D500CE31DC /* TourAPIManager.swift */,
+				905D0AF31DCB6D8000CDAF47 /* TimelineViewController.swift */,
+				905D0AF51DCB760900CDAF47 /* CourseViewController.swift */,
+				905D0AF71DCB764200CDAF47 /* EpilogueViewController.swift */,
+				90EBE7AA1DCB84A500938D9F /* CourseTimelineCell.xib */,
+				90EBE7AC1DCB84D300938D9F /* CourseTimelineCell.swift */,
 			);
 			path = TravelMate;
 			sourceTree = "<group>";
@@ -279,7 +294,6 @@
 		906EE1BB1DC5AFA000A9A292 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				903262071DA255D500CE31DC /* TourAPIManager.swift */,
 				902A2EB31DA4E478001FEA9F /* DBManager.swift */,
 				906EE1BC1DC5AFBF00A9A292 /* NetworkManager.swift */,
 			);
@@ -295,9 +309,6 @@
 				0863186C1DB08A6F0057DE9A /* MainMenuController.swift */,
 				0896CFCA1DB4CD9B00FE2C47 /* WriteMenuController.swift */,
 				90B2EA461DC373E0008FC3EE /* WriteEpilogueController.swift */,
-				905D0AF31DCB6D8000CDAF47 /* TimelineViewController.swift */,
-				905D0AF51DCB760900CDAF47 /* CourseViewController.swift */,
-				905D0AF71DCB764200CDAF47 /* EpilogueViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -308,7 +319,6 @@
 				906EE1AD1DC4A1E000A9A292 /* WriteEpilogueView.swift */,
 				906EE1AF1DC4A3D800A9A292 /* EvaluationView.swift */,
 				906EE1B91DC511AE00A9A292 /* RemovableImageView.swift */,
-				903261E31D9E4C6500CE31DC /* RouteView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -336,7 +346,6 @@
 		907CD13A1DCD81E90069B3BE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				903261CE1D9E2F4D00CE31DC /* Route.xib */,
 				906EE1AB1DC4A1D100A9A292 /* WriteEpilogueView.xib */,
 				906EE1B11DC4A3E300A9A292 /* EvaluationView.xib */,
 				906EE1B71DC5115700A9A292 /* RemovableImageView.xib */,
@@ -531,6 +540,7 @@
 				90EBE7B11DCC843E00938D9F /* EpilogueTimelineTableCell.xib in Resources */,
 				903261AB1D9E2E2A00CE31DC /* LaunchScreen.storyboard in Resources */,
 				903261CF1D9E2F4D00CE31DC /* Route.xib in Resources */,
+				90EBE7AB1DCB84A500938D9F /* CourseTimelineCell.xib in Resources */,
 				903261A81D9E2E2A00CE31DC /* Assets.xcassets in Resources */,
 				906EE1AC1DC4A1D100A9A292 /* WriteEpilogueView.xib in Resources */,
 				903261A61D9E2E2A00CE31DC /* Main.storyboard in Resources */,
@@ -613,6 +623,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90EBE7AF1DCB86B100938D9F /* CourseModel.swift in Sources */,
 				907CD1351DCCE3C60069B3BE /* WriteMapController.swift in Sources */,
 				906EE1BD1DC5AFBF00A9A292 /* NetworkManager.swift in Sources */,
 				0863186B1DAFE5C40057DE9A /* LoginViewController.swift in Sources */,
@@ -629,6 +640,7 @@
 				903262081DA255D500CE31DC /* TourAPIManager.swift in Sources */,
 				903261A11D9E2E2A00CE31DC /* AppDelegate.swift in Sources */,
 				905D0AF41DCB6D8000CDAF47 /* TimelineViewController.swift in Sources */,
+				90EBE7AD1DCB84D300938D9F /* CourseTimelineCell.swift in Sources */,
 				0896CFCB1DB4CD9B00FE2C47 /* WriteMenuController.swift in Sources */,
 				906EE1C11DC5CF8000A9A292 /* WriteEpilogueCollectionViewCell.swift in Sources */,
 				902A2D861DA36C8B001FEA9F /* SpotModel.swift in Sources */,
@@ -797,7 +809,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};

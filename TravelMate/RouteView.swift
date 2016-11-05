@@ -17,7 +17,11 @@ class RouteView: UIView {
     var points: [[(x: Int, y: Int)]] = []
     var titlePoints: [(x: Int, y: Int)] = []
     
-    var spots: [SpotModel] = []
+    var spots: [SpotModel] = [] {
+        willSet {
+            ballNum = spots.count
+        }
+    }
     var ballNum: Int = 0
     var title: String?
     
@@ -31,6 +35,10 @@ class RouteView: UIView {
         if points.count == 0 {
             initBasePoints()
         }
+        if ballNum <= 0 {
+            ballNum = 1
+        }
+        
         for i in 0 ..< points[ballNum - 1].count {
             let point = points[ballNum - 1][i]
             
@@ -42,7 +50,8 @@ class RouteView: UIView {
             
             /// 여행 경로 관광지 이름 label
             let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-            titleLabel.text = title
+            print(spots[i].title)
+            titleLabel.text = spots[i].title
             titleLabel.sizeToFit()
             titleLabel.tintColor = UIColor.black
             if ballNum < 4 {
