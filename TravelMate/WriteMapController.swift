@@ -16,11 +16,13 @@ class WriteMapController: UIViewController{
     var searchController: UISearchController!
     var SearchResultCollectionView: UICollectionView!
     
+    let courseCategoryCode = "C01"
     let pathCVIdentifier = "PathCell"
     let AutoCompleteCVIdentifier = "SearchResultCell"
     
     let tourAPIManager: TourAPIManager = TourAPIManager()
     var searchResult: [SpotModel] = []
+    var selectedSpots: [SpotModel] = []
     
     var path: GMSMutablePath!
     var polyline: GMSPolyline!
@@ -131,7 +133,7 @@ extension WriteMapController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case pathCollectionView:
-            return 5
+            return selectedSpots.count
         case SearchResultCollectionView:
             return searchResult.count
         default:
@@ -148,13 +150,19 @@ extension WriteMapController: UICollectionViewDataSource, UICollectionViewDelega
         case pathCollectionView:
             let cell: TravelSpotCell = pathCollectionView.dequeueReusableCell(withReuseIdentifier: pathCVIdentifier, for: indexPath) as! TravelSpotCell
             
-            cell.spotName.text = "test+\(indexPath.row)"
+            cell.spotName.text = selectedSpots[indexPath.row].title
             
             return cell
         case SearchResultCollectionView:
             let cell: TravelSpotCell = SearchResultCollectionView.dequeueReusableCell(withReuseIdentifier: AutoCompleteCVIdentifier, for: indexPath) as! TravelSpotCell
             
             cell.spotName.text = searchResult[indexPath.row].title
+            
+            if searchResult[indexPath.row].category1?.code == courseCategoryCode{
+                cell.backgroundColor = UIColor.brown
+            } else{
+                cell.backgroundColor = UIColor.orange
+            }
             
             return cell
         default:
@@ -168,22 +176,31 @@ extension WriteMapController: UICollectionViewDataSource, UICollectionViewDelega
             return
         case SearchResultCollectionView:
             let selectedSpot = searchResult[indexPath.row]
-            let marker = GMSMarker()
-            marker.position = CLLocationCoordinate2DMake(selectedSpot.y, selectedSpot.x)
-            marker.title = selectedSpot.title
-            marker.map = mapContainerView
             
-            markers.append(marker)
-            path.add(marker.position)
-            
-            mapPolylineUpdateByPath(path: path)
-            
-            // camera update
-            if markers.count < 2 {
-                mapCameraUpdateToMarker(marker: marker)
+            if selectedSpot.category1?.code == courseCategoryCode{
+                
             } else{
-                mapCameraUpdateToPath(path: path)
+                selectedSpots.append(selectedSpot)
+                
+                let marker = GMSMarker()
+                marker.position = CLLocationCoordinate2DMake(selectedSpot.y, selectedSpot.x)
+                marker.title = selectedSpot.title
+                marker.map = mapContainerView
+                
+                markers.append(marker)
+                path.add(marker.position)
+                
+                mapPolylineUpdateByPath(path: path)
+                
+                // camera update
+                if markers.count < 2 {
+                    mapCameraUpdateToMarker(marker: marker)
+                } else{
+                    mapCameraUpdateToPath(path: path)
+                }
             }
+            
+            pathCollectionView.reloadData()
             
         default:
             return
@@ -193,6 +210,7 @@ extension WriteMapController: UICollectionViewDataSource, UICollectionViewDelega
 
 extension WriteMapController: TourAPIDelegate{
     func searchByKeyword(spots: [SpotModel]) {
+        print(spots)
         searchResult = spots
         
         SearchResultCollectionView.reloadData()
