@@ -85,7 +85,7 @@ class WriteMapController: UIViewController{
     }
     
     func initTourAPIManager(){
-        tourAPIManager.delegate = self
+        
     }
     
     func mapPolylineUpdateByPath(path: GMSPath){
@@ -110,14 +110,12 @@ class WriteMapController: UIViewController{
 
 extension WriteMapController: UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate{
     func updateSearchResults(for searchController: UISearchController) {
-        
-         do {
-            try? tourAPIManager.querySearchByKeyword(keyword: searchController.searchBar.text!)
-         } catch APIError.DelegateNotFound {
-            print("delegate error")
-         } catch APIError.HttpResponseFailed {
-            print("http error")
-         }
+
+        tourAPIManager.querySearchByKeyword(keyword: searchController.searchBar.text!, completion: {spots in
+            self.searchResult = spots
+            
+            self.SearchResultCollectionView.reloadData()
+        })
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -205,26 +203,5 @@ extension WriteMapController: UICollectionViewDataSource, UICollectionViewDelega
         default:
             return
         }
-    }
-}
-
-extension WriteMapController: TourAPIDelegate{
-    func searchByKeyword(spots: [SpotModel]) {
-        print(spots)
-        searchResult = spots
-        
-        SearchResultCollectionView.reloadData()
-    }
-    
-    func searchById(spot: SpotModel) {
-        print(spot)
-    }
-    
-    func searchByKeywordFailed() {
-        print("keyword fail")
-    }
-    
-    func searchByIdFailed() {
-        print("id fail")
     }
 }

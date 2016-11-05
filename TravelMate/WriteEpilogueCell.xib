@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="o2M-If-f0j" customClass="WriteEpilogueCell" customModule="TravelMate" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="411" height="208"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="411" height="208"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ytS-5Q-Bgf" customClass="RemovableImageView" customModule="TravelMate" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="411" height="208"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="ytS-5Q-Bgf" firstAttribute="top" secondItem="o2M-If-f0j" secondAttribute="top" id="eat-0e-SEL"/>
+                <constraint firstItem="ytS-5Q-Bgf" firstAttribute="leading" secondItem="o2M-If-f0j" secondAttribute="leading" id="mDK-UT-BCu"/>
+                <constraint firstAttribute="bottom" secondItem="ytS-5Q-Bgf" secondAttribute="bottom" id="nx2-f8-YBv"/>
+                <constraint firstAttribute="trailing" secondItem="ytS-5Q-Bgf" secondAttribute="trailing" id="rux-VG-4bU"/>
+            </constraints>
+            <size key="customSize" width="411" height="208"/>
+            <connections>
+                <outlet property="removableImageView" destination="ytS-5Q-Bgf" id="J9C-Y3-K7i"/>
+            </connections>
+            <point key="canvasLocation" x="96.5" y="-37"/>
+        </collectionViewCell>
+    </objects>
+</document>

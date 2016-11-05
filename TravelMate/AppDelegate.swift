@@ -64,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func loadWriteView(){
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-        let writeMapController = mainStoryBoard.instantiateViewController(withIdentifier: "writemap") as! UIViewController
+        let writeMapController = mainStoryBoard.instantiateViewController(withIdentifier: "writemap") 
         
         let mainViewController = self.mainViewController as! UINavigationController
         
@@ -128,4 +128,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return false
     }
 }
-

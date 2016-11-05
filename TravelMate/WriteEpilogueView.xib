@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WriteEpilogueView" customModule="TravelMate" customModuleProvider="target">
+            <connections>
+                <outlet property="descriptionPanGesture" destination="MvY-iD-Loy" id="NeO-iy-22P"/>
+                <outlet property="descriptionTextView" destination="HV4-20-FIs" id="6af-eW-5lG"/>
+                <outlet property="evaluationView" destination="Ey0-dk-7MN" id="MVb-Bz-vXm"/>
+                <outlet property="imageCollectionView" destination="G24-Im-mYu" id="Jf3-T0-5ff"/>
+                <outlet property="imageCollectionViewHeight" destination="cdL-BC-5R9" id="HM7-Po-xmY"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ey0-dk-7MN" customClass="EvaluationView" customModule="TravelMate" customModuleProvider="target">
+                    <rect key="frame" x="119" y="617" width="256" height="50"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQ1-b4-DbE">
+                    <rect key="frame" x="0.0" y="617" width="111" height="50"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="aQm-nW-6Cb"/>
+                        <constraint firstAttribute="width" constant="111" id="wF8-bW-1P9"/>
+                    </constraints>
+                    <state key="normal" title="사진"/>
+                    <connections>
+                        <action selector="insertImagePressed:" destination="-1" eventType="touchUpInside" id="kFR-ea-prL"/>
+                    </connections>
+                </button>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="G24-Im-mYu">
+                    <rect key="frame" x="0.0" y="283" width="375" height="326"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" priority="250" constant="326" id="1Vc-Xl-L3D"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" priority="750" constant="326" id="cdL-BC-5R9"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="msA-wX-L5G">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="descriptionTextView" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HV4-20-FIs">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="283"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="283" id="EPE-s5-6aq"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="MvY-iD-Loy" appends="YES" id="Hzy-R6-kgk"/>
+                    </connections>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="G24-Im-mYu" secondAttribute="trailing" id="2f8-bk-ToE"/>
+                <constraint firstAttribute="trailing" secondItem="Ey0-dk-7MN" secondAttribute="trailing" id="6sB-cD-K80"/>
+                <constraint firstItem="RQ1-b4-DbE" firstAttribute="top" secondItem="G24-Im-mYu" secondAttribute="bottom" constant="8" id="ALQ-rf-HNN"/>
+                <constraint firstAttribute="trailing" secondItem="HV4-20-FIs" secondAttribute="trailing" id="B0m-BJ-IRf"/>
+                <constraint firstAttribute="bottom" secondItem="Ey0-dk-7MN" secondAttribute="bottom" id="Bvv-S0-AYK"/>
+                <constraint firstItem="Ey0-dk-7MN" firstAttribute="leading" secondItem="RQ1-b4-DbE" secondAttribute="trailing" constant="8" id="Jlz-CM-KB5"/>
+                <constraint firstItem="HV4-20-FIs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="LGh-1s-GcM"/>
+                <constraint firstItem="Ey0-dk-7MN" firstAttribute="centerY" secondItem="RQ1-b4-DbE" secondAttribute="centerY" id="LI3-lZ-ger"/>
+                <constraint firstItem="HV4-20-FIs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ZzR-50-Lvt"/>
+                <constraint firstItem="RQ1-b4-DbE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="hZz-QB-1W9"/>
+                <constraint firstItem="G24-Im-mYu" firstAttribute="top" secondItem="HV4-20-FIs" secondAttribute="bottom" id="lNq-8a-rnO"/>
+                <constraint firstItem="G24-Im-mYu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="muL-Hx-rX1"/>
+                <constraint firstAttribute="bottom" secondItem="RQ1-b4-DbE" secondAttribute="bottom" id="rls-Rb-f3E"/>
+                <constraint firstItem="Ey0-dk-7MN" firstAttribute="height" secondItem="RQ1-b4-DbE" secondAttribute="height" id="xft-Ik-huu"/>
+            </constraints>
+            <point key="canvasLocation" x="43.5" y="85.5"/>
+        </view>
+        <panGestureRecognizer minimumNumberOfTouches="1" id="MvY-iD-Loy">
+            <connections>
+                <action selector="handlePanGesture:" destination="-1" id="QHY-q8-3so"/>
+            </connections>
+        </panGestureRecognizer>
+    </objects>
+</document>

@@ -17,7 +17,11 @@ class RouteView: UIView {
     var points: [[(x: Int, y: Int)]] = []
     var titlePoints: [(x: Int, y: Int)] = []
     
-    var spots: [SpotModel] = []
+    var spots: [SpotModel] = [] {
+        willSet {
+            ballNum = spots.count
+        }
+    }
     var ballNum: Int = 0
     var title: String?
     
@@ -28,9 +32,25 @@ class RouteView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
+        // subView가 있다면 모두 삭제
+        for view in subviews {
+            view.removeFromSuperview()
+        }
+        
+        // subLayer가 있다면 모두 삭제
+        if let subLayers = self.layer.sublayers {
+            for layer in subLayers {
+                layer.removeFromSuperlayer()
+            }
+        }
+        
         if points.count == 0 {
             initBasePoints()
         }
+        if ballNum <= 0 {
+            ballNum = 1
+        }
+        
         for i in 0 ..< points[ballNum - 1].count {
             let point = points[ballNum - 1][i]
             
@@ -42,8 +62,9 @@ class RouteView: UIView {
             
             /// 여행 경로 관광지 이름 label
             let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-            titleLabel.text = title
+            titleLabel.text = spots[i].title
             titleLabel.sizeToFit()
+            titleLabel.frame.size.width = CGFloat(Int(self.frame.size.width) >> 2)
             titleLabel.tintColor = UIColor.black
             if ballNum < 4 {
                 titleLabel.center = CGPoint(x: point.x, y: point.y + MIDDLE_SIZE + 10)
@@ -81,23 +102,23 @@ class RouteView: UIView {
 //        titlePoints.append((x: screenWidth >> 1, y: screenHeight >> 2 * 3))
         
         // 점 두 개
-        points.append([(x: (screenWidth / 3), y: screenHeight >> 1), (x: (screenWidth / 3) << 1, y: screenHeight >> 1)])
+        points.append([(x: (screenWidth >> 2), y: screenHeight >> 1), (x: (screenWidth >> 2) * 3, y: screenHeight >> 1)])
 //        titlePoints.append((x: screenWidth >> 1, y: screenHeight >> 2 * 3))
         
         // 점 세 개
-        points.append([(x: screenWidth >> 2, y: screenHeight >> 1), (x: screenWidth >> 1, y: screenHeight >> 1), (x: screenWidth  - screenWidth >> 2, y: screenHeight >> 1)])
+        points.append([(x: screenWidth >> 3, y: screenHeight >> 1), (x: screenWidth >> 1, y: screenHeight >> 1), (x: screenWidth  - screenWidth >> 3, y: screenHeight >> 1)])
 //        titlePoints.append((x: screenWidth >> 1, y: screenHeight >> 2 * 3))
         
         // 점 네 개
-        points.append([(x: screenWidth / 3, y: screenHeight / 3), (x: (screenWidth / 3) << 1, y: screenHeight / 3), (x: (screenWidth / 3) << 1, y: (screenHeight / 3) << 1), (x: screenWidth / 3, y: (screenHeight / 3) << 1)])
+        points.append([(x: screenWidth >> 2, y: screenHeight / 3), (x: (screenWidth >> 2) * 3, y: screenHeight / 3), (x: (screenWidth >> 2) * 3, y: (screenHeight / 3) << 1), (x: screenWidth >> 2, y: (screenHeight / 3) << 1)])
 //        titlePoints.append((x: screenWidth >> 1, y: screenHeight >> 1))
         
         // 점 다섯 개
-        points.append([(x: screenWidth >> 2, y: screenHeight / 3), (x: screenWidth >> 1, y: screenHeight / 3), (x: screenWidth  - screenWidth >> 2, y: screenHeight / 3), (x: screenWidth  - screenWidth >> 2, (y: screenHeight / 3) << 1), (x: screenWidth >> 2, y: (screenHeight / 3) << 1)])
+        points.append([(x: screenWidth >> 3, y: screenHeight / 3), (x: screenWidth >> 1, y: screenHeight / 3), (x: screenWidth  - screenWidth >> 3, y: screenHeight / 3), (x: screenWidth  - screenWidth >> 3, (y: screenHeight / 3) << 1), (x: screenWidth >> 3, y: (screenHeight / 3) << 1)])
 //        titlePoints.append((x: screenWidth >> 1, y: screenHeight >> 1))
         
         // 점 여섯 개
-        points.append([(x: screenWidth >> 2, y: screenHeight / 3), (x: screenWidth >> 1, y: screenHeight / 3), (x: screenWidth  - screenWidth >> 2, y: screenHeight / 3), (x: screenWidth  - screenWidth >> 2, y: (screenHeight / 3) << 1), (x: screenWidth >> 1, y: (screenHeight / 3) << 1), (x: screenWidth >> 2, y: (screenHeight / 3) << 1)])
+        points.append([(x: screenWidth >> 3, y: screenHeight / 3), (x: screenWidth >> 1, y: screenHeight / 3), (x: screenWidth  - screenWidth >> 3, y: screenHeight / 3), (x: screenWidth  - screenWidth >> 3, y: (screenHeight / 3) << 1), (x: screenWidth >> 1, y: (screenHeight / 3) << 1), (x: screenWidth >> 3, y: (screenHeight / 3) << 1)])
 //        titlePoints.append((x: screenWidth >> 1, y: screenHeight >> 1))
     }
     
