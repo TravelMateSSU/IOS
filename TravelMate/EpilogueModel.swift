@@ -10,6 +10,9 @@ import Foundation
 
 class EpilogueModel {
     var id = 0
-    var text: String!
+    var authorId: String!
+    var authorName: String!
+    var createdAt: Int!
+    var description: String!
     var images = [UIImage]()
 }

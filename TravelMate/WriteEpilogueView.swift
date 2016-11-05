@@ -87,12 +87,12 @@ class WriteEpilogueView: UIView, UICollectionViewDelegate, UICollectionViewDataS
         // 텍스트 뷰 top에서 부터 시작
         descriptionTextView.setContentOffset(.zero, animated: false)
         
+        imageCollectionView.register(UINib(nibName: "WriteEpilogueCell", bundle: nil), forCellWithReuseIdentifier: "WriteEpilogueCell")
+        
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self
         height = imageCollectionViewHeight.constant
         imageCollectionViewHeight.constant = 0
-        
-        imageCollectionView.register(UINib(nibName: "WriteEpilogueCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "WriteEpilogueCollectionViewCell")
         
         evaluationView.score = 0
         
@@ -108,7 +108,7 @@ class WriteEpilogueView: UIView, UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WriteEpilogueCollectionViewCell", for: indexPath) as? WriteEpilogueCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WriteEpilogueCell", for: indexPath) as? WriteEpilogueCell
         
         guard let imageCell = cell else {
             return UICollectionViewCell()

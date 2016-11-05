@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </view>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2qb-mw-gbq" customClass="EpilogueImageCell" customModule="TravelMate" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="291" height="226"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="291" height="226"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3kp-co-geS">
+                        <rect key="frame" x="0.0" y="0.0" width="291" height="226"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="3kp-co-geS" secondAttribute="trailing" id="9wd-Zv-nzO"/>
+                <constraint firstItem="3kp-co-geS" firstAttribute="leading" secondItem="2qb-mw-gbq" secondAttribute="leading" id="BsX-Lj-cLR"/>
+                <constraint firstAttribute="bottom" secondItem="3kp-co-geS" secondAttribute="bottom" id="Hgr-dO-Crr"/>
+                <constraint firstItem="3kp-co-geS" firstAttribute="top" secondItem="2qb-mw-gbq" secondAttribute="top" id="dnD-vh-pga"/>
+            </constraints>
+            <size key="customSize" width="291" height="226"/>
+            <connections>
+                <outlet property="imageView" destination="3kp-co-geS" id="fBX-Yz-wsR"/>
+            </connections>
+            <point key="canvasLocation" x="99.5" y="-57"/>
+        </collectionViewCell>
+    </objects>
+</document>

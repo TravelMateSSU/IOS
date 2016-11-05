@@ -13,7 +13,7 @@ protocol RemovableCellDelegate {
 }
 
 
-class WriteEpilogueCollectionViewCell: UICollectionViewCell, RemovableDelegate {
+class WriteEpilogueCell: UICollectionViewCell, RemovableDelegate {
 
     @IBOutlet var removableImageView: RemovableImageView!
     
