@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EpilogueTimelineTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class EpilogueTimelineCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var epilogue: EpilogueModel! {
         willSet (setEpilogue) {
@@ -47,7 +47,7 @@ class EpilogueTimelineTableViewCell: UITableViewCell, UICollectionViewDelegate, 
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EpilogueImageViewCell", for: indexPath) as? EpilogueImageCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EpilogueImageViewCell", for: indexPath) as? EpilogueImageCell
         
         guard let epilogueCell = cell else {
             return UICollectionViewCell()

@@ -20,7 +20,7 @@ class EpilogueViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
-        tableView.register(UINib(nibName: "EpilogueTimelineTableCell", bundle: nil), forCellReuseIdentifier: "EpilogueTimelineCell")
+        tableView.register(UINib(nibName: "EpilogueTimelineCell", bundle: nil), forCellReuseIdentifier: "EpilogueTimelineCell")
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -28,7 +28,7 @@ class EpilogueViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EpilogueTimelineCell", for: indexPath) as? EpilogueTimelineTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EpilogueTimelineCell", for: indexPath) as? EpilogueTimelineCell
         
         guard let epilogueCell = cell else {
             return UITableViewCell()

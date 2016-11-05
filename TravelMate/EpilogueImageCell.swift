@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EpilogueImageCollectionViewCell: UICollectionViewCell {
+class EpilogueImageCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
 }
