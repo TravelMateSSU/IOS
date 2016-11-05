@@ -7,4 +7,5 @@ target 'TravelMate' do
     pod 'RealmSwift', '~> 2.0.1'
     pod 'FMDB'
     pod 'GoogleMaps'
+    pod 'DKImagePickerController'
 end

@@ -10,15 +10,20 @@ import Foundation
 
 class CourseModel {
     var id: Int!
+    var authorId: String!
+    var authorName: String
     var title: String!
     var description: String!
     var createdAt: Int!
     var spots: [SpotModel] = []
     var titleImage: UIImage!
     
-    init(title: String, description: String, spots: [SpotModel]) {
+    init(title: String, description: String, authorId: String, authorName: String, spots: [SpotModel], createdAt: Int) {
         self.title = title
         self.description = description
+        self.authorName = authorName
+        self.authorId = authorId
         self.spots = spots
+        self.createdAt = createdAt
     }
 }

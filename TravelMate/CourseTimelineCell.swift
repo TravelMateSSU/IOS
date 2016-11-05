@@ -10,7 +10,11 @@ import UIKit
 
 class CourseTimelineCell: UITableViewCell {
 
-    var course: CourseModel!
+    var course: CourseModel! {
+        willSet (setValue) {
+            routeView.spots = setValue.spots
+        }
+    }
     
     @IBOutlet weak var titleLabel: UILabel!
     

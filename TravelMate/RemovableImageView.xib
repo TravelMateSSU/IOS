@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RemovableImageView" customModule="TravelMate" customModuleProvider="target">
+            <connections>
+                <outlet property="imageView" destination="4K1-WS-IRq" id="xmN-KT-YhW"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4K1-WS-IRq">
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TOC-f1-1IB">
+                    <state key="normal" title="X"/>
+                    <connections>
+                        <action selector="removeImagePressed:" destination="-1" eventType="touchUpInside" id="DWU-GW-9U8"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="4K1-WS-IRq" secondAttribute="trailing" id="5kl-RP-8E9"/>
+                <constraint firstAttribute="bottom" secondItem="4K1-WS-IRq" secondAttribute="bottom" id="Ar3-5D-6So"/>
+                <constraint firstItem="4K1-WS-IRq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Igc-uX-0Ae"/>
+                <constraint firstItem="TOC-f1-1IB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="T1M-f7-SPy"/>
+                <constraint firstItem="4K1-WS-IRq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="iBc-im-XUx"/>
+                <constraint firstAttribute="trailing" secondItem="TOC-f1-1IB" secondAttribute="trailing" constant="7" id="leJ-7e-wCC"/>
+            </constraints>
+            <point key="canvasLocation" x="27" y="64"/>
+        </view>
+    </objects>
+</document>

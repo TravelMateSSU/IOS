@@ -10,7 +10,7 @@ import UIKit
 
 class CourseTimelineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var courses: [CourseModel]!
+    var courses: [CourseModel] = []
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -23,11 +23,19 @@ class CourseTimelineViewController: UIViewController, UITableViewDelegate, UITab
         tableView.dataSource = self
         
         #if DEBUG
-            courses = []
-            let l = CourseModel(title: "타이틀", description: "내용", spots: [])
-            l.createdAt = Int(Date().timeIntervalSince1970)
-            courses.append(l)
-            courses.append(l)
+            let manager = TourAPIManager()
+            manager.querySearchByKeyword(keyword: "서울", completion: {
+                spots in
+                var course: CourseModel!
+                for (index, spot) in spots.enumerated() {
+                    if index % 6 == 0 {
+                        course = CourseModel(title: spot.title, description: spot.description, authorId: "123456", authorName: "이동규", spots: [], createdAt: Int(Date().timeIntervalSince1970))
+                        self.courses.append(course)
+                    }
+                    course.spots.append(spot)
+                }
+                self.tableView.reloadData()
+            })
         #endif
     }
     
@@ -39,10 +47,8 @@ class CourseTimelineViewController: UIViewController, UITableViewDelegate, UITab
         
         let course = courses[indexPath.row]
         courseCell.course = course
-        
         courseCell.titleLabel.text = course.title
         courseCell.routeView.spots = course.spots
-        
         courseCell.createdAtLabel.text = Date(timeIntervalSince1970: Double(course.createdAt!)).description
         return courseCell
     }
