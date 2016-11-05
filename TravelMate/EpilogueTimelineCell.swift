@@ -53,8 +53,6 @@ class EpilogueTimelineCell: UITableViewCell, UICollectionViewDelegate, UICollect
             return UICollectionViewCell()
         }
         
-        epilogueCell.layer.borderColor = UIColor.clear.cgColor
-        epilogueCell.layer.borderWidth = 0
         epilogueCell.imageView.image = epilogue.images[indexPath.row]
         return epilogueCell
     }

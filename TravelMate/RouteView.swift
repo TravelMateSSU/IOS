@@ -32,6 +32,18 @@ class RouteView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
+        // subView가 있다면 모두 삭제
+        for view in subviews {
+            view.removeFromSuperview()
+        }
+        
+        // subLayer가 있다면 모두 삭제
+        if let subLayers = self.layer.sublayers {
+            for layer in subLayers {
+                layer.removeFromSuperlayer()
+            }
+        }
+        
         if points.count == 0 {
             initBasePoints()
         }
