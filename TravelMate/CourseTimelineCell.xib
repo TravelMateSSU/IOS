@@ -22,9 +22,12 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hMH-RL-FL9" customClass="RouteView" customModule="TravelMate" customModuleProvider="target">
                         <rect key="frame" x="24" y="90" width="335" height="239.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="239.5" id="FEp-wc-Xta"/>
+                        </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="createdAt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMK-5p-9Wd">
-                        <rect key="frame" x="24" y="49" width="63.5" height="17"/>
+                        <rect key="frame" x="24" y="49" width="63.5" height="33"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -41,8 +44,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3k0-GN-ZoC">
-                        <rect key="frame" x="24" y="74" width="327" height="0.0"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3k0-GN-ZoC">
+                        <rect key="frame" x="24" y="90" width="327" height="0.0"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="750" id="Dxw-hX-bx1"/>
                             <constraint firstAttribute="height" priority="250" id="QyY-zj-LK7"/>
@@ -62,7 +65,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="3k0-GN-ZoC" secondAttribute="trailing" constant="16" id="KRt-k2-E1U"/>
                     <constraint firstAttribute="bottomMargin" secondItem="hMH-RL-FL9" secondAttribute="bottom" constant="8" id="U51-RE-OrQ"/>
                     <constraint firstItem="hMK-5p-9Wd" firstAttribute="leading" secondItem="KkF-gf-POU" secondAttribute="leadingMargin" constant="16" id="UD2-Zo-dK5"/>
-                    <constraint firstItem="hMH-RL-FL9" firstAttribute="top" secondItem="3k0-GN-ZoC" secondAttribute="bottom" constant="16" id="bjh-l7-ZPx"/>
+                    <constraint firstItem="hMH-RL-FL9" firstAttribute="top" secondItem="3k0-GN-ZoC" secondAttribute="bottom" id="bjh-l7-ZPx"/>
                     <constraint firstItem="A8a-Jv-M3p" firstAttribute="top" secondItem="KkF-gf-POU" secondAttribute="topMargin" constant="16" id="cgz-V6-jZl"/>
                     <constraint firstAttribute="trailingMargin" secondItem="hMH-RL-FL9" secondAttribute="trailing" constant="8" id="feU-op-6KX"/>
                     <constraint firstItem="3k0-GN-ZoC" firstAttribute="leading" secondItem="KkF-gf-POU" secondAttribute="leadingMargin" constant="16" id="iVR-Ff-Qb6"/>

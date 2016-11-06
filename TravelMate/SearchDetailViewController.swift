@@ -25,6 +25,8 @@ class SearchDetailViewController: UIViewController {
     func createSubView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.estimatedRowHeight = 300
+        tableView.rowHeight = UITableViewAutomaticDimension
      
         tableView.register(UINib(nibName: "CourseTimelineCell", bundle: nil), forCellReuseIdentifier: "CourseTimelineCell")
         
