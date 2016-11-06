@@ -12,11 +12,8 @@ class MainMenuController: UITabBarController {
     let win: UIWindow = ((UIApplication.shared.delegate?.window)!)!
     let writeBtn: UIButton = UIButton(type: .custom)
     
-    var searchBar: UISearchBar!
-    
     override func viewDidLoad() {
         createWriteBtn()
-        createSearchBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -25,13 +22,6 @@ class MainMenuController: UITabBarController {
     
     override func viewWillDisappear(_ animated: Bool) {
         removeWriteBtn()
-    }
-    
-    func createSearchBar() {
-        searchBar = UISearchBar()
-        searchBar.delegate = self
-        navigationItem.titleView = searchBar
-        searchBar.showsCancelButton = true
     }
     
     func createWriteBtn(){
@@ -93,17 +83,4 @@ class MainMenuController: UITabBarController {
             navigationController?.dismiss(animated: true, completion: nil)
         }
     }
-}
-
-extension MainMenuController: UISearchBarDelegate {
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        self.searchBar.text = ""
-        self.searchBar.endEditing(true)
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-    }
-    
 }

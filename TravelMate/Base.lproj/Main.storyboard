@@ -143,7 +143,7 @@
         <scene sceneID="TlD-bu-i59">
             <objects>
                 <navigationController storyboardIdentifier="navigator" id="EHS-li-G4g" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QST-EB-bYH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="QST-EB-bYH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -284,7 +284,13 @@
         <scene sceneID="QBQ-UP-eem">
             <objects>
                 <tabBarController storyboardIdentifier="main" id="Plt-Gn-mPG" customClass="MainMenuController" customModule="TravelMate" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="xdO-Nb-xBi"/>
+                    <navigationItem key="navigationItem" id="xdO-Nb-xBi">
+                        <barButtonItem key="rightBarButtonItem" title="검색" id="aBA-1e-brk">
+                            <connections>
+                                <segue destination="gjI-u8-MgK" kind="show" id="Ow7-Lq-k5v"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="uoK-L9-na2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -301,6 +307,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kZy-XR-0XW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-463" y="-110"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="Hpp-sO-N2y">
+            <objects>
+                <viewController id="gjI-u8-MgK" customClass="SearchViewController" customModule="TravelMate" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GwM-Ng-GeT"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xco-P6-bCM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="w9X-T5-OXb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wK8-3x-xeo">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wK8-3x-xeo" firstAttribute="top" secondItem="GwM-Ng-GeT" secondAttribute="bottom" id="RHh-v1-NSt"/>
+                            <constraint firstItem="wK8-3x-xeo" firstAttribute="leading" secondItem="w9X-T5-OXb" secondAttribute="leading" id="XPe-S1-WDy"/>
+                            <constraint firstAttribute="trailing" secondItem="wK8-3x-xeo" secondAttribute="trailing" id="bEc-TF-VZU"/>
+                            <constraint firstItem="Xco-P6-bCM" firstAttribute="top" secondItem="wK8-3x-xeo" secondAttribute="bottom" id="jWG-mc-Dha"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M95-Pe-Hgk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="492" y="-394.45277361319341"/>
         </scene>
         <!--Epilogue View Controller-->
         <scene sceneID="g3J-i7-6jg">

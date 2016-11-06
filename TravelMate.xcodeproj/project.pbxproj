@@ -46,6 +46,7 @@
 		907CD1291DCC94870069B3BE /* EpilogueImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 907CD1281DCC94870069B3BE /* EpilogueImageCell.xib */; };
 		907CD12B1DCC94BE0069B3BE /* EpilogueImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907CD12A1DCC94BE0069B3BE /* EpilogueImageCell.swift */; };
 		907CD1351DCCE3C60069B3BE /* WriteMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907CD1341DCCE3C60069B3BE /* WriteMapController.swift */; };
+		907CD13D1DCF00C20069B3BE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907CD13C1DCF00C20069B3BE /* SearchViewController.swift */; };
 		90B2EA451DC373BE008FC3EE /* WriteEpilogue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90B2EA441DC373BE008FC3EE /* WriteEpilogue.storyboard */; };
 		90B2EA471DC373E0008FC3EE /* WriteEpilogueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B2EA461DC373E0008FC3EE /* WriteEpilogueController.swift */; };
 		90EBE7AB1DCB84A500938D9F /* CourseTimelineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90EBE7AA1DCB84A500938D9F /* CourseTimelineCell.xib */; };
@@ -142,6 +143,7 @@
 		907CD1281DCC94870069B3BE /* EpilogueImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpilogueImageCell.xib; sourceTree = "<group>"; };
 		907CD12A1DCC94BE0069B3BE /* EpilogueImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpilogueImageCell.swift; sourceTree = "<group>"; };
 		907CD1341DCCE3C60069B3BE /* WriteMapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteMapController.swift; sourceTree = "<group>"; };
+		907CD13C1DCF00C20069B3BE /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		90B2EA441DC373BE008FC3EE /* WriteEpilogue.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WriteEpilogue.storyboard; sourceTree = "<group>"; };
 		90B2EA461DC373E0008FC3EE /* WriteEpilogueController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteEpilogueController.swift; sourceTree = "<group>"; };
 		90EBE7AA1DCB84A500938D9F /* CourseTimelineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseTimelineCell.xib; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 				905D0AF31DCB6D8000CDAF47 /* TimelineViewController.swift */,
 				905D0AF51DCB760900CDAF47 /* CourseViewController.swift */,
 				905D0AF71DCB764200CDAF47 /* EpilogueViewController.swift */,
+				907CD13C1DCF00C20069B3BE /* SearchViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -645,6 +648,7 @@
 				906EE1C11DC5CF8000A9A292 /* WriteEpilogueCell.swift in Sources */,
 				902A2D861DA36C8B001FEA9F /* SpotModel.swift in Sources */,
 				0863186D1DB08A6F0057DE9A /* MainMenuController.swift in Sources */,
+				907CD13D1DCF00C20069B3BE /* SearchViewController.swift in Sources */,
 				905D0AF61DCB760900CDAF47 /* CourseViewController.swift in Sources */,
 				907CD12B1DCC94BE0069B3BE /* EpilogueImageCell.swift in Sources */,
 				906EE1B41DC4AD1100A9A292 /* EpilogueModel.swift in Sources */,
