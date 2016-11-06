@@ -24,6 +24,8 @@ class CourseTimelineCell: UITableViewCell {
     
     @IBOutlet weak var statusLabel: UILabel!
     
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

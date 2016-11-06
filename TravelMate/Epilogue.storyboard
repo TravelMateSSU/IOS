@@ -52,10 +52,10 @@
             </objects>
             <point key="canvasLocation" x="1416.8" y="-140.77961019490255"/>
         </scene>
-        <!--Detail Epilogue View Controller-->
+        <!--Detail Course View Controller-->
         <scene sceneID="Pc9-rs-NNx">
             <objects>
-                <viewController storyboardIdentifier="DetailEpilogueViewController" id="2ZN-RJ-rdU" customClass="DetailEpilogueViewController" customModule="TravelMate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailEpilogueViewController" id="2ZN-RJ-rdU" customClass="DetailCourseViewController" customModule="TravelMate" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Egk-yB-MRH"/>
                         <viewControllerLayoutGuide type="bottom" id="0m4-AX-UYt"/>
@@ -63,12 +63,24 @@
                     <view key="view" contentMode="scaleToFill" id="J2a-W9-6Cp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sgt-fx-zYp">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0m4-AX-UYt" firstAttribute="top" secondItem="Sgt-fx-zYp" secondAttribute="bottom" id="ATN-26-5vr"/>
+                            <constraint firstItem="Sgt-fx-zYp" firstAttribute="top" secondItem="J2a-W9-6Cp" secondAttribute="top" id="Dnc-rk-ckv"/>
+                            <constraint firstAttribute="trailing" secondItem="Sgt-fx-zYp" secondAttribute="trailing" id="Pg8-3Y-1Om"/>
+                            <constraint firstItem="Sgt-fx-zYp" firstAttribute="leading" secondItem="J2a-W9-6Cp" secondAttribute="leading" id="cYC-mA-KKb"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Lg-zY-G27" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2126" y="-141"/>
+            <point key="canvasLocation" x="2125.5999999999999" y="-141.67916041979012"/>
         </scene>
     </scenes>
 </document>

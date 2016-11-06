@@ -65,7 +65,7 @@ extension SearchDetailViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Epilogue", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "DetailEpilogueViewController") as? DetailEpilogueViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "DetailCourseViewController") as? DetailCourseViewController
         
         if let detailViewController = vc {
             detailViewController.course = self.courses[indexPath.row]
