@@ -10,36 +10,71 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
+    var spots: [SpotModel] = []
+    
     var searchBar: UISearchBar!
+    
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        createSearchBar()
+        createSubView()
+    }
+    
+    
+    func createSearchBar() {
         searchBar = UISearchBar()
         searchBar.delegate = self
-        searchBar.showsCancelButton = true
         searchBar.becomeFirstResponder()
         self.navigationItem.titleView = searchBar
+    }
+    
+    func createSubView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = UITableViewAutomaticDimension
+        
+        tableView.register(UINib(nibName: "SearchPreviewCell", bundle: nil), forCellReuseIdentifier: "SearchPreviewCell")
     }
 }
 
 
 extension SearchViewController: UISearchBarDelegate {
     
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        self.searchBar.text = ""
-        self.searchBar.endEditing(true)
-    }
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         #if DEBUG
             let manager = TourAPIManager()
             manager.querySearchByKeyword(keyword: searchText, completion: {
                 spots in
-                
+                self.spots = spots
+                self.tableView.reloadData()
             })
         #else
         
         #endif
+    }
+}
+
+extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return spots.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchPreviewCell") as? SearchPreviewCell
+        
+        guard let previewCell = cell else {
+            return UITableViewCell()
+        }
+        
+        let spot = spots[indexPath.row]
+        previewCell.spot = spot
+        previewCell.titleLabel.text = spot.title
+        
+        return previewCell
     }
 }
