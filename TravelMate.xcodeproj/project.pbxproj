@@ -49,6 +49,7 @@
 		907CD13D1DCF00C20069B3BE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907CD13C1DCF00C20069B3BE /* SearchViewController.swift */; };
 		907CD13F1DCF07C00069B3BE /* SearchPreviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 907CD13E1DCF07C00069B3BE /* SearchPreviewCell.xib */; };
 		907CD1411DCF08410069B3BE /* SearchPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907CD1401DCF08410069B3BE /* SearchPreviewCell.swift */; };
+		907CD1431DCF1A350069B3BE /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907CD1421DCF1A350069B3BE /* SearchDetailViewController.swift */; };
 		90B2EA451DC373BE008FC3EE /* WriteEpilogue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90B2EA441DC373BE008FC3EE /* WriteEpilogue.storyboard */; };
 		90B2EA471DC373E0008FC3EE /* WriteEpilogueController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B2EA461DC373E0008FC3EE /* WriteEpilogueController.swift */; };
 		90EBE7AB1DCB84A500938D9F /* CourseTimelineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90EBE7AA1DCB84A500938D9F /* CourseTimelineCell.xib */; };
@@ -148,6 +149,7 @@
 		907CD13C1DCF00C20069B3BE /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		907CD13E1DCF07C00069B3BE /* SearchPreviewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchPreviewCell.xib; sourceTree = "<group>"; };
 		907CD1401DCF08410069B3BE /* SearchPreviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPreviewCell.swift; sourceTree = "<group>"; };
+		907CD1421DCF1A350069B3BE /* SearchDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
 		90B2EA441DC373BE008FC3EE /* WriteEpilogue.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WriteEpilogue.storyboard; sourceTree = "<group>"; };
 		90B2EA461DC373E0008FC3EE /* WriteEpilogueController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteEpilogueController.swift; sourceTree = "<group>"; };
 		90EBE7AA1DCB84A500938D9F /* CourseTimelineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseTimelineCell.xib; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				905D0AF51DCB760900CDAF47 /* CourseViewController.swift */,
 				905D0AF71DCB764200CDAF47 /* EpilogueViewController.swift */,
 				907CD13C1DCF00C20069B3BE /* SearchViewController.swift */,
+				907CD1421DCF1A350069B3BE /* SearchDetailViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -649,6 +652,7 @@
 				906EE1AE1DC4A1E000A9A292 /* WriteEpilogueView.swift in Sources */,
 				903262081DA255D500CE31DC /* TourAPIManager.swift in Sources */,
 				903261A11D9E2E2A00CE31DC /* AppDelegate.swift in Sources */,
+				907CD1431DCF1A350069B3BE /* SearchDetailViewController.swift in Sources */,
 				905D0AF41DCB6D8000CDAF47 /* TimelineViewController.swift in Sources */,
 				90EBE7AD1DCB84D300938D9F /* CourseTimelineCell.swift in Sources */,
 				907CD1411DCF08410069B3BE /* SearchPreviewCell.swift in Sources */,

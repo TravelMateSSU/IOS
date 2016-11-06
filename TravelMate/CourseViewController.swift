@@ -48,7 +48,6 @@ class CourseViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let course = courses[indexPath.row]
         courseCell.course = course
         courseCell.titleLabel.text = course.title
-        courseCell.routeView.spots = course.spots
         courseCell.createdAtLabel.text = Date(timeIntervalSince1970: Double(course.createdAt!)).description
         return courseCell
     }
