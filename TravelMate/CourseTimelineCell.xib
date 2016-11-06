@@ -12,9 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CourseTimelineCell" rowHeight="346" id="3DN-JN-ZlX" customClass="CourseTimelineCell" customModule="TravelMate" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CourseTimelineCell" id="3DN-JN-ZlX" customClass="CourseTimelineCell" customModule="TravelMate" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="346"/>
-            <autoresizingMask key="autoresizingMask"/>
+            <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3DN-JN-ZlX" id="KkF-gf-POU">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="345"/>
                 <autoresizingMask key="autoresizingMask"/>

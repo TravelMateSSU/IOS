@@ -41,15 +41,15 @@ class CourseModel {
     var authorId: String!
     var authorName: String
     var title: String!
-    var description: String!
+    var content: String!
     var createdAt: Int!
     var spots: [SpotModel] = []
     var titleImage: UIImage!
     var status: CourseStatus!
     
-    init(title: String, description: String, authorId: String, authorName: String, spots: [SpotModel], createdAt: Int, status: CourseStatus) {
+    init(title: String, content: String, authorId: String, authorName: String, spots: [SpotModel], createdAt: Int, status: CourseStatus) {
         self.title = title
-        self.description = description
+        self.content = content
         self.authorName = authorName
         self.authorId = authorId
         self.spots = spots

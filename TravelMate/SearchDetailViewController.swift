@@ -29,7 +29,7 @@ class SearchDetailViewController: UIViewController {
         tableView.register(UINib(nibName: "CourseTimelineCell", bundle: nil), forCellReuseIdentifier: "CourseTimelineCell")
         
         #if DEBUG
-            let course = CourseModel(title: "경복궁", description: "좋았습니다.", authorId: "123456", authorName: "이동규", spots: [spot, spot, spot, spot], createdAt: Int(Date().timeIntervalSince1970), status: .active)
+            let course = CourseModel(title: "경복궁", content: "좋았습니다.", authorId: "123456", authorName: "이동규", spots: [spot, spot, spot, spot], createdAt: Int(Date().timeIntervalSince1970), status: .active)
             course.id = 1
             courses.append(course)
             courses.append(course)
@@ -64,7 +64,7 @@ extension SearchDetailViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Epilogue", bundle: nil)
+        let storyboard = UIStoryboard(name: "Course", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "DetailCourseViewController") as? DetailCourseViewController
         
         if let detailViewController = vc {

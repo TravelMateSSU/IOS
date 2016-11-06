@@ -12,7 +12,6 @@
         <!--Search Detail View Controller-->
         <scene sceneID="I25-hU-joo">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bpQ-3T-cID" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="SearchDetailViewController" id="kPd-z1-cjX" customClass="SearchDetailViewController" customModule="TravelMate" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kv8-fz-dFf"/>
@@ -49,13 +48,14 @@
                         <outlet property="tableView" destination="Cwn-7x-ZoA" id="kfh-B2-0wQ"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bpQ-3T-cID" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1416.8" y="-140.77961019490255"/>
         </scene>
         <!--Detail Course View Controller-->
         <scene sceneID="Pc9-rs-NNx">
             <objects>
-                <viewController storyboardIdentifier="DetailEpilogueViewController" id="2ZN-RJ-rdU" customClass="DetailCourseViewController" customModule="TravelMate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailCourseViewController" id="2ZN-RJ-rdU" customClass="DetailCourseViewController" customModule="TravelMate" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Egk-yB-MRH"/>
                         <viewControllerLayoutGuide type="bottom" id="0m4-AX-UYt"/>
@@ -77,6 +77,9 @@
                             <constraint firstItem="Sgt-fx-zYp" firstAttribute="leading" secondItem="J2a-W9-6Cp" secondAttribute="leading" id="cYC-mA-KKb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Sgt-fx-zYp" id="r3E-Hv-4bi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Lg-zY-G27" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

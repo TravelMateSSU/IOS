@@ -29,7 +29,7 @@ class CourseViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 var course: CourseModel!
                 for (index, spot) in spots.enumerated() {
                     if index % 5 == 0 {
-                        course = CourseModel(title: spot.title, description: spot.description, authorId: "123456", authorName: "이동규", spots: [], createdAt: Int(Date().timeIntervalSince1970), status: .active)
+                        course = CourseModel(title: spot.title, content: spot.description, authorId: "123456", authorName: "이동규", spots: [], createdAt: Int(Date().timeIntervalSince1970), status: .active)
                         self.courses.append(course)
                     }
                     course.spots.append(spot)
