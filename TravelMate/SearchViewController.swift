@@ -79,7 +79,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "Epilogue", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "SearchDetailViewController") as? SearchDetailViewController
         if let searchDetailViewController = vc {
             searchDetailViewController.spot = spots[indexPath.row]

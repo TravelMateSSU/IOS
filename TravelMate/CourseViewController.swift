@@ -29,7 +29,7 @@ class CourseViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 var course: CourseModel!
                 for (index, spot) in spots.enumerated() {
                     if index % 5 == 0 {
-                        course = CourseModel(title: spot.title, description: spot.description, authorId: "123456", authorName: "이동규", spots: [], createdAt: Int(Date().timeIntervalSince1970))
+                        course = CourseModel(title: spot.title, description: spot.description, authorId: "123456", authorName: "이동규", spots: [], createdAt: Int(Date().timeIntervalSince1970), status: .active)
                         self.courses.append(course)
                     }
                     course.spots.append(spot)
@@ -49,6 +49,8 @@ class CourseViewController: UIViewController, UITableViewDelegate, UITableViewDa
         courseCell.course = course
         courseCell.titleLabel.text = course.title
         courseCell.createdAtLabel.text = Date(timeIntervalSince1970: Double(course.createdAt!)).description
+        courseCell.statusLabel.text = course.status.getText()
+        courseCell.statusLabel.textColor = course.status.getColor()
         return courseCell
     }
     

@@ -29,7 +29,7 @@ class SearchDetailViewController: UIViewController {
         tableView.register(UINib(nibName: "CourseTimelineCell", bundle: nil), forCellReuseIdentifier: "CourseTimelineCell")
         
         #if DEBUG
-            let course = CourseModel(title: "경복궁", description: "좋았습니다.", authorId: "123456", authorName: "이동규", spots: [spot, spot, spot, spot], createdAt: Int(Date().timeIntervalSince1970))
+            let course = CourseModel(title: "경복궁", description: "좋았습니다.", authorId: "123456", authorName: "이동규", spots: [spot, spot, spot, spot], createdAt: Int(Date().timeIntervalSince1970), status: .active)
             course.id = 1
             courses.append(course)
             courses.append(course)
@@ -58,6 +58,18 @@ extension SearchDetailViewController: UITableViewDelegate, UITableViewDataSource
         courseCell.course = course
         courseCell.titleLabel.text = course.title
         courseCell.createdAtLabel.text = Date(timeIntervalSince1970: TimeInterval(Double(course.createdAt))).description
+        courseCell.statusLabel.text = course.status.getText()
+        courseCell.statusLabel.textColor = course.status.getColor()
         return courseCell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Epilogue", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "DetailEpilogueViewController") as? DetailEpilogueViewController
+        
+        if let detailViewController = vc {
+            detailViewController.course = self.courses[indexPath.row]
+            self.navigationController?.pushViewController(detailViewController, animated: true)
+        }
     }
 }

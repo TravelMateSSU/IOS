@@ -35,21 +35,31 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8a-Jv-M3p">
+                        <rect key="frame" x="311" y="24" width="48" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="hMK-5p-9Wd" firstAttribute="top" secondItem="bOi-ZS-UMl" secondAttribute="bottom" constant="8" id="5wK-XX-8wQ"/>
                     <constraint firstItem="hMH-RL-FL9" firstAttribute="top" secondItem="hMK-5p-9Wd" secondAttribute="bottom" constant="16" id="5zF-lM-tED"/>
                     <constraint firstItem="bOi-ZS-UMl" firstAttribute="top" secondItem="KkF-gf-POU" secondAttribute="topMargin" constant="16" id="9vQ-kj-MAa"/>
                     <constraint firstItem="bOi-ZS-UMl" firstAttribute="leading" secondItem="KkF-gf-POU" secondAttribute="leadingMargin" constant="16" id="ALu-A6-TWF"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="A8a-Jv-M3p" secondAttribute="trailing" constant="8" id="CqR-pJ-bdS"/>
                     <constraint firstItem="hMH-RL-FL9" firstAttribute="leading" secondItem="KkF-gf-POU" secondAttribute="leadingMargin" constant="16" id="JBm-CR-OJo"/>
                     <constraint firstAttribute="bottomMargin" secondItem="hMH-RL-FL9" secondAttribute="bottom" constant="8" id="U51-RE-OrQ"/>
                     <constraint firstItem="hMK-5p-9Wd" firstAttribute="leading" secondItem="KkF-gf-POU" secondAttribute="leadingMargin" constant="16" id="UD2-Zo-dK5"/>
+                    <constraint firstItem="A8a-Jv-M3p" firstAttribute="top" secondItem="KkF-gf-POU" secondAttribute="topMargin" constant="16" id="cgz-V6-jZl"/>
                     <constraint firstAttribute="trailingMargin" secondItem="hMH-RL-FL9" secondAttribute="trailing" constant="8" id="feU-op-6KX"/>
+                    <constraint firstItem="A8a-Jv-M3p" firstAttribute="centerY" secondItem="bOi-ZS-UMl" secondAttribute="centerY" id="kN6-sH-bmK"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="createdAtLabel" destination="hMK-5p-9Wd" id="xSR-03-Uvk"/>
                 <outlet property="routeView" destination="hMH-RL-FL9" id="7Bo-3b-BuU"/>
+                <outlet property="statusLabel" destination="A8a-Jv-M3p" id="GN4-eV-j9F"/>
                 <outlet property="titleLabel" destination="bOi-ZS-UMl" id="g91-mu-y14"/>
             </connections>
             <point key="canvasLocation" x="270" y="218"/>

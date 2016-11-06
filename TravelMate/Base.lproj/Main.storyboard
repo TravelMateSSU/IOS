@@ -341,49 +341,6 @@
             </objects>
             <point key="canvasLocation" x="492" y="-394.45277361319341"/>
         </scene>
-        <!--Search Detail View Controller-->
-        <scene sceneID="6EI-D8-cyY">
-            <objects>
-                <viewController storyboardIdentifier="SearchDetailViewController" id="3qu-KR-syG" customClass="SearchDetailViewController" customModule="TravelMate" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="PQ4-YI-sbl"/>
-                        <viewControllerLayoutGuide type="bottom" id="R48-7j-1ui"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="uSU-Lh-9QI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="254" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xdV-mo-Ldg">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CourseTimelineCell" rowHeight="270" id="hMf-yJ-vA9">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="270"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hMf-yJ-vA9" id="Few-Ln-93y">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="269"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="xdV-mo-Ldg" firstAttribute="top" secondItem="uSU-Lh-9QI" secondAttribute="top" id="7d1-5x-ZQ1"/>
-                            <constraint firstAttribute="bottom" secondItem="xdV-mo-Ldg" secondAttribute="bottom" id="hfs-nm-AFV"/>
-                            <constraint firstItem="xdV-mo-Ldg" firstAttribute="leading" secondItem="uSU-Lh-9QI" secondAttribute="leading" id="txl-iJ-sYa"/>
-                            <constraint firstAttribute="trailing" secondItem="xdV-mo-Ldg" secondAttribute="trailing" id="yVu-XB-kDf"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="tableView" destination="xdV-mo-Ldg" id="1wK-Ou-flN"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JkC-Gh-jbc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1416.8" y="-140.77961019490255"/>
-        </scene>
         <!--Epilogue View Controller-->
         <scene sceneID="g3J-i7-6jg">
             <objects>
