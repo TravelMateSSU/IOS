@@ -82,6 +82,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         let storyboard = UIStoryboard(name: "Course", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "SearchDetailViewController") as? SearchDetailViewController
         if let searchDetailViewController = vc {
+            self.searchBar.endEditing(true)
             searchDetailViewController.spot = spots[indexPath.row]
             self.navigationController?.pushViewController(searchDetailViewController, animated: true)
         }
