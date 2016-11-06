@@ -8,12 +8,15 @@
 
 import UIKit
 
-class MainMenuController: UITabBarController{
+class MainMenuController: UITabBarController {
     let win: UIWindow = ((UIApplication.shared.delegate?.window)!)!
     let writeBtn: UIButton = UIButton(type: .custom)
     
+    var searchBar: UISearchBar!
+    
     override func viewDidLoad() {
         createWriteBtn()
+        createSearchBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -24,6 +27,13 @@ class MainMenuController: UITabBarController{
         removeWriteBtn()
     }
     
+    func createSearchBar() {
+        searchBar = UISearchBar()
+        searchBar.delegate = self
+        navigationItem.titleView = searchBar
+        searchBar.showsCancelButton = true
+    }
+    
     func createWriteBtn(){
         let writeBtnImage = UIImage(named: "ic_add_circle_36pt")
         
@@ -32,6 +42,10 @@ class MainMenuController: UITabBarController{
         writeBtn.setBackgroundImage(writeBtnImage, for: .normal)
         
         writeBtn.addTarget(self, action: #selector(doWrite(sender:)), for: .touchUpInside)
+    }
+    
+    func searchCancel() {
+        self.view.endEditing(true)
     }
 
     func addWriteBtn(){
@@ -79,4 +93,17 @@ class MainMenuController: UITabBarController{
             navigationController?.dismiss(animated: true, completion: nil)
         }
     }
+}
+
+extension MainMenuController: UISearchBarDelegate {
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.text = ""
+        self.searchBar.endEditing(true)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
+    
 }
