@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainMenuController: UITabBarController{
+class MainMenuController: UITabBarController {
     let win: UIWindow = ((UIApplication.shared.delegate?.window)!)!
     let writeBtn: UIButton = UIButton(type: .custom)
     
@@ -32,6 +32,10 @@ class MainMenuController: UITabBarController{
         writeBtn.setBackgroundImage(writeBtnImage, for: .normal)
         
         writeBtn.addTarget(self, action: #selector(doWrite(sender:)), for: .touchUpInside)
+    }
+    
+    func searchCancel() {
+        self.view.endEditing(true)
     }
 
     func addWriteBtn(){

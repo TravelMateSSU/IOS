@@ -18,8 +18,8 @@ class RouteView: UIView {
     var titlePoints: [(x: Int, y: Int)] = []
     
     var spots: [SpotModel] = [] {
-        willSet {
-            ballNum = spots.count
+        willSet (value) {
+            ballNum = value.count
         }
     }
     var ballNum: Int = 0
@@ -64,6 +64,7 @@ class RouteView: UIView {
             let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
             titleLabel.text = spots[i].title
             titleLabel.sizeToFit()
+            titleLabel.textAlignment = .center
             titleLabel.frame.size.width = CGFloat(Int(self.frame.size.width) >> 2)
             titleLabel.tintColor = UIColor.black
             if ballNum < 4 {

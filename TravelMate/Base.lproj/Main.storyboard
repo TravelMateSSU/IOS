@@ -26,25 +26,6 @@
             </objects>
             <point key="canvasLocation" x="-463" y="772"/>
         </scene>
-        <!--검색-->
-        <scene sceneID="Gyu-aG-gAH">
-            <objects>
-                <viewController id="Etz-fQ-vtV" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1uP-lP-sSW"/>
-                        <viewControllerLayoutGuide type="bottom" id="HIQ-qZ-pnR"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ZdS-Uc-2EG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="검색" id="sDy-Bv-jBp"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gze-cF-mMk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="492" y="-392"/>
-        </scene>
         <!--WriteEpilogue-->
         <scene sceneID="7NH-kd-HpG">
             <objects>
@@ -112,11 +93,13 @@
                                 </items>
                             </tabBar>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3r2-Zy-7kO">
+                                <rect key="frame" x="0.0" y="113" width="375" height="510"/>
                                 <connections>
                                     <segue destination="e6B-J3-shJ" kind="embed" identifier="EpilogueSegue" id="rgE-rO-RbJ"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5K2-ut-Zdm">
+                                <rect key="frame" x="0.0" y="113" width="375" height="510"/>
                                 <connections>
                                     <segue destination="yQ3-a2-iNu" kind="embed" identifier="CourseSegue" id="XSU-PX-bUR"/>
                                 </connections>
@@ -138,6 +121,8 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="타임라인" id="IPS-bo-m9o"/>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="courseTabBarItem" destination="S6H-Q2-l3M" id="hsX-qu-MjZ"/>
                         <outlet property="courseView" destination="5K2-ut-Zdm" id="Zdd-H7-VpP"/>
@@ -314,7 +299,13 @@
         <scene sceneID="QBQ-UP-eem">
             <objects>
                 <tabBarController storyboardIdentifier="main" id="Plt-Gn-mPG" customClass="MainMenuController" customModule="TravelMate" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="xdO-Nb-xBi"/>
+                    <navigationItem key="navigationItem" id="xdO-Nb-xBi">
+                        <barButtonItem key="rightBarButtonItem" title="검색" id="aBA-1e-brk">
+                            <connections>
+                                <segue destination="gjI-u8-MgK" kind="show" id="Ow7-Lq-k5v"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="uoK-L9-na2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -322,7 +313,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="Qea-uE-IBJ" kind="relationship" relationship="viewControllers" id="2qz-1K-ZdN"/>
-                        <segue destination="Etz-fQ-vtV" kind="relationship" relationship="viewControllers" id="41a-73-TU6"/>
                         <segue destination="jwD-yO-y7B" kind="relationship" relationship="viewControllers" id="L9h-z0-MdR"/>
                         <segue destination="fbL-Ll-Odl" kind="relationship" relationship="viewControllers" id="Y2m-4S-fRO"/>
                         <segue destination="hfa-I6-MY6" kind="relationship" relationship="viewControllers" id="DZN-5R-0WA"/>
@@ -333,6 +323,39 @@
             </objects>
             <point key="canvasLocation" x="-463" y="-110"/>
         </scene>
+        <!--Search View Controller-->
+        <scene sceneID="Hpp-sO-N2y">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="gjI-u8-MgK" customClass="SearchViewController" customModule="TravelMate" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GwM-Ng-GeT"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xco-P6-bCM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="w9X-T5-OXb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wK8-3x-xeo">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wK8-3x-xeo" firstAttribute="top" secondItem="GwM-Ng-GeT" secondAttribute="bottom" id="RHh-v1-NSt"/>
+                            <constraint firstItem="wK8-3x-xeo" firstAttribute="leading" secondItem="w9X-T5-OXb" secondAttribute="leading" id="XPe-S1-WDy"/>
+                            <constraint firstAttribute="trailing" secondItem="wK8-3x-xeo" secondAttribute="trailing" id="bEc-TF-VZU"/>
+                            <constraint firstItem="Xco-P6-bCM" firstAttribute="top" secondItem="wK8-3x-xeo" secondAttribute="bottom" id="jWG-mc-Dha"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="wK8-3x-xeo" id="uZk-wb-gZP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M95-Pe-Hgk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="492" y="-394.45277361319341"/>
+        </scene>
         <!--Epilogue View Controller-->
         <scene sceneID="g3J-i7-6jg">
             <objects>
@@ -342,10 +365,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Htg-hJ-SY4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DOd-O6-epo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="505"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="510"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="59" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AAA-yL-abQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="510"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -374,21 +398,12 @@
                         <viewControllerLayoutGuide type="bottom" id="trP-ex-BuC"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="LyM-Du-7uG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="505"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="510"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="356" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qzd-zX-vgX">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="299" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qzd-zX-vgX">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="510"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CourseTimelineCell" rowHeight="356" id="QHP-N9-g9Q">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="356"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QHP-N9-g9Q" id="xRz-oa-yqy">
-                                            <frame key="frameInset" width="375" height="355"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -400,12 +415,12 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="Qzd-zX-vgX" id="0dj-DM-la0"/>
+                        <outlet property="tableView" destination="Qzd-zX-vgX" id="eI8-Pa-Mho"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nrT-rR-lxB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1421.5999999999999" y="-1343.4782608695652"/>
+            <point key="canvasLocation" x="1421.5999999999999" y="-1343.9280359820091"/>
         </scene>
     </scenes>
 </document>

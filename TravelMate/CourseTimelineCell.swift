@@ -22,6 +22,10 @@ class CourseTimelineCell: UITableViewCell {
     
     @IBOutlet weak var routeView: RouteView!
     
+    @IBOutlet weak var statusLabel: UILabel!
+    
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -37,5 +41,8 @@ class CourseTimelineCell: UITableViewCell {
         }
         
         createdAtLabel.text = Date(timeIntervalSince1970: Double(createdAt)).description
+        
+        statusLabel.text = course.status.getText()
+        statusLabel.textColor = course.status.getColor()
     }
 }

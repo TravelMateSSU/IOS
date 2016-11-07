@@ -12,6 +12,10 @@ class EpilogueTimelineCell: UITableViewCell, UICollectionViewDelegate, UICollect
     
     var epilogue: EpilogueModel! {
         willSet (setEpilogue) {
+            guard collectionViewHeight != nil else {
+                return
+            }
+            
             if setEpilogue.images.count == 0 {
                 height = collectionViewHeight.constant
                 collectionViewHeight.constant = 0
