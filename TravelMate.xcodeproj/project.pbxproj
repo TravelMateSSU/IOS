@@ -257,8 +257,6 @@
 				903261AC1D9E2E2A00CE31DC /* Info.plist */,
 				903261CE1D9E2F4D00CE31DC /* Route.xib */,
 				903261E31D9E4C6500CE31DC /* RouteView.swift */,
-				0899E7071DC1CF6500AE3BF3 /* TravelSpotCell.xib */,
-				0899E70B1DC21E5D00AE3BF3 /* TravelSpotCell.swift */,
 			);
 			path = TravelMate;
 			sourceTree = "<group>";
@@ -334,6 +332,7 @@
 				90EBE7B21DCC869400938D9F /* EpilogueTimelineCell.swift */,
 				906EE1C01DC5CF8000A9A292 /* WriteEpilogueCell.swift */,
 				907CD12A1DCC94BE0069B3BE /* EpilogueImageCell.swift */,
+				0899E70B1DC21E5D00AE3BF3 /* TravelSpotCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -365,6 +364,7 @@
 				90EBE7B01DCC843E00938D9F /* EpilogueTimelineCell.xib */,
 				906EE1BE1DC5CF1800A9A292 /* WriteEpilogueCell.xib */,
 				907CD1281DCC94870069B3BE /* EpilogueImageCell.xib */,
+				0899E7071DC1CF6500AE3BF3 /* TravelSpotCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";

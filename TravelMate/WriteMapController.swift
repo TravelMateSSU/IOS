@@ -8,21 +8,23 @@
 
 import UIKit
 import GoogleMaps
+import Alamofire
 
 class WriteMapController: UIViewController{
     @IBOutlet weak var mapContainerView: GMSMapView!
-    @IBOutlet weak var pathCollectionView: UICollectionView!
+    @IBOutlet weak var SelectedSpotsCollectionView: UICollectionView!
     
     var searchController: UISearchController!
-    var SearchResultCollectionView: UICollectionView!
+    var searchResultCollectionView: UICollectionView!
     
-    let courseCategoryCode = "C01"
-    let pathCVIdentifier = "PathCell"
-    let AutoCompleteCVIdentifier = "SearchResultCell"
+    let CourseCategoryCode = "C01"
+    let SelectedSpotsCVIdentifier = "PathCell"
+    let SearchResultCVIdentifier = "SearchResultCell"
     
     let tourAPIManager: TourAPIManager = TourAPIManager()
     var searchResult: [SpotModel] = []
     var selectedSpots: [SpotModel] = []
+    var searchResultImage: [UIImage] = []
     
     var path: GMSMutablePath!
     var polyline: GMSPolyline!
@@ -37,22 +39,22 @@ class WriteMapController: UIViewController{
         
         initMapData()
         
-        initTourAPIManager()
-        
         initAutoComplete()
     }
 
     func initNavigationSearchBar(){
-        self.searchController = UISearchController(searchResultsController: nil)
+        searchController = UISearchController(searchResultsController: nil)
         
-        self.searchController.searchResultsUpdater = self
-        self.searchController.delegate = self
-        self.searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.delegate = self
+        searchController.searchBar.delegate = self
         
-        self.searchController.hidesNavigationBarDuringPresentation = false
-        self.searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "가고싶은 장소나 코스를 입력해주세요"
         
         self.navigationItem.titleView = searchController.searchBar
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "다음", style: .plain, target: self, action: nil)
         
         self.definesPresentationContext = true
     }
@@ -63,29 +65,28 @@ class WriteMapController: UIViewController{
         layout.itemSize = CGSize(width: 90, height: 77)
         layout.scrollDirection = .horizontal
 
-        SearchResultCollectionView = UICollectionView(frame: CGRect(x: 0, y: (self.navigationController?.navigationBar.frame.height)!+20, width: self.view.frame.width, height: 80), collectionViewLayout: layout)
-        self.SearchResultCollectionView.register(UINib(nibName: "TravelSpotCell", bundle: nil) , forCellWithReuseIdentifier: AutoCompleteCVIdentifier)
+        searchResultCollectionView = UICollectionView(frame: CGRect(x: 0, y: (self.navigationController?.navigationBar.frame.height)!+20, width: self.view.frame.width, height: 80), collectionViewLayout: layout)
+        self.searchResultCollectionView.register(UINib(nibName: "TravelSpotCell", bundle: nil) , forCellWithReuseIdentifier: SearchResultCVIdentifier)
+
+        searchResultCollectionView.backgroundColor = UIColor.white
+        searchResultCollectionView.delegate = self
+        searchResultCollectionView.dataSource = self
+        searchResultCollectionView.isScrollEnabled = true
+        searchResultCollectionView.isHidden = true
         
-        SearchResultCollectionView.backgroundColor = UIColor.white
-        SearchResultCollectionView.delegate = self
-        SearchResultCollectionView.dataSource = self
-        SearchResultCollectionView.isScrollEnabled = true
+        self.view.addSubview(self.searchResultCollectionView)
     }
     
     func initPathCollectionView(){
-        self.pathCollectionView.register(UINib(nibName: "TravelSpotCell", bundle: nil), forCellWithReuseIdentifier: pathCVIdentifier)
+        self.SelectedSpotsCollectionView.register(UINib(nibName: "TravelSpotCell", bundle: nil), forCellWithReuseIdentifier: SelectedSpotsCVIdentifier)
         
-        pathCollectionView.delegate = self
-        pathCollectionView.dataSource = self
+        SelectedSpotsCollectionView.delegate = self
+        SelectedSpotsCollectionView.dataSource = self
     }
     
     func initMapData(){
         path = GMSMutablePath()
         polyline = GMSPolyline()
-    }
-    
-    func initTourAPIManager(){
-        
     }
     
     func mapPolylineUpdateByPath(path: GMSPath){
@@ -112,27 +113,30 @@ extension WriteMapController: UISearchControllerDelegate, UISearchResultsUpdatin
     func updateSearchResults(for searchController: UISearchController) {
 
         tourAPIManager.querySearchByKeyword(keyword: searchController.searchBar.text!, completion: {spots in
+
             self.searchResult = spots
             
-            self.SearchResultCollectionView.reloadData()
+            self.searchResultCollectionView.reloadData()
         })
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        self.view.addSubview(self.SearchResultCollectionView)
+        self.navigationItem.rightBarButtonItem = nil
+        searchResultCollectionView.isHidden = false
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        SearchResultCollectionView.removeFromSuperview()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "다음", style: .plain, target: self, action: nil)
+        searchResultCollectionView.isHidden = true
     }
 }
 
 extension WriteMapController: UICollectionViewDataSource, UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
-        case pathCollectionView:
+        case SelectedSpotsCollectionView:
             return selectedSpots.count
-        case SearchResultCollectionView:
+        case searchResultCollectionView:
             return searchResult.count
         default:
             return 0
@@ -145,18 +149,22 @@ extension WriteMapController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
-        case pathCollectionView:
-            let cell: TravelSpotCell = pathCollectionView.dequeueReusableCell(withReuseIdentifier: pathCVIdentifier, for: indexPath) as! TravelSpotCell
+        case SelectedSpotsCollectionView:
+            let cell: TravelSpotCell = SelectedSpotsCollectionView.dequeueReusableCell(withReuseIdentifier: SelectedSpotsCVIdentifier, for: indexPath) as! TravelSpotCell
             
             cell.spotName.text = selectedSpots[indexPath.row].title
             
             return cell
-        case SearchResultCollectionView:
-            let cell: TravelSpotCell = SearchResultCollectionView.dequeueReusableCell(withReuseIdentifier: AutoCompleteCVIdentifier, for: indexPath) as! TravelSpotCell
+        case searchResultCollectionView:
+            let cell: TravelSpotCell = searchResultCollectionView.dequeueReusableCell(withReuseIdentifier: SearchResultCVIdentifier, for: indexPath) as! TravelSpotCell
+            
+            searchResultImage.append(UIImage(named: "full_placeholder")!)
+
+            cell.spotImage.image = searchResultImage[indexPath.row]
             
             cell.spotName.text = searchResult[indexPath.row].title
             
-            if searchResult[indexPath.row].category1?.code == courseCategoryCode{
+            if searchResult[indexPath.row].category1?.code == CourseCategoryCode{
                 cell.backgroundColor = UIColor.brown
             } else{
                 cell.backgroundColor = UIColor.orange
@@ -167,16 +175,17 @@ extension WriteMapController: UICollectionViewDataSource, UICollectionViewDelega
             return UICollectionViewCell()
         }
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
-        case pathCollectionView:
+        case SelectedSpotsCollectionView:
             return
-        case SearchResultCollectionView:
+        case searchResultCollectionView:
+            print("click")
             let selectedSpot = searchResult[indexPath.row]
             
-            if selectedSpot.category1?.code == courseCategoryCode{
-                
+            if selectedSpot.category1?.code == CourseCategoryCode{
+
             } else{
                 selectedSpots.append(selectedSpot)
                 
@@ -198,7 +207,7 @@ extension WriteMapController: UICollectionViewDataSource, UICollectionViewDelega
                 }
             }
             
-            pathCollectionView.reloadData()
+            SelectedSpotsCollectionView.reloadData()
             
         default:
             return
