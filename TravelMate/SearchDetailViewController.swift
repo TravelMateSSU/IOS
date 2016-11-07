@@ -1,51 +1,57 @@
 //
-//  CourseViewController.swift
+//  SearchDetailViewController.swift
 //  TravelMate
 //
-//  Created by 이동규 on 2016. 11. 3..
+//  Created by 이동규 on 2016. 11. 6..
 //  Copyright © 2016년 이동규. All rights reserved.
 //
 
 import UIKit
 
-class CourseViewController: UIViewController {
+class SearchDetailViewController: UIViewController {
 
+    var spot: SpotModel!
+    
     var courses: [CourseModel] = []
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        createSubView()
+    }
+    
+    func createSubView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = 300
         tableView.rowHeight = UITableViewAutomaticDimension
+     
+        tableView.register(UINib(nibName: "CourseTimelineCell", bundle: nil), forCellReuseIdentifier: "CourseTimelineCell")
         
         #if DEBUG
-            let manager = TourAPIManager()
-            manager.querySearchByKeyword(keyword: "서울", completion: {
-                spots in
-                var course: CourseModel!
-                for (index, spot) in spots.enumerated() {
-                    if index % 5 == 0 {
-                        course = CourseModel(title: spot.title, content: "dfjlaksdjlfkjsaledkfjalksdjclksjfkladjsklfjsakldjfkladjsflkajsdlfkjaklsfjlkdjsalfkjsdlkfjaksldjflkasjdfklajskldfjaskldjfaklsjdfklasjdfkl", authorId: "123456", authorName: "이동규", spots: [], createdAt: Int(Date().timeIntervalSince1970), status: .active)
-                        self.courses.append(course)
-                    }
-                    course.spots.append(spot)
-                }
-                self.tableView.reloadData()
-            })
+            let course = CourseModel(title: "경복궁", content: "좋았습니다.", authorId: "123456", authorName: "이동규", spots: [spot, spot, spot, spot], createdAt: Int(Date().timeIntervalSince1970), status: .active)
+            course.id = 1
+            courses.append(course)
+            courses.append(course)
+            tableView.reloadData()
+        #else
+            // TODO: courses 데이터 요청
         #endif
-        
-        self.tableView.register(UINib(nibName: "CourseTimelineCell", bundle: nil), forCellReuseIdentifier: "CourseTimelineCell")
     }
 }
 
-extension CourseViewController: UITableViewDelegate, UITableViewDataSource {
+
+extension SearchDetailViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return courses.count
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CourseTimelineCell") as? CourseTimelineCell
-        
+
         guard let courseCell = cell else {
             return UITableViewCell()
         }
@@ -53,14 +59,10 @@ extension CourseViewController: UITableViewDelegate, UITableViewDataSource {
         let course = courses[indexPath.row]
         courseCell.course = course
         courseCell.titleLabel.text = course.title
-        courseCell.createdAtLabel.text = Date(timeIntervalSince1970: Double(course.createdAt!)).description
+        courseCell.createdAtLabel.text = Date(timeIntervalSince1970: TimeInterval(Double(course.createdAt))).description
         courseCell.statusLabel.text = course.status.getText()
         courseCell.statusLabel.textColor = course.status.getColor()
         return courseCell
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return courses.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
