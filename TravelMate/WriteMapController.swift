@@ -85,6 +85,8 @@ class WriteMapController: UIViewController{
     }
     
     func initMapData(){
+        mapContainerView.delegate = self
+        
         path = GMSMutablePath()
         polyline = GMSPolyline()
     }
@@ -106,6 +108,21 @@ class WriteMapController: UIViewController{
     func mapCameraUpdateToMarker(marker: GMSMarker){
         let update = GMSCameraUpdate.setTarget(marker.position, zoom: 15)
         mapContainerView.animate(with: update)
+    }
+    
+    func hideKeyboard(){
+        searchController.searchBar.endEditing(true)
+    }
+}
+
+extension WriteMapController: GMSMapViewDelegate{
+    
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+        hideKeyboard()
+    }
+    
+    func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
+        hideKeyboard()
     }
 }
 
@@ -187,6 +204,8 @@ extension WriteMapController: UICollectionViewDataSource, UICollectionViewDelega
             if selectedSpot.category1?.code == CourseCategoryCode{
 
             } else{
+                hideKeyboard()
+                
                 selectedSpots.append(selectedSpot)
                 
                 let marker = GMSMarker()
