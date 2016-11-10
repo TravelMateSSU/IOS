@@ -32,6 +32,10 @@
 		905D0AF41DCB6D8000CDAF47 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905D0AF31DCB6D8000CDAF47 /* TimelineViewController.swift */; };
 		905D0AF61DCB760900CDAF47 /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905D0AF51DCB760900CDAF47 /* CourseViewController.swift */; };
 		905D0AF81DCB764200CDAF47 /* EpilogueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905D0AF71DCB764200CDAF47 /* EpilogueViewController.swift */; };
+		906AF8AB1DD3293400987039 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906AF8AA1DD3293400987039 /* MyPageViewController.swift */; };
+		906AF8AD1DD32A0A00987039 /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 906AF8AC1DD32A0A00987039 /* ProfileCell.xib */; };
+		906AF8AF1DD32A6F00987039 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906AF8AE1DD32A6F00987039 /* UserModel.swift */; };
+		906AF8B11DD32B8C00987039 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906AF8B01DD32B8C00987039 /* ProfileCell.swift */; };
 		906EE1AC1DC4A1D100A9A292 /* WriteEpilogueView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 906EE1AB1DC4A1D100A9A292 /* WriteEpilogueView.xib */; };
 		906EE1AE1DC4A1E000A9A292 /* WriteEpilogueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906EE1AD1DC4A1E000A9A292 /* WriteEpilogueView.swift */; };
 		906EE1B01DC4A3D800A9A292 /* EvaluationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906EE1AF1DC4A3D800A9A292 /* EvaluationView.swift */; };
@@ -134,6 +138,10 @@
 		905D0AF31DCB6D8000CDAF47 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		905D0AF51DCB760900CDAF47 /* CourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
 		905D0AF71DCB764200CDAF47 /* EpilogueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpilogueViewController.swift; sourceTree = "<group>"; };
+		906AF8AA1DD3293400987039 /* MyPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		906AF8AC1DD32A0A00987039 /* ProfileCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
+		906AF8AE1DD32A6F00987039 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		906AF8B01DD32B8C00987039 /* ProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		906EE1AB1DC4A1D100A9A292 /* WriteEpilogueView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WriteEpilogueView.xib; sourceTree = "<group>"; };
 		906EE1AD1DC4A1E000A9A292 /* WriteEpilogueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteEpilogueView.swift; sourceTree = "<group>"; };
 		906EE1AF1DC4A3D800A9A292 /* EvaluationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvaluationView.swift; sourceTree = "<group>"; };
@@ -223,6 +231,7 @@
 				90EBE7AE1DCB86B100938D9F /* CourseModel.swift */,
 				906EE1B31DC4AD1100A9A292 /* EpilogueModel.swift */,
 				906EE1B51DC4DE7900A9A292 /* RealmString.swift */,
+				906AF8AE1DD32A6F00987039 /* UserModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -320,6 +329,7 @@
 				907CD13C1DCF00C20069B3BE /* SearchViewController.swift */,
 				907CD1421DCF1A350069B3BE /* SearchDetailViewController.swift */,
 				907CD1461DCF2F0E0069B3BE /* DetailCourseViewController.swift */,
+				906AF8AA1DD3293400987039 /* MyPageViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -343,6 +353,7 @@
 				906EE1C01DC5CF8000A9A292 /* WriteEpilogueCell.swift */,
 				907CD12A1DCC94BE0069B3BE /* EpilogueImageCell.swift */,
 				907CD1401DCF08410069B3BE /* SearchPreviewCell.swift */,
+				906AF8B01DD32B8C00987039 /* ProfileCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -377,6 +388,7 @@
 				906EE1BE1DC5CF1800A9A292 /* WriteEpilogueCell.xib */,
 				907CD1281DCC94870069B3BE /* EpilogueImageCell.xib */,
 				907CD13E1DCF07C00069B3BE /* SearchPreviewCell.xib */,
+				906AF8AC1DD32A0A00987039 /* ProfileCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -550,6 +562,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				906EE1B81DC5115700A9A292 /* RemovableImageView.xib in Resources */,
+				906AF8AD1DD32A0A00987039 /* ProfileCell.xib in Resources */,
 				90B2EA451DC373BE008FC3EE /* WriteEpilogue.storyboard in Resources */,
 				907CD1451DCF2E4A0069B3BE /* Course.storyboard in Resources */,
 				902A2EB11DA4E14E001FEA9F /* travelmate.db in Resources */,
@@ -653,12 +666,14 @@
 				903261A31D9E2E2A00CE31DC /* ViewController.swift in Sources */,
 				902A2EB41DA4E478001FEA9F /* DBManager.swift in Sources */,
 				906EE1B61DC4DE7900A9A292 /* RealmString.swift in Sources */,
+				906AF8AF1DD32A6F00987039 /* UserModel.swift in Sources */,
 				903261E41D9E4C6500CE31DC /* RouteView.swift in Sources */,
 				906EE1BA1DC511AE00A9A292 /* RemovableImageView.swift in Sources */,
 				902A2EB71DA4F93F001FEA9F /* CategoryModel.swift in Sources */,
 				907CD1471DCF2F0E0069B3BE /* DetailCourseViewController.swift in Sources */,
 				906EE1AE1DC4A1E000A9A292 /* WriteEpilogueView.swift in Sources */,
 				903262081DA255D500CE31DC /* TourAPIManager.swift in Sources */,
+				906AF8B11DD32B8C00987039 /* ProfileCell.swift in Sources */,
 				903261A11D9E2E2A00CE31DC /* AppDelegate.swift in Sources */,
 				907CD1431DCF1A350069B3BE /* SearchDetailViewController.swift in Sources */,
 				905D0AF41DCB6D8000CDAF47 /* TimelineViewController.swift in Sources */,
@@ -666,6 +681,7 @@
 				907CD1411DCF08410069B3BE /* SearchPreviewCell.swift in Sources */,
 				0896CFCB1DB4CD9B00FE2C47 /* WriteMenuController.swift in Sources */,
 				906EE1C11DC5CF8000A9A292 /* WriteEpilogueCell.swift in Sources */,
+				906AF8AB1DD3293400987039 /* MyPageViewController.swift in Sources */,
 				902A2D861DA36C8B001FEA9F /* SpotModel.swift in Sources */,
 				0863186D1DB08A6F0057DE9A /* MainMenuController.swift in Sources */,
 				907CD13D1DCF00C20069B3BE /* SearchViewController.swift in Sources */,
