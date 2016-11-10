@@ -17,6 +17,7 @@
 		902A2EB11DA4E14E001FEA9F /* travelmate.db in Resources */ = {isa = PBXBuildFile; fileRef = 902A2EB01DA4E14E001FEA9F /* travelmate.db */; };
 		902A2EB41DA4E478001FEA9F /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902A2EB31DA4E478001FEA9F /* DBManager.swift */; };
 		902A2EB71DA4F93F001FEA9F /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902A2EB61DA4F93F001FEA9F /* CategoryModel.swift */; };
+		902E49C61DD464E300BB817D /* ErrorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902E49C51DD464E300BB817D /* ErrorEnum.swift */; };
 		903261A11D9E2E2A00CE31DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903261A01D9E2E2A00CE31DC /* AppDelegate.swift */; };
 		903261A31D9E2E2A00CE31DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903261A21D9E2E2A00CE31DC /* ViewController.swift */; };
 		903261A61D9E2E2A00CE31DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 903261A41D9E2E2A00CE31DC /* Main.storyboard */; };
@@ -111,6 +112,7 @@
 		902A2EB01DA4E14E001FEA9F /* travelmate.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = travelmate.db; sourceTree = SOURCE_ROOT; };
 		902A2EB31DA4E478001FEA9F /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		902A2EB61DA4F93F001FEA9F /* CategoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		902E49C51DD464E300BB817D /* ErrorEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorEnum.swift; sourceTree = "<group>"; };
 		9032619D1D9E2E2A00CE31DC /* TravelMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		903261A01D9E2E2A00CE31DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		903261A21D9E2E2A00CE31DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				903262071DA255D500CE31DC /* TourAPIManager.swift */,
 				902A2EB31DA4E478001FEA9F /* DBManager.swift */,
 				906EE1BC1DC5AFBF00A9A292 /* NetworkManager.swift */,
+				902E49C51DD464E300BB817D /* ErrorEnum.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -661,6 +664,7 @@
 				903262081DA255D500CE31DC /* TourAPIManager.swift in Sources */,
 				903261A11D9E2E2A00CE31DC /* AppDelegate.swift in Sources */,
 				907CD1431DCF1A350069B3BE /* SearchDetailViewController.swift in Sources */,
+				902E49C61DD464E300BB817D /* ErrorEnum.swift in Sources */,
 				905D0AF41DCB6D8000CDAF47 /* TimelineViewController.swift in Sources */,
 				90EBE7AD1DCB84D300938D9F /* CourseTimelineCell.swift in Sources */,
 				907CD1411DCF08410069B3BE /* SearchPreviewCell.swift in Sources */,
