@@ -38,6 +38,15 @@ class MyPageViewController: UIViewController {
             user = UserModel()
             user.id = "123456"
             user.name = "이동규"
+            
+        #else
+            let manager = NetworkManager()
+            manager.loadUsersSharedCourses(user: user, complition: {
+                courses in
+                print(courses)
+                self.courses = courses
+            })
+            
         #endif
         
         tableView.contentInset = .zero
