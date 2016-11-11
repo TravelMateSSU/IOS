@@ -10,6 +10,9 @@
 		086318671DAFA6A90057DE9A /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086318661DAFA6A90057DE9A /* KakaoOpenSDK.framework */; };
 		0863186B1DAFE5C40057DE9A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0863186A1DAFE5C40057DE9A /* LoginViewController.swift */; };
 		0863186D1DB08A6F0057DE9A /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0863186C1DB08A6F0057DE9A /* MainMenuController.swift */; };
+		088B83891DD31517004044BA /* WriteMapDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088B83881DD31517004044BA /* WriteMapDetailController.swift */; };
+		088B838B1DD480EA004044BA /* WriteMapDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 088B838A1DD480EA004044BA /* WriteMapDetailView.xib */; };
+		088B838D1DD4AD21004044BA /* WriteMapDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088B838C1DD4AD21004044BA /* WriteMapDetailView.swift */; };
 		0896CFCB1DB4CD9B00FE2C47 /* WriteMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0896CFCA1DB4CD9B00FE2C47 /* WriteMenuController.swift */; };
 		0899E7081DC1CF6500AE3BF3 /* TravelSpotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0899E7071DC1CF6500AE3BF3 /* TravelSpotCell.xib */; };
 		0899E70C1DC21E5D00AE3BF3 /* TravelSpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899E70B1DC21E5D00AE3BF3 /* TravelSpotCell.swift */; };
@@ -104,6 +107,9 @@
 		086318661DAFA6A90057DE9A /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
 		0863186A1DAFE5C40057DE9A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0863186C1DB08A6F0057DE9A /* MainMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
+		088B83881DD31517004044BA /* WriteMapDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteMapDetailController.swift; sourceTree = "<group>"; };
+		088B838A1DD480EA004044BA /* WriteMapDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WriteMapDetailView.xib; sourceTree = "<group>"; };
+		088B838C1DD4AD21004044BA /* WriteMapDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteMapDetailView.swift; sourceTree = "<group>"; };
 		0896CFCA1DB4CD9B00FE2C47 /* WriteMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteMenuController.swift; sourceTree = "<group>"; };
 		0899E7071DC1CF6500AE3BF3 /* TravelSpotCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TravelSpotCell.xib; sourceTree = "<group>"; };
 		0899E70B1DC21E5D00AE3BF3 /* TravelSpotCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelSpotCell.swift; sourceTree = "<group>"; };
@@ -315,6 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				907CD1341DCCE3C60069B3BE /* WriteMapController.swift */,
+				088B83881DD31517004044BA /* WriteMapDetailController.swift */,
 				903261A21D9E2E2A00CE31DC /* ViewController.swift */,
 				0863186A1DAFE5C40057DE9A /* LoginViewController.swift */,
 				0863186C1DB08A6F0057DE9A /* MainMenuController.swift */,
@@ -336,6 +343,7 @@
 				906EE1AD1DC4A1E000A9A292 /* WriteEpilogueView.swift */,
 				906EE1AF1DC4A3D800A9A292 /* EvaluationView.swift */,
 				906EE1B91DC511AE00A9A292 /* RemovableImageView.swift */,
+				088B838C1DD4AD21004044BA /* WriteMapDetailView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -370,6 +378,7 @@
 				906EE1AB1DC4A1D100A9A292 /* WriteEpilogueView.xib */,
 				906EE1B11DC4A3E300A9A292 /* EvaluationView.xib */,
 				906EE1B71DC5115700A9A292 /* RemovableImageView.xib */,
+				088B838A1DD480EA004044BA /* WriteMapDetailView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -560,6 +569,7 @@
 				907CD1451DCF2E4A0069B3BE /* Course.storyboard in Resources */,
 				902A2EB11DA4E14E001FEA9F /* travelmate.db in Resources */,
 				0899E7081DC1CF6500AE3BF3 /* TravelSpotCell.xib in Resources */,
+				088B838B1DD480EA004044BA /* WriteMapDetailView.xib in Resources */,
 				906EE1B21DC4A3E300A9A292 /* EvaluationView.xib in Resources */,
 				907CD13F1DCF07C00069B3BE /* SearchPreviewCell.xib in Resources */,
 				906EE1BF1DC5CF1800A9A292 /* WriteEpilogueCell.xib in Resources */,
@@ -666,11 +676,13 @@
 				902A2EB71DA4F93F001FEA9F /* CategoryModel.swift in Sources */,
 				907CD1471DCF2F0E0069B3BE /* DetailCourseViewController.swift in Sources */,
 				906EE1AE1DC4A1E000A9A292 /* WriteEpilogueView.swift in Sources */,
+				088B838D1DD4AD21004044BA /* WriteMapDetailView.swift in Sources */,
 				903262081DA255D500CE31DC /* TourAPIManager.swift in Sources */,
 				903261A11D9E2E2A00CE31DC /* AppDelegate.swift in Sources */,
 				907CD1431DCF1A350069B3BE /* SearchDetailViewController.swift in Sources */,
 				905D0AF41DCB6D8000CDAF47 /* TimelineViewController.swift in Sources */,
 				90EBE7AD1DCB84D300938D9F /* CourseTimelineCell.swift in Sources */,
+				088B83891DD31517004044BA /* WriteMapDetailController.swift in Sources */,
 				907CD1411DCF08410069B3BE /* SearchPreviewCell.swift in Sources */,
 				0896CFCB1DB4CD9B00FE2C47 /* WriteMenuController.swift in Sources */,
 				906EE1C11DC5CF8000A9A292 /* WriteEpilogueCell.swift in Sources */,

@@ -14,6 +14,7 @@ class WriteMapController: UIViewController{
     @IBOutlet weak var mapContainerView: GMSMapView!
     @IBOutlet weak var SelectedSpotsCollectionView: UICollectionView!
     
+    var nextBarButton: UIBarButtonItem! = nil
     var searchController: UISearchController!
     var searchResultCollectionView: UICollectionView!
     
@@ -37,7 +38,7 @@ class WriteMapController: UIViewController{
         
         initPathCollectionView()
         
-        initMapData()
+        initMapAndCamera()
         
         initAutoComplete()
     }
@@ -54,7 +55,8 @@ class WriteMapController: UIViewController{
         searchController.searchBar.placeholder = "가고싶은 장소나 코스를 입력해주세요"
         
         self.navigationItem.titleView = searchController.searchBar
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "다음", style: .plain, target: self, action: nil)
+        nextBarButton = UIBarButtonItem(title: "다음", style: .plain, target: self, action: #selector(moveWriteDetail))
+        self.navigationItem.rightBarButtonItem = nextBarButton
         
         self.definesPresentationContext = true
     }
@@ -84,7 +86,11 @@ class WriteMapController: UIViewController{
         SelectedSpotsCollectionView.dataSource = self
     }
     
-    func initMapData(){
+    func initMapAndCamera(){
+        let update = GMSCameraUpdate.setTarget(CLLocationCoordinate2DMake(36.500606687587016, 127.73958139121531), zoom: 7)
+
+        mapContainerView.moveCamera(update)
+        
         mapContainerView.delegate = self
         
         path = GMSMutablePath()
@@ -112,6 +118,16 @@ class WriteMapController: UIViewController{
     
     func hideKeyboard(){
         searchController.searchBar.endEditing(true)
+    }
+    
+    func moveWriteDetail(){
+        // 장소 한개 이상 선택해야 다음 작성 화면으로 넘어갈 수 있음.
+        guard let count:Int = selectedSpots.count , count > 0 else { return }
+        
+        let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+        let writeMapDetailController = mainStoryBoard.instantiateViewController(withIdentifier: "writemapdetail")
+        
+        self.navigationController?.pushViewController(writeMapDetailController, animated: true)
     }
 }
 
@@ -143,7 +159,7 @@ extension WriteMapController: UISearchControllerDelegate, UISearchResultsUpdatin
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "다음", style: .plain, target: self, action: nil)
+        self.navigationItem.rightBarButtonItem = nextBarButton
         searchResultCollectionView.isHidden = true
     }
 }
@@ -198,7 +214,6 @@ extension WriteMapController: UICollectionViewDataSource, UICollectionViewDelega
         case SelectedSpotsCollectionView:
             return
         case searchResultCollectionView:
-            print("click")
             let selectedSpot = searchResult[indexPath.row]
             
             if selectedSpot.category1?.code == CourseCategoryCode{

@@ -14,4 +14,8 @@ class NetworkManager {
     func insertEpilogue(epilogue: EpilogueModel, _ handler: (Bool, Int) -> Void) {
         handler(false, 200)
     }
+    
+    func insertRecruting(_ handler: (Bool, Int) -> Void){
+        handler(false, 200)
+    }
 }
