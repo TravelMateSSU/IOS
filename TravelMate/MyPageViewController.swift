@@ -140,4 +140,17 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return UITableViewCell()
     }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            let storyboard = UIStoryboard(name: "Course", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "DetailCourseViewController") as? DetailCourseViewController
+            
+            if let detailViewController = vc {
+                detailViewController.course = self.courses[indexPath.row]
+                self.navigationController?.pushViewController(detailViewController, animated: true)
+            }
+        }
+    }
 }
