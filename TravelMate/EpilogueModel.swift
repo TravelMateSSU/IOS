@@ -15,4 +15,13 @@ class EpilogueModel {
     var createdAt: Int!
     var description: String!
     var images = [UIImage]()
+    
+    
+    init() {
+        
+    }
+    
+    init(json: [String: AnyObject]) {
+        
+    }
 }
