@@ -14,10 +14,6 @@ class NetworkManager {
     let errorDict = [200: "success", -1: "Response Json 데이터 없음"]
     public let BASE_URL = "http://52.207.208.49:7777/"
     
-    func insertEpilogue(epilogue: EpilogueModel, _ handler: (Bool, Int) -> Void) {
-        handler(false, 200)
-    }
-    
     
     // 서버에서 후기 타임라인 리스트 load
     func loadEpilogueTimeline(time: Date, _ completion : @escaping ([EpilogueModel]?, Int) -> Void) {
@@ -81,7 +77,7 @@ class NetworkManager {
     
     
     // 서버에 후기 작성 데이터 전송
-    func sendNewEpilogue(epilogue: EpilogueModel, _ completion: @escaping (Int) -> Void) {
+    func requestEpilogueInsertion(epilogue: EpilogueModel, _ completion: @escaping (Int) -> Void) {
         let parameters: Parameters = ["epilogue": epilogue]
         Alamofire.request(BASE_URL, method: .post, parameters: parameters).responseJSON { response in
             if response.result.isSuccess {
@@ -104,7 +100,7 @@ class NetworkManager {
     
     
     // 서버에 코스 참가 의사 정보 전송
-    func sendJoinInCourseInfo(courseId: String, userId: String, isJoin: Bool, _ completion: @escaping (Int) -> Void) {
+    func requestJoinInCourseInfo(courseId: String, userId: String, isJoin: Bool, _ completion: @escaping (Int) -> Void) {
         let parameters: Parameters = ["course_id": courseId, "user_id": userId, "is_join": isJoin]
         Alamofire.request(BASE_URL, method: .post, parameters: parameters).responseJSON { response in
             if response.result.isSuccess {

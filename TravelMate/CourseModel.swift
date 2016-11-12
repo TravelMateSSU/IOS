@@ -51,11 +51,10 @@ class CourseModel {
     var travelEndDate: Date!
     var recruitEndDate: Date!
     
-    init(title: String, content: String, authorId: String, authorName: String, spots: [SpotModel], createdAt: Int, status: CourseStatus) {
+    init(title: String, content: String, author: UserModel, spots: [SpotModel], createdAt: Int, status: CourseStatus) {
         self.title = title
         self.content = content
-        self.authorName = authorName
-        self.authorId = authorId
+        self.author = author
         self.spots = spots
         self.createdAt = createdAt
         self.status = status
@@ -67,7 +66,7 @@ class CourseModel {
         }
         
         if let id = json["user_id"] {
-            self.authorId = id as? String
+//            self.authorId = id as? String
         }
         
         if let title = json["title"] {
@@ -107,6 +106,6 @@ class CourseModel {
         }
         
         // authorName
-        authorName = ""
+//        authorName = ""
     }
 }

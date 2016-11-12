@@ -66,9 +66,10 @@ class TimelineViewController: UIViewController, UITabBarDelegate {
                 var epilogues: [EpilogueModel] = []
                 let epilogue = EpilogueModel()
                 epilogue.id = 1
-                epilogue.authorId = "123456"
-                epilogue.authorName = "이동규"
-                epilogue.description = "내용"
+                let user = UserModel()
+                user.id = "123456"
+                user.name = "이동규"
+                epilogue.author = user
                 epilogue.createdAt = Int(Date().timeIntervalSince1970)
                 epilogues.append(epilogue)
                 epilogueVC.epilogues = epilogues

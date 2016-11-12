@@ -36,9 +36,9 @@ class EpilogueViewController: UIViewController, UITableViewDataSource, UITableVi
         
         let epilogue = epilogues[indexPath.row]
         epilogueCell.epilogue = epilogue
-        epilogueCell.nameLabel.text = epilogue.authorName
+        epilogueCell.nameLabel.text = epilogue.author.name
         epilogueCell.createdAtLabel.text = Date(timeIntervalSince1970: Double(epilogue.createdAt)).description
-        epilogueCell.descriptionLabel.text = epilogue.description
+        epilogueCell.descriptionLabel.text = epilogue.contents
         return epilogueCell
     }
     

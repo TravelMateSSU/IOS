@@ -27,6 +27,11 @@ class WriteEpilogueView: UIView, UICollectionViewDelegate, UICollectionViewDataS
     
     var height: CGFloat?
     
+    var isUpdate: Bool = false
+    
+    // 외부에서 epilogue를 Get할 때 description을 refresh한 뒤 리턴될 epilogue
+    private let syncContentsEpilogue = EpilogueModel()
+    
     var epilogue: EpilogueModel!
     
     let imagePicker = UIImagePickerController()
@@ -86,6 +91,7 @@ class WriteEpilogueView: UIView, UICollectionViewDelegate, UICollectionViewDataS
     override func awakeFromNib() {
         // 텍스트 뷰 top에서 부터 시작
         descriptionTextView.setContentOffset(.zero, animated: false)
+        descriptionTextView.delegate = self
         
         imageCollectionView.register(UINib(nibName: "WriteEpilogueCell", bundle: nil), forCellWithReuseIdentifier: "WriteEpilogueCell")
         
@@ -161,5 +167,11 @@ class WriteEpilogueView: UIView, UICollectionViewDelegate, UICollectionViewDataS
         if self.epilogue.images.isEmpty {
             imageCollectionViewHeight.constant = 0
         }
+    }
+}
+
+extension WriteEpilogueView: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        self.epilogue.contents = textView.text
     }
 }
