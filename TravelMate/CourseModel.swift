@@ -38,8 +38,7 @@ enum CourseStatus {
 
 class CourseModel {
     var id: Int!
-    var authorId: String!
-    var authorName: String
+    var author: UserModel!
     var title: String!
     var content: String!
     var createdAt: Int!
