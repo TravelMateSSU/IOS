@@ -11,5 +11,6 @@ import UIKit
 class TravelSpotCell: UICollectionViewCell {
     @IBOutlet weak var spotImage: UIImageView!
     @IBOutlet weak var spotName: UILabel!
+    @IBOutlet weak var deleteButton: UIButton!
 
 }

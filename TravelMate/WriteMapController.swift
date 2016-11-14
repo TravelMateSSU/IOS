@@ -26,10 +26,13 @@ class WriteMapController: UIViewController{
     var searchResult: [SpotModel] = []
     var selectedSpots: [SpotModel] = []
     var searchResultImage: [UIImage] = []
+    var seletedSpotsImage: [UIImage] = []
     
     var path: GMSMutablePath!
     var polyline: GMSPolyline!
     var markers: [GMSMarker] = []
+    
+    var editMode = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,6 +87,9 @@ class WriteMapController: UIViewController{
         
         SelectedSpotsCollectionView.delegate = self
         SelectedSpotsCollectionView.dataSource = self
+        
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongGesture(gesture:)))
+        self.SelectedSpotsCollectionView.addGestureRecognizer(longPressGesture)
     }
     
     func initMapAndCamera(){
@@ -130,6 +136,17 @@ class WriteMapController: UIViewController{
         
         self.navigationController?.pushViewController(writeMapDetailController, animated: true)
     }
+    
+    @IBAction func seletedEditButton(_ sender: AnyObject) {
+        if editMode == false {
+            editMode = true
+        } else{
+            editMode = false
+        }
+        
+        SelectedSpotsCollectionView.reloadData()
+    }
+    
 }
 
 extension WriteMapController: GMSMapViewDelegate{
@@ -186,6 +203,19 @@ extension WriteMapController: UICollectionViewDataSource, UICollectionViewDelega
         case SelectedSpotsCollectionView:
             let cell: TravelSpotCell = SelectedSpotsCollectionView.dequeueReusableCell(withReuseIdentifier: SelectedSpotsCVIdentifier, for: indexPath) as! TravelSpotCell
             
+            if editMode == true {
+                cell.deleteButton.isHidden = false
+            } else{
+                cell.deleteButton.isHidden = true
+            }
+            
+            seletedSpotsImage.append(UIImage(named: "full_placeholder")!)
+            
+            cell.spotImage.image = seletedSpotsImage[indexPath.row]
+
+            cell.deleteButton.tag = indexPath.row
+            cell.deleteButton.addTarget(self, action: #selector(deleteSeletedSpot(sender:)), for: .touchUpInside)
+            
             cell.spotName.text = selectedSpots[indexPath.row].title
             
             return cell
@@ -195,7 +225,6 @@ extension WriteMapController: UICollectionViewDataSource, UICollectionViewDelega
             searchResultImage.append(UIImage(named: "full_placeholder")!)
 
             cell.spotImage.image = searchResultImage[indexPath.row]
-            
             cell.spotName.text = searchResult[indexPath.row].title
             
             if searchResult[indexPath.row].category1?.code == CourseCategoryCode{
@@ -203,7 +232,7 @@ extension WriteMapController: UICollectionViewDataSource, UICollectionViewDelega
             } else{
                 cell.backgroundColor = UIColor.orange
             }
-            
+
             return cell
         default:
             return UICollectionViewCell()
@@ -246,6 +275,57 @@ extension WriteMapController: UICollectionViewDataSource, UICollectionViewDelega
             
         default:
             return
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let tempSpot = selectedSpots.remove(at: sourceIndexPath.item)
+        selectedSpots.insert(tempSpot, at: destinationIndexPath.item)
+        
+        let tempImage = seletedSpotsImage.remove(at: sourceIndexPath.item)
+        seletedSpotsImage.insert(tempImage, at: destinationIndexPath.item)
+        
+        let tempMarker = markers.remove(at: sourceIndexPath.item)
+        markers.insert(tempMarker, at: destinationIndexPath.item)
+        
+        let tempPath = path.removeCoordinate(at: UInt(sourceIndexPath.item))
+        path.insert(tempMarker.position, at: UInt(destinationIndexPath.item))
+        
+        mapPolylineUpdateByPath(path: path)
+    }
+    
+    func deleteSeletedSpot(sender: UIButton){
+        print("seleted")
+        
+        selectedSpots.remove(at: sender.tag)
+        seletedSpotsImage.remove(at: sender.tag)
+        
+        markers[sender.tag].map = nil
+        markers.remove(at: sender.tag)
+        path.removeCoordinate(at: UInt(sender.tag))
+        
+        mapPolylineUpdateByPath(path: path)
+        SelectedSpotsCollectionView.reloadData()
+    }
+    
+    func handleLongGesture(gesture: UILongPressGestureRecognizer) {
+        
+        if editMode == false { return }
+        
+        switch(gesture.state) {
+        case UIGestureRecognizerState.began:
+            guard let seletedIndexPath = self.SelectedSpotsCollectionView.indexPathForItem(at: gesture.location(in: self.SelectedSpotsCollectionView)) else { break }
+            SelectedSpotsCollectionView.beginInteractiveMovementForItem(at: seletedIndexPath)
+        case UIGestureRecognizerState.changed:
+            SelectedSpotsCollectionView.updateInteractiveMovementTargetPosition(gesture.location(in: gesture.view!))
+        case UIGestureRecognizerState.ended:
+            SelectedSpotsCollectionView.endInteractiveMovement()
+        default:
+            SelectedSpotsCollectionView.cancelInteractiveMovement()
         }
     }
 }

@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // 카카오사용자 정보 얻어오는 함수
     private func getUserInfo(){
-        var userInfo = UserInfoModel(id: "0", nickName: "guest", profileImageURL: "", thumbnailImageURL: "")
+        var userInfo = UserInfoModel(id: "0", nickName: "guest", profileImageURL: "bagic", thumbnailImageURL: "bagic")
         networkManager = NetworkManager()
         
         KOSessionTask.meTask(completionHandler: { (user, error) in
@@ -66,6 +66,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         KOSessionTask.talkProfileTask(completionHandler: { (talkProfile, error) -> Void in
             if error != nil {
                 dump(error)
+                
+                self.setUserInfo(userInfo: userInfo)
             } else {
                 let profile = talkProfile as! KOTalkProfile
                 
@@ -73,10 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 userInfo.profileImageURL = profile.profileImageURL
                 userInfo.thumbnailImageURL = profile.thumbnailURL
                 
-                var userDefaults = UserDefaults.standard
-                let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: userInfo)
-                userDefaults.set(encodedData, forKey: "UserInfo")
-                userDefaults.synchronize()
+                self.setUserInfo(userInfo: userInfo)
                 
                 self.networkManager.tryLoginAndJoin(isJoin: false, userInfo: userInfo) { (err, code) in
                     if err {
@@ -96,6 +95,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         })
+    }
+    
+    private func setUserInfo(userInfo: UserInfoModel){
+        var userDefaults = UserDefaults.standard
+        let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: userInfo)
+        userDefaults.set(encodedData, forKey: "UserInfo")
+        userDefaults.synchronize()
     }
     
     // GoogleMaps
