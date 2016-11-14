@@ -10,6 +10,7 @@ import UIKit
 
 class DetailCourseViewController: UIViewController {
 
+    let networkManager = NetworkManager()
     var course: CourseModel!
     
     var epilogues: [EpilogueModel] = []
@@ -41,6 +42,16 @@ class DetailCourseViewController: UIViewController {
             epilogue.author = user
             epilogue.createdAt = Int(Date().timeIntervalSince1970)
             self.epilogues.append(epilogue)
+            
+        #else
+            networkManager.loadEpilogueinCourse(courseId: course.id, { (epilogues, code) in
+                if code == 200 {
+                    print("성공")
+                } else {
+                    print("실패")
+                }
+            })
+            
         #endif
     }
 }

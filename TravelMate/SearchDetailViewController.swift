@@ -10,6 +10,7 @@ import UIKit
 
 class SearchDetailViewController: UIViewController {
 
+    let networkManager = NetworkManager()
     var spot: SpotModel!
     
     var courses: [CourseModel] = []
@@ -40,7 +41,13 @@ class SearchDetailViewController: UIViewController {
             courses.append(course)
             tableView.reloadData()
         #else
-            // TODO: courses 데이터 요청
+            networkManager.loadCourseBySpot(spotId: spot.contentId, { (courses, code) in
+                if code == 200 {
+                    print("성공")
+                } else {
+                    print("실패")
+                }
+            })
         #endif
     }
 }

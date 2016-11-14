@@ -44,10 +44,14 @@ class MyPageViewController: UIViewController {
             
         #else
             let manager = NetworkManager()
-            manager.loadUsersSharedCourses(user: user, complition: {
-                courses in
-                print(courses)
-                self.courses = courses
+            manager.loadUsersSharedCourses(user: user, {
+                courses, code in
+                if code == 200 {
+                    print("성공")
+                    self.courses = courses!
+                } else {
+                    print("실패")
+                }
             })
             
         #endif

@@ -12,6 +12,8 @@ class CourseViewController: UIViewController {
 
     var courses: [CourseModel] = []
     
+    let networkManager = NetworkManager()
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -22,26 +24,19 @@ class CourseViewController: UIViewController {
         tableView.estimatedRowHeight = 300
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        #if DEBUG
-            let manager = TourAPIManager()
-            manager.querySearchByKeyword(keyword: "서울", completion: {
-                spots in
-                var course: CourseModel!
-                for (index, spot) in spots.enumerated() {
-                    if index % 5 == 0 {
-                        let user = UserModel()
-                        user.id = "123456"
-                        user.name = "이동규"
-                        course = CourseModel(title: spot.title, content: "dfjlaksdjlfkjsaledkfjalksdjclksjfkladjsklfjsakldjfkladjsflkajsdlfkjaklsfjlkdjsalfkjsdlkfjaksldjflkasjdfklajskldfjaskldjfaklsjdfklasjdfkl", author: user, spots: [], createdAt: Int(Date().timeIntervalSince1970), status: .active)
-                        self.courses.append(course)
-                    }
-                    course.spots.append(spot)
-                }
-                self.tableView.reloadData()
-            })
-        #endif
-        
         self.tableView.register(UINib(nibName: "CourseTimelineCell", bundle: nil), forCellReuseIdentifier: "CourseTimelineCell")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        networkManager.loadCourseTimeline(time: Date(), loadMoreCount: 0, {
+            courses, code in
+            if code == 200 {
+                print("성공")
+                self.courses = courses!
+            } else {
+                print("실패")
+            }
+        })
     }
 }
 
