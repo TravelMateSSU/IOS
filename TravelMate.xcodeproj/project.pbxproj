@@ -16,6 +16,7 @@
 		0896CFCB1DB4CD9B00FE2C47 /* WriteMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0896CFCA1DB4CD9B00FE2C47 /* WriteMenuController.swift */; };
 		0899E7081DC1CF6500AE3BF3 /* TravelSpotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0899E7071DC1CF6500AE3BF3 /* TravelSpotCell.xib */; };
 		0899E70C1DC21E5D00AE3BF3 /* TravelSpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899E70B1DC21E5D00AE3BF3 /* TravelSpotCell.swift */; };
+		08A5B4691DD9D79400CDDB09 /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A5B4681DD9D79400CDDB09 /* UserInfoModel.swift */; };
 		61AEBA0C5F49F7754471EF39 /* Pods_TravelMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6285CE044243A7D743C74E47 /* Pods_TravelMate.framework */; };
 		90119CF01DA6543E00FC6C56 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90119CEF1DA6543E00FC6C56 /* Error.swift */; };
 		902A2D861DA36C8B001FEA9F /* SpotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902A2D851DA36C8B001FEA9F /* SpotModel.swift */; };
@@ -113,6 +114,7 @@
 		0896CFCA1DB4CD9B00FE2C47 /* WriteMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteMenuController.swift; sourceTree = "<group>"; };
 		0899E7071DC1CF6500AE3BF3 /* TravelSpotCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TravelSpotCell.xib; sourceTree = "<group>"; };
 		0899E70B1DC21E5D00AE3BF3 /* TravelSpotCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelSpotCell.swift; sourceTree = "<group>"; };
+		08A5B4681DD9D79400CDDB09 /* UserInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
 		272ED57CF35E4DD33E650BEA /* Pods-TravelMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelMate/Pods-TravelMate.debug.xcconfig"; sourceTree = "<group>"; };
 		581729D83643D3975C9EC6C2 /* Pods-TravelMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelMate.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravelMate/Pods-TravelMate.release.xcconfig"; sourceTree = "<group>"; };
 		6285CE044243A7D743C74E47 /* Pods_TravelMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,6 +235,7 @@
 				90EBE7AE1DCB86B100938D9F /* CourseModel.swift */,
 				906EE1B31DC4AD1100A9A292 /* EpilogueModel.swift */,
 				906EE1B51DC4DE7900A9A292 /* RealmString.swift */,
+				08A5B4681DD9D79400CDDB09 /* UserInfoModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -664,6 +667,7 @@
 				907CD1351DCCE3C60069B3BE /* WriteMapController.swift in Sources */,
 				906EE1BD1DC5AFBF00A9A292 /* NetworkManager.swift in Sources */,
 				0863186B1DAFE5C40057DE9A /* LoginViewController.swift in Sources */,
+				08A5B4691DD9D79400CDDB09 /* UserInfoModel.swift in Sources */,
 				90EBE7B31DCC869400938D9F /* EpilogueTimelineCell.swift in Sources */,
 				905D0AF81DCB764200CDAF47 /* EpilogueViewController.swift in Sources */,
 				90119CF01DA6543E00FC6C56 /* Error.swift in Sources */,

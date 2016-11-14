@@ -54,4 +54,27 @@ class NetworkManager {
         
         handler(false, 200)
     }
+    
+    func tryLoginAndJoin(userInfo: UserInfoModel, _ handler: (Bool, Int) -> Void){
+        let urlString = "http://52.207.208.49:7777/user"
+        
+        let decoded  = UserDefaults.standard.object(forKey: "UserInfo") as! Data
+        let userInfo = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! UserInfoModel
+        
+        let requestParams = ["enroll_force":false,
+                             "user_id":userInfo.id,
+                             "user_name":userInfo.nickName,
+                             "profile_url":userInfo.thumbnailImageURL] as [String : Any]
+        
+        Alamofire.request(urlString, method: .post, parameters: requestParams, encoding: JSONEncoding.default, headers: [:])
+            .responseJSON{ response in
+                if let receive = response.result.value{
+                    print("myreceive: \(receive)")
+                } else{
+                    print(response)
+                }
+        }
+
+        handler(false, 200)
+    }
 }
