@@ -46,6 +46,13 @@ class DetailCourseViewController: UIViewController {
         #else
             networkManager.loadEpilogueinCourse(courseId: course.id, { (epilogues, code) in
                 if code == 200 {
+                    guard let epilogues = epilogues else {
+                        print("Epilgoue 데이터 없음")
+                        return
+                    }
+                    
+                    self.epilogues = epilogues
+                    self.tableView.reloadData()
                     print("성공")
                 } else {
                     print("실패")

@@ -33,6 +33,7 @@ class CourseViewController: UIViewController {
             if code == 200 {
                 print("성공")
                 self.courses = courses!
+                self.tableView.reloadData()
             } else {
                 print("실패")
             }
