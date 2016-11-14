@@ -8,7 +8,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WriteMapDetailView" customModule="TravelMate" customModuleProvider="target">
             <connections>
+                <outlet property="RecruitEndDay" destination="pXc-Ga-OJi" id="Z99-rI-YOE"/>
+                <outlet property="RecruitStartDay" destination="0fR-Rr-sPx" id="qRu-j5-ssa"/>
+                <outlet property="descriptionText" destination="vGV-zK-vYO" id="g2C-iT-U6h"/>
                 <outlet property="enrollButton" destination="KMd-sS-IId" id="1eD-P4-PHA"/>
+                <outlet property="maxPeople" destination="jfv-N3-RxF" id="5hr-5I-EyP"/>
+                <outlet property="titleText" destination="38N-NT-tM5" id="Ab3-jt-TOs"/>
+                <outlet property="travelEndDay" destination="Nfh-oc-7w8" id="6gd-ZG-RgX"/>
+                <outlet property="travelStartDay" destination="XUx-tj-Tdd" id="Xkr-Qs-FUa"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -38,7 +45,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="여행 시작 날짜" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XUx-tj-Tdd">
                     <frame key="frameInset" minX="30" minY="318" width="137" height="30"/>
@@ -67,9 +74,12 @@
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="datePickerMake:" destination="-1" eventType="editingDidBegin" id="Eod-8Z-O3W"/>
+                    </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMd-sS-IId">
-                    <frame key="frameInset" minX="136" minY="525" width="102" height="30"/>
+                    <frame key="frameInset" minX="120" minY="428" width="102" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="모집글 등록"/>
                 </button>

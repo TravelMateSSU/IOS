@@ -125,7 +125,8 @@ class WriteMapController: UIViewController{
         guard let count:Int = selectedSpots.count , count > 0 else { return }
         
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
-        let writeMapDetailController = mainStoryBoard.instantiateViewController(withIdentifier: "writemapdetail")
+        let writeMapDetailController = mainStoryBoard.instantiateViewController(withIdentifier: "writemapdetail") as! WriteMapDetailController
+        writeMapDetailController.spots = selectedSpots
         
         self.navigationController?.pushViewController(writeMapDetailController, animated: true)
     }

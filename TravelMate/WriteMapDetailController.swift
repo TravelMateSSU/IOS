@@ -11,6 +11,8 @@ import UIKit
 class WriteMapDetailController: UIViewController {
     @IBOutlet weak var writeView: WriteMapDetailView!
     
+    var spots: [SpotModel]!
+    
     override func viewWillAppear(_ animated: Bool) {
         writeView.enrollButton.addTarget(self, action: #selector(networkTest(_:)), for: .touchUpInside)
     }
@@ -27,8 +29,20 @@ class WriteMapDetailController: UIViewController {
     }
     
     @IBAction func networkTest(_ sender: AnyObject) {
+        guard let title = writeView.titleText.text else { return }
+        guard let content = writeView.descriptionText.text else { return }
+        let authorId = "123456789"
+        let authorName = "ppang"
+        let hashTag = "abc"
+        guard let travelStartDay = writeView.travelStartDay.text else { return }
+        guard let travelEndDay = writeView.travelEndDay.text else { return }
+        guard let recuritEndDay = writeView.RecruitEndDay.text else { return }
+        guard let maxPeople = Int(writeView.maxPeople.text!) else { return }
+        
+        var course = CourseModel(title: title, content: content, authorId: authorId, authorName: authorName, spots: spots, maxPeople: maxPeople, travelEndDay: travelEndDay, travelStartDay: travelStartDay, recuritEndDay: recuritEndDay, hashTag: hashTag)
+        
         let networkManager = NetworkManager()
-        networkManager.insertRecruting() { (err, code) in
+        networkManager.insertRecruting(course: course) { (err, code) in
             if err {
                 // 실패
                 print("실패")
