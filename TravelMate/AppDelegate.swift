@@ -78,13 +78,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 userDefaults.set(encodedData, forKey: "UserInfo")
                 userDefaults.synchronize()
                 
-                self.networkManager.tryLoginAndJoin(userInfo: userInfo) { (err, code) in
+                self.networkManager.tryLoginAndJoin(isJoin: false, userInfo: userInfo) { (err, code) in
                     if err {
-                        // 실패
-                        print("실패")
+                        print("로그인 실패")
                     } else {
-                        // 성공
                         print("로그인 성공")
+                        if code == 0{
+                            self.networkManager.tryLoginAndJoin(isJoin: true, userInfo: userInfo, { (err, code) in
+                                if err{
+                                    print("회원가입 실패")
+                                } else{
+                                    print("회원가입 성공")
+                                }
+                            })
+                        }
                     }
                 }
             }

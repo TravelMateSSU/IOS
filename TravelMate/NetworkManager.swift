@@ -15,10 +15,10 @@ class NetworkManager {
         handler(false, 200)
     }
     
-    func insertRecruting(course: CourseModel, _ handler: (Bool, Int) -> Void){
+    func insertRecruting(course: CourseModel, _ handler: @escaping (Bool, Int) -> Void){
 
-        let urlString = "http://52.207.208.49:7777/echo"
-        //let urlString = "http://52.207.208.49:7777/event/enroll"
+        //let urlString = "http://52.207.208.49:7777/echo"
+        let urlString = "http://52.207.208.49:7777/event/enroll"
         
         var spotList = [[String:Any]]()
         for spot in course.spots{
@@ -32,8 +32,11 @@ class NetworkManager {
             let spot = ["content_id": content_id, "sequence_id": sequence_id, "content_type": content_type, "image_url": image_url] as [String : Any]
             spotList.append(spot)
         }
+        
+        let decoded  = UserDefaults.standard.object(forKey: "UserInfo") as! Data
+        let userInfo = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! UserInfoModel
 
-        let requestParams = ["user_id":"13131324",
+        let requestParams = ["user_id":userInfo.id,
                              "title":course.title,
                              "description":course.content,
                              "course_list":spotList,
@@ -45,36 +48,35 @@ class NetworkManager {
         
         Alamofire.request(urlString, method: .post, parameters: requestParams, encoding: JSONEncoding.default, headers: [:])
             .responseJSON{ response in
-                if let receive = response.result.value{
+                if let receive = response.result.value as? [String: AnyObject]{
                     print("myreceive: \(receive)")
+                    handler(false, 200)
                 } else{
-                    print(response)
+                    handler(true, 200)
                 }
         }
-        
-        handler(false, 200)
     }
     
-    func tryLoginAndJoin(userInfo: UserInfoModel, _ handler: (Bool, Int) -> Void){
+    func tryLoginAndJoin(isJoin: Bool,userInfo: UserInfoModel, _ handler: @escaping (Bool, Int) -> Void){
         let urlString = "http://52.207.208.49:7777/user"
         
         let decoded  = UserDefaults.standard.object(forKey: "UserInfo") as! Data
         let userInfo = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! UserInfoModel
         
-        let requestParams = ["enroll_force":false,
+        let requestParams = ["enroll_force":isJoin,
                              "user_id":userInfo.id,
                              "user_name":userInfo.nickName,
                              "profile_url":userInfo.thumbnailImageURL] as [String : Any]
         
         Alamofire.request(urlString, method: .post, parameters: requestParams, encoding: JSONEncoding.default, headers: [:])
             .responseJSON{ response in
-                if let receive = response.result.value{
+                if let receive = response.result.value as? [String: AnyObject]{
                     print("myreceive: \(receive)")
+                    
+                    handler(false, receive["login"] as! Int)
                 } else{
-                    print(response)
+                    handler(true, 200)
                 }
         }
-
-        handler(false, 200)
     }
 }
