@@ -29,6 +29,8 @@ class EpilogueViewController: UIViewController {
             epilogues, code in
             if code == 200 {
                 print("성공")
+                self.epilogues = epilogues
+                self.tableView.reloadData()
             } else {
                 print("실패")
             }

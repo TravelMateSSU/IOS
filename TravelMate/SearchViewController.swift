@@ -51,6 +51,12 @@ extension SearchViewController: UISearchBarDelegate {
             spots, code in
             if code == 200 {
                 print("성공")
+                guard let spots = spots else {
+                    print("Spots 데이터 없음")
+                    return
+                }
+                self.spots = spots
+                self.tableView.reloadData()
             } else {
                 print("실패")
             }

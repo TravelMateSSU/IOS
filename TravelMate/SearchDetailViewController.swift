@@ -44,6 +44,14 @@ class SearchDetailViewController: UIViewController {
             networkManager.loadCourseBySpot(spotId: spot.contentId, { (courses, code) in
                 if code == 200 {
                     print("성공")
+                    
+                    guard let courses = courses else {
+                        print("Courses 데이터 없음")
+                        return
+                    }
+                    
+                    self.courses = courses
+                    self.tableView.reloadData()
                 } else {
                     print("실패")
                 }
