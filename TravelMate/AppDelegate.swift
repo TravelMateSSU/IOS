@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import Alamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var loginViewController: UIViewController?
     var mainViewController: UIViewController?
+    
+    var networkManager: NetworkManager!
     
     private func setupEntryController(){
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -39,6 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let mainViewController = self.mainViewController as! UINavigationController
             
             mainViewController.popToRootViewController(animated: true)
+        }else{
+            getUserInfo()
         }
         
         self.window?.rootViewController = isOpened ? self.mainViewController : self.loginViewController
@@ -47,14 +52,56 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // 카카오사용자 정보 얻어오는 함수
     private func getUserInfo(){
+        var userInfo = UserInfoModel(id: "0", nickName: "guest", profileImageURL: "bagic", thumbnailImageURL: "bagic")
+        networkManager = NetworkManager()
+        
         KOSessionTask.meTask(completionHandler: { (user, error) in
             if user != nil {
-                var koUser: KOUser
-                koUser = user as! KOUser
-                print("userid: \(koUser.id)")
-                print("nickname: \(koUser.property(forKey: "nickname"))")
+                let koUser = user as! KOUser
+                
+                userInfo.id = koUser.id.stringValue
             }
         })
+        
+        KOSessionTask.talkProfileTask(completionHandler: { (talkProfile, error) -> Void in
+            if error != nil {
+                dump(error)
+                
+                self.setUserInfo(userInfo: userInfo)
+            } else {
+                let profile = talkProfile as! KOTalkProfile
+                
+                userInfo.nickName = profile.nickName
+                userInfo.profileImageURL = profile.profileImageURL
+                userInfo.thumbnailImageURL = profile.thumbnailURL
+                
+                self.setUserInfo(userInfo: userInfo)
+                
+                self.networkManager.tryLoginAndJoin(isJoin: false, userInfo: userInfo) { (err, code) in
+                    if err {
+                        print("로그인 실패")
+                    } else {
+                        print("로그인 성공")
+                        if code == 0{
+                            self.networkManager.tryLoginAndJoin(isJoin: true, userInfo: userInfo, { (err, code) in
+                                if err{
+                                    print("회원가입 실패")
+                                } else{
+                                    print("회원가입 성공")
+                                }
+                            })
+                        }
+                    }
+                }
+            }
+        })
+    }
+    
+    private func setUserInfo(userInfo: UserInfoModel){
+        var userDefaults = UserDefaults.standard
+        let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: userInfo)
+        userDefaults.set(encodedData, forKey: "UserInfo")
+        userDefaults.synchronize()
     }
     
     // GoogleMaps

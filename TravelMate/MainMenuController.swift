@@ -47,7 +47,7 @@ class MainMenuController: UITabBarController {
         writeBtn.removeFromSuperview()
     }
     
-    // WriteBtn 클릭 이벤트
+    // WriteBtn 클릭 이벤트 - btn animation, presentWriteMenu
     func doWrite(sender: UIButton!){
         UIView.animate(withDuration: 0.3, animations: { () -> Void in
             let identity = sender.transform.isIdentity
@@ -65,7 +65,6 @@ class MainMenuController: UITabBarController {
         })
     }
     
-    // 1번째 WriteMenu 클릭 이벤트
     func presentWriteMenu(identity: Bool){
         
         if identity {

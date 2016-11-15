@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="JFc-e3-1HM" customClass="TravelSpotCell" customModule="TravelMate" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6MG-Vq-e3K"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXH-Gf-bCp">
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abx-GD-Mk1">
+                        <state key="normal" title="X"/>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Abx-GD-Mk1" secondAttribute="trailing" id="D8e-tw-BXK"/>
+                <constraint firstAttribute="bottom" secondItem="qXH-Gf-bCp" secondAttribute="bottom" id="Ee3-6b-6jz"/>
+                <constraint firstItem="6MG-Vq-e3K" firstAttribute="leading" secondItem="JFc-e3-1HM" secondAttribute="leading" id="HIQ-Lm-rNL"/>
+                <constraint firstItem="qXH-Gf-bCp" firstAttribute="top" secondItem="6MG-Vq-e3K" secondAttribute="bottom" constant="5" id="Kmm-kp-9r6"/>
+                <constraint firstAttribute="trailing" secondItem="qXH-Gf-bCp" secondAttribute="trailing" id="QIN-ED-ofb"/>
+                <constraint firstItem="qXH-Gf-bCp" firstAttribute="leading" secondItem="JFc-e3-1HM" secondAttribute="leading" id="VMz-P8-j99"/>
+                <constraint firstAttribute="trailing" secondItem="6MG-Vq-e3K" secondAttribute="trailing" id="bdq-XG-zYS"/>
+                <constraint firstItem="6MG-Vq-e3K" firstAttribute="top" secondItem="JFc-e3-1HM" secondAttribute="top" id="sD3-FW-u5d"/>
+                <constraint firstItem="Abx-GD-Mk1" firstAttribute="top" secondItem="JFc-e3-1HM" secondAttribute="top" id="xUU-Jz-3r8"/>
+            </constraints>
+            <size key="customSize" width="108" height="109"/>
+            <connections>
+                <outlet property="deleteButton" destination="Abx-GD-Mk1" id="bzt-aO-89G"/>
+                <outlet property="spotImage" destination="6MG-Vq-e3K" id="jI0-yN-bv5"/>
+                <outlet property="spotName" destination="qXH-Gf-bCp" id="Heb-23-DEH"/>
+            </connections>
+            <point key="canvasLocation" x="-30" y="-75"/>
+        </collectionViewCell>
+    </objects>
+</document>
