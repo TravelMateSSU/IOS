@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var networkManager: NetworkManager!
     
+    var userInfo = UserInfoModel(id: "0", nickName: "guest", profileImageURL: "bagic", thumbnailImageURL: "bagic")
+    
     private func setupEntryController(){
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
         
@@ -42,6 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let mainViewController = self.mainViewController as! UINavigationController
             
             mainViewController.popToRootViewController(animated: true)
+            
+            setUserInfo(userInfo: self.userInfo)
         }else{
             getUserInfo()
         }
@@ -52,14 +56,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // 카카오사용자 정보 얻어오는 함수
     private func getUserInfo(){
-        var userInfo = UserInfoModel(id: "0", nickName: "guest", profileImageURL: "bagic", thumbnailImageURL: "bagic")
         networkManager = NetworkManager()
         
         KOSessionTask.meTask(completionHandler: { (user, error) in
             if user != nil {
                 let koUser = user as! KOUser
                 
-                userInfo.id = koUser.id.stringValue
+                self.userInfo.id = koUser.id.stringValue
             }
         })
         
@@ -67,23 +70,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if error != nil {
                 dump(error)
                 
-                self.setUserInfo(userInfo: userInfo)
+                self.setUserInfo(userInfo: self.userInfo)
             } else {
                 let profile = talkProfile as! KOTalkProfile
                 
-                userInfo.nickName = profile.nickName
-                userInfo.profileImageURL = profile.profileImageURL
-                userInfo.thumbnailImageURL = profile.thumbnailURL
+                self.userInfo.nickName = profile.nickName
+                self.userInfo.profileImageURL = profile.profileImageURL
+                self.userInfo.thumbnailImageURL = profile.thumbnailURL
                 
-                self.setUserInfo(userInfo: userInfo)
+                self.setUserInfo(userInfo: self.userInfo)
                 
-                self.networkManager.tryLoginAndJoin(isJoin: false, userInfo: userInfo) { (err, code) in
+                self.networkManager.tryLoginAndJoin(isJoin: false, userInfo: self.userInfo) { (err, code) in
                     if err {
                         print("로그인 실패")
                     } else {
                         print("로그인 성공")
                         if code == 0{
-                            self.networkManager.tryLoginAndJoin(isJoin: true, userInfo: userInfo, { (err, code) in
+                            self.networkManager.tryLoginAndJoin(isJoin: true, userInfo: self.userInfo, { (err, code) in
                                 if err{
                                     print("회원가입 실패")
                                 } else{

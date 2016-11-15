@@ -10,9 +10,9 @@ import UIKit
 
 class RouteView: UIView {
     
-    let SMALL_SIZE = 20
-    let MIDDLE_SIZE = 25
-    let BIG_SIZE = 30
+    let SMALL_SIZE = 15
+    let MIDDLE_SIZE = 20
+    let BIG_SIZE = 25
     
     var points: [[(x: Int, y: Int)]] = []
     var titlePoints: [(x: Int, y: Int)] = []
@@ -57,13 +57,14 @@ class RouteView: UIView {
             /// 여행 경로 꼭짓점 그리기
             let layer = CAShapeLayer()
             layer.path = UIBezierPath(roundedRect: CGRect(x: point.x - MIDDLE_SIZE >> 1, y: point.y - MIDDLE_SIZE >> 1, width: MIDDLE_SIZE, height: MIDDLE_SIZE), cornerRadius: 10).cgPath
-            layer.fillColor = UIColor.red.cgColor
+            layer.fillColor = UIColor(red: 65/255, green: 176/255, blue: 237/255, alpha: 1).cgColor
             self.layer.addSublayer(layer)
             
             /// 여행 경로 관광지 이름 label
-            let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+            let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
             titleLabel.text = spots[i].title
-            titleLabel.sizeToFit()
+            titleLabel.numberOfLines = 3
+            titleLabel.font = UIFont(name: titleLabel.font.fontName, size: 12)
             titleLabel.textAlignment = .center
             titleLabel.frame.size.width = CGFloat(Int(self.frame.size.width) >> 2)
             titleLabel.tintColor = UIColor.black
@@ -84,7 +85,7 @@ class RouteView: UIView {
                 dotPath.move(to: CGPoint(x: lastPoint.x, y: lastPoint.y))
                 dotPath.addLine(to: CGPoint(x: point.x, y: point.y))
                 dotPath.close()
-                UIColor.red.set()
+                UIColor.darkGray.set()
                 dotPath.fill()
                 dotPath.stroke()
             }

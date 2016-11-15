@@ -291,7 +291,7 @@ class NetworkManager {
         let decoded  = UserDefaults.standard.object(forKey: "UserInfo") as! Data
         let userInfo = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! UserInfoModel
 
-        let requestParams = ["user_id":userInfo.id,
+        let requestParsams = ["user_id":userInfo.id,
                              "title":course.title,
                              "description":course.content,
                              "course_list":spotList,
@@ -301,7 +301,7 @@ class NetworkManager {
                              "event_end_time":course.recuritEndDay,
                              "hash_tag":"abc"] as [String : Any]
         
-        Alamofire.request(urlString, method: .post, parameters: requestParams, encoding: JSONEncoding.default, headers: [:])
+        Alamofire.request(urlString, method: .post, parameters: requestParsams, encoding: JSONEncoding.default, headers: [:])
             .responseJSON{ response in
                 if let receive = response.result.value as? [String: AnyObject]{
                     print("myreceive: \(receive)")

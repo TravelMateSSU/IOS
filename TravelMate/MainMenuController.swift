@@ -27,8 +27,8 @@ class MainMenuController: UITabBarController {
     func createWriteBtn(){
         let writeBtnImage = UIImage(named: "ic_add_circle_36pt")
         
-        writeBtn.frame = CGRect(x: 0.0, y: win.frame.size.height - 42, width: 42, height: 42)
-        writeBtn.center = CGPoint(x: win.center.x, y: writeBtn.center.y)
+        writeBtn.frame = CGRect(x: 0.0, y: win.frame.size.height - 50, width: 42, height: 42)
+        writeBtn.center = CGPoint(x: win.center.x+(win.center.x/4*3), y: writeBtn.center.y)
         writeBtn.setBackgroundImage(writeBtnImage, for: .normal)
         
         writeBtn.addTarget(self, action: #selector(doWrite(sender:)), for: .touchUpInside)

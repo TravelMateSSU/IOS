@@ -285,8 +285,6 @@
 				903261A71D9E2E2A00CE31DC /* Assets.xcassets */,
 				902A2EB01DA4E14E001FEA9F /* travelmate.db */,
 				903261AC1D9E2E2A00CE31DC /* Info.plist */,
-				903261CE1D9E2F4D00CE31DC /* Route.xib */,
-				903261E31D9E4C6500CE31DC /* RouteView.swift */,
 			);
 			path = TravelMate;
 			sourceTree = "<group>";
@@ -357,6 +355,7 @@
 				906EE1AF1DC4A3D800A9A292 /* EvaluationView.swift */,
 				906EE1B91DC511AE00A9A292 /* RemovableImageView.swift */,
 				088B838C1DD4AD21004044BA /* WriteMapDetailView.swift */,
+				903261E31D9E4C6500CE31DC /* RouteView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -393,6 +392,7 @@
 				906EE1B11DC4A3E300A9A292 /* EvaluationView.xib */,
 				906EE1B71DC5115700A9A292 /* RemovableImageView.xib */,
 				088B838A1DD480EA004044BA /* WriteMapDetailView.xib */,
+				903261CE1D9E2F4D00CE31DC /* Route.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
