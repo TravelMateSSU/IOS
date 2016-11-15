@@ -164,7 +164,6 @@ extension WriteMapController: UISearchControllerDelegate, UISearchResultsUpdatin
     func updateSearchResults(for searchController: UISearchController) {
 
         tourAPIManager.querySearchByKeyword(keyword: searchController.searchBar.text!, completion: {spots in
-
             self.searchResult = spots
             
             self.searchResultCollectionView.reloadData()
@@ -228,9 +227,9 @@ extension WriteMapController: UICollectionViewDataSource, UICollectionViewDelega
             cell.spotName.text = searchResult[indexPath.row].title
             
             if searchResult[indexPath.row].category1?.code == CourseCategoryCode{
-                cell.backgroundColor = UIColor.brown
+                cell.backgroundColor = UIColor.gray
             } else{
-                cell.backgroundColor = UIColor.orange
+                cell.backgroundColor = UIColor.white
             }
 
             return cell
