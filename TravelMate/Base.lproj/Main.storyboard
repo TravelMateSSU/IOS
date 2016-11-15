@@ -405,6 +405,11 @@
             <objects>
                 <tabBarController storyboardIdentifier="main" id="Plt-Gn-mPG" customClass="MainMenuController" customModule="TravelMate" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="xdO-Nb-xBi">
+                        <barButtonItem key="leftBarButtonItem" title="로그아웃" id="R3c-2Y-3ir">
+                            <connections>
+                                <action selector="doLogout:" destination="Plt-Gn-mPG" id="8Mo-on-y0N"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="검색" id="aBA-1e-brk">
                             <connections>
                                 <segue destination="gjI-u8-MgK" kind="show" id="Ow7-Lq-k5v"/>
