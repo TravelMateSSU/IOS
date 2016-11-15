@@ -10,7 +10,6 @@
         <!--View Controller-->
         <scene sceneID="Tua-Yb-DgN">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gxu-B7-F1q" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="jwD-yO-y7B" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6P6-Mq-fr1"/>
@@ -23,6 +22,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" enabled="NO" title="" id="5Uo-LX-tqq"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gxu-B7-F1q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-463" y="772"/>
         </scene>
@@ -152,7 +152,7 @@
         <scene sceneID="TlD-bu-i59">
             <objects>
                 <navigationController storyboardIdentifier="navigator" id="EHS-li-G4g" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QST-EB-bYH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="QST-EB-bYH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -177,6 +177,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeImage" translatesAutoresizingMaskIntoConstraints="NO" id="Ewp-Vv-csN"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pfp-lB-djr">
                                 <color key="backgroundColor" red="1" green="0.92156862745098034" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -200,8 +201,7 @@
                                     <action selector="doGuestLogin:" destination="tC1-61-SqX" eventType="touchUpInside" id="2XG-mQ-6P7"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeImage" translatesAutoresizingMaskIntoConstraints="NO" id="Ewp-Vv-csN"/>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TraveMate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAq-mt-iWl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TravelMate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAq-mt-iWl">
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -218,7 +218,6 @@
                             <constraint firstItem="Pfp-lB-djr" firstAttribute="leading" secondItem="2hz-DY-NER" secondAttribute="leading" id="5rc-CL-5hZ"/>
                             <constraint firstItem="Ikg-Yv-aWN" firstAttribute="top" secondItem="aFq-5M-64c" secondAttribute="bottom" id="7Cn-1n-aYz"/>
                             <constraint firstAttribute="trailing" secondItem="aFq-5M-64c" secondAttribute="trailing" id="F3Z-tt-O1j"/>
-                            <constraint firstItem="Pfp-lB-djr" firstAttribute="top" secondItem="Ewp-Vv-csN" secondAttribute="bottom" id="MMQ-gA-M4X"/>
                             <constraint firstItem="IAq-mt-iWl" firstAttribute="top" secondItem="AFe-zV-eq8" secondAttribute="bottom" constant="15" id="Mwi-Ke-tFe"/>
                             <constraint firstAttribute="trailing" secondItem="Ewp-Vv-csN" secondAttribute="trailing" id="NXc-78-DQ6"/>
                             <constraint firstItem="Ewp-Vv-csN" firstAttribute="leading" secondItem="2hz-DY-NER" secondAttribute="leading" id="REa-QN-SOZ"/>
@@ -226,6 +225,7 @@
                             <constraint firstItem="aFq-5M-64c" firstAttribute="leading" secondItem="2hz-DY-NER" secondAttribute="leading" id="eem-a7-MEO"/>
                             <constraint firstItem="aFq-5M-64c" firstAttribute="top" secondItem="Pfp-lB-djr" secondAttribute="bottom" id="lda-Z5-G6a"/>
                             <constraint firstItem="IAq-mt-iWl" firstAttribute="centerX" secondItem="Ewp-Vv-csN" secondAttribute="centerX" id="sSZ-Bq-gly"/>
+                            <constraint firstItem="Ikg-Yv-aWN" firstAttribute="top" secondItem="Ewp-Vv-csN" secondAttribute="bottom" id="tga-FV-ltL"/>
                             <constraint firstItem="Ewp-Vv-csN" firstAttribute="top" secondItem="2hz-DY-NER" secondAttribute="top" id="uAD-n4-YWl"/>
                             <constraint firstItem="Pfp-lB-djr" firstAttribute="height" secondItem="aFq-5M-64c" secondAttribute="height" id="v4o-Al-aZc"/>
                             <constraint firstAttribute="trailing" secondItem="Pfp-lB-djr" secondAttribute="trailing" id="wcR-4j-evr"/>
