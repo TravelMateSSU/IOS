@@ -20,6 +20,48 @@
                ReferencedContainer = "container:TravelMate.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "903261B01D9E2E2A00CE31DC"
+               BuildableName = "TravelMateTests.xctest"
+               BlueprintName = "TravelMateTests"
+               ReferencedContainer = "container:TravelMate.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "903261BB1D9E2E2A00CE31DC"
+               BuildableName = "TravelMateUITests.xctest"
+               BlueprintName = "TravelMateUITests"
+               ReferencedContainer = "container:TravelMate.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "903261F81D9FB83300CE31DC"
+               BuildableName = "TravelMateUITestsSnapshot.xctest"
+               BlueprintName = "TravelMateUITestsSnapshot"
+               ReferencedContainer = "container:TravelMate.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

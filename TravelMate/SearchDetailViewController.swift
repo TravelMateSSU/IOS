@@ -10,6 +10,7 @@ import UIKit
 
 class SearchDetailViewController: UIViewController {
 
+    let networkManager = NetworkManager()
     var spot: SpotModel!
     
     var courses: [CourseModel] = []
@@ -31,13 +32,30 @@ class SearchDetailViewController: UIViewController {
         tableView.register(UINib(nibName: "CourseTimelineCell", bundle: nil), forCellReuseIdentifier: "CourseTimelineCell")
         
         #if DEBUG
-            let course = CourseModel(title: "경복궁", content: "좋았습니다.", authorId: "123456", authorName: "이동규", spots: [spot, spot, spot, spot], createdAt: Int(Date().timeIntervalSince1970), status: .active)
+            let user = UserModel()
+            user.id = "123456"
+            user.name = "이동규"
+            let course = CourseModel(title: "경복궁", content: "좋았습니다.", author: user, spots: [spot, spot, spot, spot], createdAt: Int(Date().timeIntervalSince1970), status: .active)
             course.id = 1
             courses.append(course)
             courses.append(course)
             tableView.reloadData()
         #else
-            // TODO: courses 데이터 요청
+            networkManager.loadCourseBySpot(spotId: spot.contentId, { (courses, code) in
+                if code == 200 {
+                    print("성공")
+                    
+                    guard let courses = courses else {
+                        print("Courses 데이터 없음")
+                        return
+                    }
+                    
+                    self.courses = courses
+                    self.tableView.reloadData()
+                } else {
+                    print("실패")
+                }
+            })
         #endif
     }
 }

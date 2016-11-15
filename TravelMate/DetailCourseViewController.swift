@@ -10,6 +10,7 @@ import UIKit
 
 class DetailCourseViewController: UIViewController {
 
+    let networkManager = NetworkManager()
     var course: CourseModel!
     
     var epilogues: [EpilogueModel] = []
@@ -35,11 +36,29 @@ class DetailCourseViewController: UIViewController {
         #if DEBUG
             let epilogue = EpilogueModel()
             epilogue.id = 1
-            epilogue.authorId = "123456"
-            epilogue.authorName = "이동규"
-            epilogue.description = "내용"
+            let user = UserModel()
+            user.id = "123456"
+            user.name = "이동규"
+            epilogue.author = user
             epilogue.createdAt = Int(Date().timeIntervalSince1970)
             self.epilogues.append(epilogue)
+            
+        #else
+            networkManager.loadEpilogueinCourse(courseId: course.id, { (epilogues, code) in
+                if code == 200 {
+                    guard let epilogues = epilogues else {
+                        print("Epilgoue 데이터 없음")
+                        return
+                    }
+                    
+                    self.epilogues = epilogues
+                    self.tableView.reloadData()
+                    print("성공")
+                } else {
+                    print("실패")
+                }
+            })
+            
         #endif
     }
 }
@@ -102,9 +121,9 @@ extension DetailCourseViewController: UITableViewDelegate, UITableViewDataSource
             
             let epilogue = epilogues[indexPath.row]
             epilogueCell.epilogue = epilogue
-            epilogueCell.nameLabel.text = epilogue.authorName
+            epilogueCell.nameLabel.text = epilogue.author.name
             epilogueCell.createdAtLabel.text = Date(timeIntervalSince1970: TimeInterval(integerLiteral: Int64(epilogue.createdAt))).description
-            epilogueCell.descriptionLabel.text = epilogue.description
+            epilogueCell.descriptionLabel.text = epilogue.contents
             return epilogueCell
         }
         

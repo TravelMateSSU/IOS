@@ -40,41 +40,4 @@ class TimelineViewController: UIViewController, UITabBarDelegate {
             epilogueView.isHidden = false
         }
     }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "CourseSegue" {
-            #if DEBUG
-                let manager = TourAPIManager()
-                let vc = segue.destination as? CourseViewController
-                guard let courseVC = vc else {
-                    return
-                }
-                manager.querySearchByKeyword(keyword: "서울", completion: {
-                    spots in
-                })
-            #else
-                
-            #endif
-        } else if segue.identifier == "EpilogueSegue" {
-            #if DEBUG
-                let vc = segue.destination as? EpilogueViewController
-                
-                guard let epilogueVC = vc else {
-                    return
-                }
-                var epilogues: [EpilogueModel] = []
-                let epilogue = EpilogueModel()
-                epilogue.id = 1
-                epilogue.authorId = "123456"
-                epilogue.authorName = "이동규"
-                epilogue.description = "내용"
-                epilogue.createdAt = Int(Date().timeIntervalSince1970)
-                epilogues.append(epilogue)
-                epilogueVC.epilogues = epilogues
-            #else
-            
-            #endif
-        }
-    }
 }

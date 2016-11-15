@@ -12,6 +12,8 @@ import DKImagePickerController
 // 후기 작성 뷰컨트롤러
 class WriteEpilogueViewController: UIViewController, ImagePickDelegate {
     
+    let networkManager = NetworkManager()
+    
     @IBOutlet weak var writeEpilogueView: WriteEpilogueView!
     
     @IBAction func writeCompletionPressed(_ sender: UIBarButtonItem) {
@@ -19,16 +21,14 @@ class WriteEpilogueViewController: UIViewController, ImagePickDelegate {
     }
     
     @IBAction func submitPressed(_ sender: UIBarButtonItem) {
-        let networkManager = NetworkManager()
-        networkManager.insertEpilogue(epilogue: writeEpilogueView.epilogue) { (err, code) in
-            if err {
-                // 실패
-                print("실패")
+        networkManager.requestEpilogueInsertion(epilogue: writeEpilogueView.epilogue, {
+            code in
+            if code == 200 {
+                print("성공")
             } else {
-                // 성공
-                dismiss(animated: true, completion: nil)
+                print("실패")
             }
-        }
+        })
     }
     
     @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {

@@ -8,21 +8,50 @@
 
 import UIKit
 
-class EpilogueViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class EpilogueViewController: UIViewController {
 
     var epilogues: [EpilogueModel] = []
+    
+    let networkManager = NetworkManager()
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        initTableView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        networkManager.loadEpilogueTimeline(time: Date(), loadMoreCount: 0, {
+            epilogues, code in
+            if code == 200 {
+                print("성공")
+
+                guard let epilogues = epilogues else {
+                    print("Epilogues 데이터 없음")
+                    return
+                }
+                self.epilogues = epilogues
+                self.tableView.reloadData()
+            } else {
+                print("실패")
+            }
+        })
+    }
+}
+
+extension EpilogueViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func initTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: "EpilogueTimelineCell", bundle: nil), forCellReuseIdentifier: "EpilogueTimelineCell")
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return epilogues.count
     }
@@ -36,9 +65,9 @@ class EpilogueViewController: UIViewController, UITableViewDataSource, UITableVi
         
         let epilogue = epilogues[indexPath.row]
         epilogueCell.epilogue = epilogue
-        epilogueCell.nameLabel.text = epilogue.authorName
+        epilogueCell.nameLabel.text = epilogue.author.name
         epilogueCell.createdAtLabel.text = Date(timeIntervalSince1970: Double(epilogue.createdAt)).description
-        epilogueCell.descriptionLabel.text = epilogue.description
+        epilogueCell.descriptionLabel.text = epilogue.contents
         return epilogueCell
     }
     

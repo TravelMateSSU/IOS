@@ -10,6 +10,8 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
+    let networkManager = NetworkManager()
+    
     var spots: [SpotModel] = []
     
     var searchBar: UISearchBar!
@@ -45,16 +47,20 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        #if DEBUG
-            let manager = TourAPIManager()
-            manager.querySearchByKeyword(keyword: searchText, completion: {
-                spots in
+        networkManager.loadSpotsByKeyword(keyword: searchText, {
+            spots, code in
+            if code == 200 {
+                print("성공")
+                guard let spots = spots else {
+                    print("Spots 데이터 없음")
+                    return
+                }
                 self.spots = spots
                 self.tableView.reloadData()
-            })
-        #else
-        
-        #endif
+            } else {
+                print("실패")
+            }
+        })
     }
 }
 

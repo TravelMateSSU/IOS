@@ -27,7 +27,10 @@ class MyPageViewController: UIViewController {
                 var course: CourseModel!
                 for (index, spot) in spots.enumerated() {
                     if index % 5 == 0 {
-                        course = CourseModel(title: spot.title, content: "dfjlaksdjlfkjsaledkfjalksdjclksjfkladjsklfjsakldjfkladjsflkajsdlfkjaklsfjlkdjsalfkjsdlkfjaksldjflkasjdfklajskldfjaskldjfaklsjdfklasjdfkl", authorId: "123456", authorName: "이동규", spots: [], createdAt: Int(Date().timeIntervalSince1970), status: .active)
+                        let user = UserModel()
+                        user.id = "123456"
+                        user.name = "이동규"
+                        course = CourseModel(title: spot.title, content: "dfjlaksdjlfkjsaledkfjalksdjclksjfkladjsklfjsakldjfkladjsflkajsdlfkjaklsfjlkdjsalfkjsdlkfjaksldjflkasjdfklajskldfjaskldjfaklsjdfklasjdfkl", author: user, spots: [], createdAt: Int(Date().timeIntervalSince1970), status: .active)
                         self.courses.append(course)
                     }
                     course.spots.append(spot)
@@ -41,10 +44,15 @@ class MyPageViewController: UIViewController {
             
         #else
             let manager = NetworkManager()
-            manager.loadUsersSharedCourses(user: user, complition: {
-                courses in
-                print(courses)
-                self.courses = courses
+            manager.loadUsersSharedCourses(user: user, {
+                courses, code in
+                if code == 200 {
+                    print("성공")
+                    self.courses = courses!
+                    self.tableView.reloadData()
+                } else {
+                    print("실패")
+                }
             })
             
         #endif
