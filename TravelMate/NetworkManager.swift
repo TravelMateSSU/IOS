@@ -277,8 +277,8 @@ class NetworkManager {
         
         var spotList = [[String:Any]]()
         for spot in course.spots{
-            let content_id = spot.contentId
-            let content_type = spot.contentTypeId
+            let content_id = spot.contentId!
+            let content_type = spot.contentTypeId!
             guard var sequence_id = course.spots.index(of: spot) else { return }
             sequence_id += 1
             var image_url: String! = "bagic"
