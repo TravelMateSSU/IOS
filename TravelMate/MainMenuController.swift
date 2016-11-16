@@ -10,13 +10,10 @@ import UIKit
 
 class MainMenuController: UITabBarController {
     let win: UIWindow = ((UIApplication.shared.delegate?.window)!)!
-    let writeBtn: UIButton = UIButton(type: .custom)
-    
-    override func viewDidLoad() {
-        createWriteBtn()
-    }
+    var writeBtn: UIButton!
     
     override func viewWillAppear(_ animated: Bool) {
+        createWriteBtn()
         addWriteBtn()
     }
     
@@ -27,7 +24,8 @@ class MainMenuController: UITabBarController {
     func createWriteBtn(){
         let writeBtnImage = UIImage(named: "ic_add_circle_36pt")
         
-        writeBtn.frame = CGRect(x: 0.0, y: win.frame.size.height - 42, width: 42, height: 42)
+        writeBtn = UIButton(type: .custom)
+        writeBtn.frame = CGRect(x: 0.0, y: win.frame.size.height - 50, width: 42, height: 42)
         writeBtn.center = CGPoint(x: win.center.x, y: writeBtn.center.y)
         writeBtn.setBackgroundImage(writeBtnImage, for: .normal)
         
@@ -41,13 +39,14 @@ class MainMenuController: UITabBarController {
     func addWriteBtn(){
         writeBtn.transform = CGAffineTransform.identity
         win.addSubview(writeBtn)
+        win.updateFocusIfNeeded()
     }
     
     func removeWriteBtn(){
         writeBtn.removeFromSuperview()
     }
     
-    // WriteBtn 클릭 이벤트
+    // WriteBtn 클릭 이벤트 - btn animation, presentWriteMenu
     func doWrite(sender: UIButton!){
         UIView.animate(withDuration: 0.3, animations: { () -> Void in
             let identity = sender.transform.isIdentity
@@ -65,7 +64,6 @@ class MainMenuController: UITabBarController {
         })
     }
     
-    // 1번째 WriteMenu 클릭 이벤트
     func presentWriteMenu(identity: Bool){
         
         if identity {
@@ -81,6 +79,16 @@ class MainMenuController: UITabBarController {
 
         } else{
             navigationController?.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func doLogout(_ sender: AnyObject) {
+        KOSession.shared().logoutAndClose{ success, error in
+            if success{
+                print("로그아웃 성공")
+            } else{
+                print("로그아웃 실패 \(error)")
+            }
         }
     }
 }

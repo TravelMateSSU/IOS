@@ -28,6 +28,8 @@ class TourAPIManager: NSObject, XMLParserDelegate {
     var elementName: String!
     
     func querySearchByKeyword(keyword: String, completion: @escaping ([SpotModel]!) -> Void) {
+        spots.removeAll()
+        
         let parameters: [String: Any] = [
             /* API_KEY에서 %값이 %25로 인코딩 되는 문제를 해결하려면 removeingPercentEncoding을 통해 한 번 디코딩해주고 전송해야함(2중 인코딩 방지) */
             "ServiceKey": API_KEY.removingPercentEncoding!,

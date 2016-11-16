@@ -51,6 +51,15 @@ class CourseModel {
     var travelEndDate: Date!
     var recruitEndDate: Date!
     
+    var authorId: String!
+    var authorName: String!
+    var maxPeople: Int!
+    var travelEndDay: String!
+    var travelStartDay: String!
+    var recuritEndDay: String!
+    var hashTag: String!
+    
+
     init(title: String, content: String, author: UserModel, spots: [SpotModel], createdAt: Int, status: CourseStatus) {
         self.title = title
         self.content = content
@@ -58,6 +67,19 @@ class CourseModel {
         self.spots = spots
         self.createdAt = createdAt
         self.status = status
+    }
+    
+    init(title: String, content: String, authorId: String, authorName: String, spots: [SpotModel], maxPeople: Int, travelEndDay: String, travelStartDay: String, recuritEndDay: String, hashTag: String){
+        self.title = title
+        self.content = content
+        self.authorId = authorId
+        self.authorName = authorName
+        self.spots = spots
+        self.maxPeople = maxPeople
+        self.travelEndDay = travelEndDay
+        self.travelStartDay = travelStartDay
+        self.recuritEndDay = recuritEndDay
+        self.hashTag = hashTag
     }
     
     init(json: [String: AnyObject]) {
@@ -105,7 +127,6 @@ class CourseModel {
             self.createdAt = createdAt as? Int
         }
         
-        // authorName
-//        authorName = ""
     }
+
 }

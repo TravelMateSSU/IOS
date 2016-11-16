@@ -10,6 +10,10 @@ import UIKit
 
 class LoginViewController: UIViewController{
     
+    override func viewDidLoad() {
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
     @IBAction func doKakaoLogin(_ sender: AnyObject) {
         
         let session: KOSession = KOSession.shared()
