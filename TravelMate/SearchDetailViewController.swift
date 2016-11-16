@@ -32,10 +32,10 @@ class SearchDetailViewController: UIViewController {
         tableView.register(UINib(nibName: "CourseTimelineCell", bundle: nil), forCellReuseIdentifier: "CourseTimelineCell")
         
         #if DEBUG
-            let user = UserModel()
+            let user = UserInfoModel()
             user.id = "123456"
-            user.name = "이동규"
-            let course = CourseModel(title: "경복궁", content: "좋았습니다.", author: user, spots: [spot, spot, spot, spot], createdAt: Int(Date().timeIntervalSince1970), status: .active)
+            user.nickName = "이동규"
+            let course = CourseModel(title: "경복궁", content: "굿", author: user, spots: [spot], maxCompanionNum: 10, travelEndDate: "2016-12-25", travelStartDate: "2016-12-12", recruitEndDate: "2016-12-25", hashTag: "")
             course.id = 1
             courses.append(course)
             courses.append(course)

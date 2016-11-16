@@ -39,7 +39,10 @@ class WriteMapDetailController: UIViewController {
         guard let recuritEndDay = writeView.RecruitEndDay.text else { return }
         guard let maxPeople = Int(writeView.maxPeople.text!) else { return }
         
-        var course = CourseModel(title: title, content: content, authorId: authorId, authorName: authorName, spots: spots, maxPeople: maxPeople, travelEndDay: travelEndDay, travelStartDay: travelStartDay, recuritEndDay: recuritEndDay, hashTag: hashTag)
+        let user = UserInfoModel()
+        user.id = authorId
+        user.nickName = authorName
+        var course = CourseModel(title: title, content: content, author: user, spots: spots, maxCompanionNum: maxPeople, travelEndDate: travelEndDay, travelStartDate: travelStartDay, recruitEndDate: recuritEndDay, hashTag: hashTag)
         
         let networkManager = NetworkManager()
         networkManager.insertRecruting(course: course) { (err, code) in

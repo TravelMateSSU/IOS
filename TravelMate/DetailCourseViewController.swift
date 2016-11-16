@@ -36,9 +36,9 @@ class DetailCourseViewController: UIViewController {
         #if DEBUG
             let epilogue = EpilogueModel()
             epilogue.id = 1
-            let user = UserModel()
+            let user = UserInfoModel()
             user.id = "123456"
-            user.name = "이동규"
+            user.nickName = "이동규"
             epilogue.author = user
             epilogue.createdAt = Int(Date().timeIntervalSince1970)
             self.epilogues.append(epilogue)
@@ -121,7 +121,7 @@ extension DetailCourseViewController: UITableViewDelegate, UITableViewDataSource
             
             let epilogue = epilogues[indexPath.row]
             epilogueCell.epilogue = epilogue
-            epilogueCell.nameLabel.text = epilogue.author.name
+            epilogueCell.nameLabel.text = epilogue.author.nickName
             epilogueCell.createdAtLabel.text = Date(timeIntervalSince1970: TimeInterval(integerLiteral: Int64(epilogue.createdAt))).description
             epilogueCell.descriptionLabel.text = epilogue.contents
             return epilogueCell
