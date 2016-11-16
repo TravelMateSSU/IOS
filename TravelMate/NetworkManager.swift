@@ -240,7 +240,7 @@ class NetworkManager {
     
     
     // 서버에서 유저가 공유한 글 리스트 받아오기
-    func loadUsersSharedCourses(user: UserModel, _ completion: @escaping (([CourseModel]?, Int) -> Void)) {
+    func loadUsersSharedCourses(user: UserInfoModel, _ completion: @escaping (([CourseModel]?, Int) -> Void)) {
         Alamofire.request(BASE_URL /* + URL */).responseJSON(completionHandler: {
             response in
             if response.result.isSuccess {
@@ -295,10 +295,10 @@ class NetworkManager {
                              "title":course.title,
                              "description":course.content,
                              "course_list":spotList,
-                             "max_tourist":course.maxPeople,
-                             "start_time":course.travelStartDay,
-                             "end_time":course.travelEndDay,
-                             "event_end_time":course.recuritEndDay,
+                             "max_tourist":course.maxCompanionNum,
+                             "start_time":course.travelStartDate,
+                             "end_time":course.travelEndDate,
+                             "event_end_time":course.recruitEndDate,
                              "hash_tag":"abc"] as [String : Any]
         
         Alamofire.request(urlString, method: .post, parameters: requestParsams, encoding: JSONEncoding.default, headers: [:])

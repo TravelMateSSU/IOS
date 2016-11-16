@@ -14,6 +14,18 @@ class UserInfoModel: NSObject, NSCoding {
     var profileImageURL: String!
     var thumbnailImageURL: String!
     
+    override init() {
+        
+    }
+    
+    convenience init(_ json: [String: AnyObject]) {
+        let id = json["id"] as! String
+        let nickName = json["nickName"] as! String
+        let profileImageURL = json["profileImageURL"] as! String
+        let thumbnailImageURL = json["thumbnailImageURL"] as! String
+        self.init(id: id, nickName: nickName, profileImageURL: profileImageURL, thumbnailImageURL: thumbnailImageURL)
+    }
+    
     init(id: String, nickName: String, profileImageURL: String, thumbnailImageURL: String) {
         self.id = id
         self.nickName = nickName

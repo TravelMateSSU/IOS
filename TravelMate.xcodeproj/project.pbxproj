@@ -40,7 +40,6 @@
 		905D0AF81DCB764200CDAF47 /* EpilogueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905D0AF71DCB764200CDAF47 /* EpilogueViewController.swift */; };
 		906AF8AB1DD3293400987039 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906AF8AA1DD3293400987039 /* MyPageViewController.swift */; };
 		906AF8AD1DD32A0A00987039 /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 906AF8AC1DD32A0A00987039 /* ProfileCell.xib */; };
-		906AF8AF1DD32A6F00987039 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906AF8AE1DD32A6F00987039 /* UserModel.swift */; };
 		906AF8B11DD32B8C00987039 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906AF8B01DD32B8C00987039 /* ProfileCell.swift */; };
 		906EE1AC1DC4A1D100A9A292 /* WriteEpilogueView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 906EE1AB1DC4A1D100A9A292 /* WriteEpilogueView.xib */; };
 		906EE1AE1DC4A1E000A9A292 /* WriteEpilogueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906EE1AD1DC4A1E000A9A292 /* WriteEpilogueView.swift */; };
@@ -152,7 +151,6 @@
 		905D0AF71DCB764200CDAF47 /* EpilogueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpilogueViewController.swift; sourceTree = "<group>"; };
 		906AF8AA1DD3293400987039 /* MyPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		906AF8AC1DD32A0A00987039 /* ProfileCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
-		906AF8AE1DD32A6F00987039 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		906AF8B01DD32B8C00987039 /* ProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		906EE1AB1DC4A1D100A9A292 /* WriteEpilogueView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WriteEpilogueView.xib; sourceTree = "<group>"; };
 		906EE1AD1DC4A1E000A9A292 /* WriteEpilogueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteEpilogueView.swift; sourceTree = "<group>"; };
@@ -243,7 +241,6 @@
 				90EBE7AE1DCB86B100938D9F /* CourseModel.swift */,
 				906EE1B31DC4AD1100A9A292 /* EpilogueModel.swift */,
 				906EE1B51DC4DE7900A9A292 /* RealmString.swift */,
-				906AF8AE1DD32A6F00987039 /* UserModel.swift */,
 				08A5B4681DD9D79400CDDB09 /* UserInfoModel.swift */,
 			);
 			name = Models;
@@ -688,7 +685,6 @@
 				0899E70C1DC21E5D00AE3BF3 /* TravelSpotCell.swift in Sources */,
 				902A2EB41DA4E478001FEA9F /* DBManager.swift in Sources */,
 				906EE1B61DC4DE7900A9A292 /* RealmString.swift in Sources */,
-				906AF8AF1DD32A6F00987039 /* UserModel.swift in Sources */,
 				903261E41D9E4C6500CE31DC /* RouteView.swift in Sources */,
 				906EE1BA1DC511AE00A9A292 /* RemovableImageView.swift in Sources */,
 				902A2EB71DA4F93F001FEA9F /* CategoryModel.swift in Sources */,

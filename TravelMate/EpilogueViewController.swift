@@ -65,7 +65,7 @@ extension EpilogueViewController: UITableViewDataSource, UITableViewDelegate {
         
         let epilogue = epilogues[indexPath.row]
         epilogueCell.epilogue = epilogue
-        epilogueCell.nameLabel.text = epilogue.author.name
+        epilogueCell.nameLabel.text = epilogue.author.nickName
         epilogueCell.createdAtLabel.text = Date(timeIntervalSince1970: Double(epilogue.createdAt)).description
         epilogueCell.descriptionLabel.text = epilogue.contents
         return epilogueCell

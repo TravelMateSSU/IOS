@@ -38,47 +38,29 @@ enum CourseStatus {
 
 class CourseModel {
     var id: Int!
-    var author: UserModel!
+    var author: UserInfoModel!
     var title: String!
     var content: String!
     var createdAt: Int!
     var spots: [SpotModel] = []
     var titleImage: UIImage!
     var status: CourseStatus!
-    var maxTouristNum: Int!
+    var maxCompanionNum: Int!
     var currentTouristNum: Int!
-    var travelStartDate: Date!
-    var travelEndDate: Date!
-    var recruitEndDate: Date!
-    
-    var authorId: String!
-    var authorName: String!
-    var maxPeople: Int!
-    var travelEndDay: String!
-    var travelStartDay: String!
-    var recuritEndDay: String!
+    var travelStartDate: String!
+    var travelEndDate: String!
+    var recruitEndDate: String!
     var hashTag: String!
     
-
-    init(title: String, content: String, author: UserModel, spots: [SpotModel], createdAt: Int, status: CourseStatus) {
+    init(title: String, content: String, author: UserInfoModel, spots: [SpotModel], maxCompanionNum: Int, travelEndDate: String, travelStartDate: String, recruitEndDate: String, hashTag: String){
         self.title = title
         self.content = content
         self.author = author
         self.spots = spots
-        self.createdAt = createdAt
-        self.status = status
-    }
-    
-    init(title: String, content: String, authorId: String, authorName: String, spots: [SpotModel], maxPeople: Int, travelEndDay: String, travelStartDay: String, recuritEndDay: String, hashTag: String){
-        self.title = title
-        self.content = content
-        self.authorId = authorId
-        self.authorName = authorName
-        self.spots = spots
-        self.maxPeople = maxPeople
-        self.travelEndDay = travelEndDay
-        self.travelStartDay = travelStartDay
-        self.recuritEndDay = recuritEndDay
+        self.maxCompanionNum = maxCompanionNum
+        self.travelEndDate = travelEndDate
+        self.travelStartDate = travelStartDate
+        self.recruitEndDate = recruitEndDate
         self.hashTag = hashTag
     }
     
@@ -87,8 +69,9 @@ class CourseModel {
             self.id = id as? Int
         }
         
-        if let id = json["user_id"] {
-//            self.authorId = id as? String
+        if let user = json["user"] {
+            let userJSON = user as? [String: AnyObject]
+            self.author = UserInfoModel(userJSON!)
         }
         
         if let title = json["title"] {
@@ -99,8 +82,8 @@ class CourseModel {
             self.content = description as? String
         }
         
-        if let maxTouristNum = json["max_tourist"] {
-            self.maxTouristNum = maxTouristNum as? Int
+        if let maxCompanionNum = json["max_companion"] {
+            self.maxCompanionNum = maxCompanionNum as? Int
         }
         
         if let currentTouristNum = json["current_tourist"] {
@@ -108,15 +91,15 @@ class CourseModel {
         }
         
         if let travelStartDate = json["travel_start_time"] {
-            self.travelStartDate = travelStartDate as? Date
+            self.travelStartDate = travelStartDate as? String
         }
         
         if let travelEndDate = json["travel_end_time"] {
-            self.travelEndDate = travelEndDate as? Date
+            self.travelEndDate = travelEndDate as? String
         }
         
         if let recruitEndDate = json["event_end_time"] {
-            self.recruitEndDate = recruitEndDate as? Date
+            self.recruitEndDate = recruitEndDate as? String
         }
         
         if let status = json["status"] {
