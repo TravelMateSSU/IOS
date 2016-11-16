@@ -277,8 +277,8 @@ class NetworkManager {
         
         var spotList = [[String:Any]]()
         for spot in course.spots{
-            guard let content_id = spot.contentId else { return }
-            guard let content_type = spot.contentTypeId else { return }
+            let content_id = spot.contentId
+            let content_type = spot.contentTypeId
             guard var sequence_id = course.spots.index(of: spot) else { return }
             sequence_id += 1
             var image_url: String! = "bagic"
@@ -312,7 +312,7 @@ class NetworkManager {
         }
     }
     
-    func tryLoginAndJoin(isJoin: Bool,userInfo: UserInfoModel, _ handler: @escaping (Bool, Int) -> Void){
+    func requestLoginAndJoin(isJoin: Bool,userInfo: UserInfoModel, _ handler: @escaping (Bool, Int) -> Void){
         let urlString = "http://52.207.208.49:7777/user"
         
         let decoded  = UserDefaults.standard.object(forKey: "UserInfo") as! Data

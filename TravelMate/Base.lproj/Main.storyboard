@@ -34,25 +34,6 @@
             </objects>
             <point key="canvasLocation" x="-1215" y="-1379"/>
         </scene>
-        <!--알림-->
-        <scene sceneID="cPb-SN-hJX">
-            <objects>
-                <viewController id="fbL-Ll-Odl" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="QVn-ld-S1o"/>
-                        <viewControllerLayoutGuide type="bottom" id="z7w-Ai-IGY"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Gli-Ln-RSZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="알림" image="ic_notifications_36pt" id="F1f-6N-0hF"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HxL-VH-jck" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="492" y="283"/>
-        </scene>
         <!--마이 페이지-->
         <scene sceneID="u34-Li-KNa">
             <objects>
@@ -78,7 +59,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <tabBarItem key="tabBarItem" title="마이 페이지" image="ic_person_pin_36pt" id="xtM-sG-zML"/>
+                    <tabBarItem key="tabBarItem" title="마이 페이지" image="ic_person_pin" id="xtM-sG-zML"/>
                     <connections>
                         <outlet property="tableView" destination="lEl-aE-WN2" id="y3K-mc-4kS"/>
                     </connections>
@@ -103,8 +84,8 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <items>
-                                    <tabBarItem title="모집중" image="ic_accessibility_white_36pt" id="S6H-Q2-l3M"/>
-                                    <tabBarItem title="후기" image="ic_pets_white_36pt" id="idk-ia-5HE"/>
+                                    <tabBarItem title="모집중" image="ic_accessibility" id="S6H-Q2-l3M"/>
+                                    <tabBarItem title="후기" image="ic_pets" id="idk-ia-5HE"/>
                                 </items>
                             </tabBar>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3r2-Zy-7kO">
@@ -133,7 +114,7 @@
                             <constraint firstItem="9a2-uf-Znd" firstAttribute="leading" secondItem="0GU-GM-2J5" secondAttribute="leading" id="uvN-WE-Yeo"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="타임라인" image="ic_view_list_36pt" id="IPS-bo-m9o"/>
+                    <tabBarItem key="tabBarItem" title="타임라인" image="ic_view_list" id="IPS-bo-m9o"/>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -425,9 +406,8 @@
                         <segue destination="UMk-rk-qfx" kind="show" identifier="writemap" id="BvR-yb-tt0"/>
                         <segue destination="zkA-2U-S3G" kind="show" identifier="writemapdetail" id="DbB-nU-F3y"/>
                         <segue destination="Qea-uE-IBJ" kind="relationship" relationship="viewControllers" id="2qz-1K-ZdN"/>
-                        <segue destination="fbL-Ll-Odl" kind="relationship" relationship="viewControllers" id="Y2m-4S-fRO"/>
-                        <segue destination="lvp-Od-Ovg" kind="relationship" relationship="viewControllers" id="RGT-fY-Ucz"/>
                         <segue destination="jwD-yO-y7B" kind="relationship" relationship="viewControllers" id="L9h-z0-MdR"/>
+                        <segue destination="lvp-Od-Ovg" kind="relationship" relationship="viewControllers" id="RGT-fY-Ucz"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kZy-XR-0XW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -533,12 +513,11 @@
     </scenes>
     <resources>
         <image name="homeImage" width="1281" height="1920"/>
-        <image name="ic_accessibility_white_36pt" width="36" height="36"/>
+        <image name="ic_accessibility" width="24" height="24"/>
         <image name="ic_map_white_36pt" width="36" height="36"/>
         <image name="ic_mode_edit_white_36pt" width="36" height="36"/>
-        <image name="ic_notifications_36pt" width="36" height="36"/>
-        <image name="ic_person_pin_36pt" width="36" height="36"/>
-        <image name="ic_pets_white_36pt" width="36" height="36"/>
-        <image name="ic_view_list_36pt" width="36" height="36"/>
+        <image name="ic_person_pin" width="24" height="24"/>
+        <image name="ic_pets" width="24" height="24"/>
+        <image name="ic_view_list" width="24" height="24"/>
     </resources>
 </document>

@@ -80,13 +80,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 self.setUserInfo(userInfo: self.userInfo)
                 
-                self.networkManager.tryLoginAndJoin(isJoin: false, userInfo: self.userInfo) { (err, code) in
+                self.networkManager.requestLoginAndJoin(isJoin: false, userInfo: self.userInfo) { (err, code) in
                     if err {
                         print("로그인 실패")
                     } else {
                         print("로그인 성공")
                         if code == 0{
-                            self.networkManager.tryLoginAndJoin(isJoin: true, userInfo: self.userInfo, { (err, code) in
+                            self.networkManager.requestLoginAndJoin(isJoin: true, userInfo: self.userInfo, { (err, code) in
                                 if err{
                                     print("회원가입 실패")
                                 } else{
