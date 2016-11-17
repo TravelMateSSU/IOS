@@ -19,7 +19,9 @@ class MyPageViewController: UIViewController {
         super.viewDidLoad()
 
         initTableView()
-
+        let decoded  = UserDefaults.standard.object(forKey: "UserInfo") as! Data
+        user = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! UserInfoModel
+        
         let manager = NetworkManager()
         manager.loadUsersSharedCourses(user: user, {
             courses, code in

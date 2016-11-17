@@ -135,14 +135,6 @@ class CourseModel {
                     spot.title = spotTitle
                     self.spots.append(spot)
                 }
-                
-                // 해시태그 없을 때 빈 데이터 삽입
-                if spotTitles.count == 1 {
-                    self.hashTag = ""
-                    let spot = SpotModel()
-                    spot.title = ""
-                    self.spots.append(spot)
-                }
             }
             
             // 해시태그 없을 때 빈 데이터 삽입

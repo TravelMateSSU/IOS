@@ -34,7 +34,6 @@ class LoginViewController: UIViewController{
     
     @IBAction func doGuestLogin(_ sender: AnyObject) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
         appDelegate.loadMainViewController()
     }
 }

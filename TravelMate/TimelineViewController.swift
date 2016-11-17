@@ -10,14 +10,12 @@ import UIKit
 
 class TimelineViewController: UIViewController, UITabBarDelegate {
 
+    var user: UserInfoModel!
+    
     @IBOutlet var tabBar: UITabBar!
-    
     @IBOutlet var courseTabBarItem: UITabBarItem!
-    
     @IBOutlet var epilogueTabBarItem: UITabBarItem!
-    
     @IBOutlet var epilogueView: UIView!
-    
     @IBOutlet var courseView: UIView!
     
     override func viewDidLoad() {

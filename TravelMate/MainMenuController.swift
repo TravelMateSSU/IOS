@@ -11,6 +11,12 @@ import UIKit
 class MainMenuController: UITabBarController {
     let win: UIWindow = ((UIApplication.shared.delegate?.window)!)!
     var writeBtn: UIButton!
+    var user: UserInfoModel!
+    
+    override func viewDidLoad() {
+        sendUserInfoToChildViewControllers()
+        createWriteBtn()
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         createWriteBtn()
@@ -19,6 +25,14 @@ class MainMenuController: UITabBarController {
     
     override func viewWillDisappear(_ animated: Bool) {
         removeWriteBtn()
+    }
+    
+    func sendUserInfoToChildViewControllers() {
+        let timelineVC = self.childViewControllers[0] as? TimelineViewController
+        let myPageVC = self.childViewControllers[2] as? MyPageViewController
+        
+        timelineVC?.user = user
+        myPageVC?.user = user
     }
     
     func createWriteBtn(){

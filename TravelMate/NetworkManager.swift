@@ -230,10 +230,24 @@ class NetworkManager {
     }
     
     
+    // 서버에 글 공유 요청
+    func requestShareCourse(user: UserInfoModel, course: CourseModel, _ completion: @escaping (Int) -> Void) {
+        let parameters: Parameters = ["user_id": user.id, "event_id": course.id]
+        Alamofire.request(BASE_URL + "event/list", method: .post, parameters: parameters).responseJSON(completionHandler: {
+            response in
+            if response.result.isSuccess {
+                completion(200)
+            } else {
+                completion(300/*result Code*/)
+            }
+        })
+    }
+    
+    
     // 서버에서 유저가 공유한 글 리스트 받아오기
     func loadUsersSharedCourses(user: UserInfoModel, _ completion: @escaping (([CourseModel]?, Int) -> Void)) {
-        Alamofire.request(BASE_URL /* + URL */).responseJSON(completionHandler: {
-            response in
+        let parameters: Parameters = ["status": 2, "user_id": user.id]
+        Alamofire.request(BASE_URL + "event/list", method: .post, parameters: parameters).responseJSON { (response) in
             if response.result.isSuccess {
                 var courses: [CourseModel] = []
                 guard let JSON = response.result.value as? [String: AnyObject] else {
@@ -258,7 +272,7 @@ class NetworkManager {
                 print("fail")
                 completion(nil, 300/*result Code*/)
             }
-        })
+        }
     }
     
     func insertRecruting(course: CourseModel, _ handler: @escaping (Bool, Int) -> Void){
