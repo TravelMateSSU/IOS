@@ -274,6 +274,7 @@ class NetworkManager {
 
         //let urlString = "http://52.207.208.49:7777/echo"
         let urlString = "http://52.207.208.49:7777/event/enroll"
+        var hashTag: String = ""
         
         var spotList = [[String:Any]]()
         for spot in course.spots{
@@ -283,6 +284,7 @@ class NetworkManager {
             sequence_id += 1
             var image_url: String! = "bagic"
             if spot.titleImage1 != nil { image_url = spot.titleImage1 }
+            hashTag.append("#\(spot.title!)")
             
             let spot = ["content_id": content_id, "sequence_id": sequence_id, "content_type": content_type, "image_url": image_url] as [String : Any]
             spotList.append(spot)
@@ -299,7 +301,7 @@ class NetworkManager {
                              "start_time":course.travelStartDate,
                              "end_time":course.travelEndDate,
                              "event_end_time":course.recruitEndDate,
-                             "hash_tag":"abc"] as [String : Any]
+                             "hash_tag":hashTag] as [String : Any]
         
         Alamofire.request(urlString, method: .post, parameters: requestParsams, encoding: JSONEncoding.default, headers: [:])
             .responseJSON{ response in
