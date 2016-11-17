@@ -47,20 +47,27 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        networkManager.loadSpotsByKeyword(keyword: searchText, {
-            spots, code in
-            if code == 200 {
-                print("성공")
-                guard let spots = spots else {
-                    print("Spots 데이터 없음")
-                    return
-                }
-                self.spots = spots
-                self.tableView.reloadData()
-            } else {
-                print("실패")
-            }
+        var tourapi = TourAPIManager()
+        
+        tourapi.querySearchByKeyword(keyword: searchText, completion: { spots in
+            self.spots = spots
+            self.tableView.reloadData()
         })
+        
+//        networkManager.loadSpotsByKeyword(keyword: searchText, {
+//            spots, code in
+//            if code == 200 {
+//                print("성공")
+//                guard let spots = spots else {
+//                    print("Spots 데이터 없음")
+//                    return
+//                }
+//                self.spots = spots
+//                self.tableView.reloadData()
+//            } else {
+//                print("실패")
+//            }
+//        })
     }
 }
 
@@ -87,9 +94,11 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Course", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "SearchDetailViewController") as? SearchDetailViewController
+        
         if let searchDetailViewController = vc {
             self.searchBar.endEditing(true)
             searchDetailViewController.spot = spots[indexPath.row]
+            searchDetailViewController.keyword = self.spots[indexPath.row].title
             self.navigationController?.pushViewController(searchDetailViewController, animated: true)
         }
     }

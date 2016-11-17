@@ -66,6 +66,28 @@ class NetworkManager {
         }
     }
     
+    // 서버에서 키워드로 검색결과(타임라인) 요청
+    func loadCourseTimelineByKeyword(keyword: String, time: Date, loadMoreCount: Int, _ completion : @escaping ([CourseModel]?, Int) -> Void) {
+        let parameters: Parameters = ["hash_tag":keyword, "offset": loadMoreCount, "limit": 20, "status": 3]
+        Alamofire.request(BASE_URL + "event/list", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: [:]).responseJSON { (response) in
+            if let result = response.result.value as? [String: Any] {
+                guard let courseJSONs = result["events_list"] as? [[String: Any]] else {
+                    print("No courses JSON")
+                    completion(nil, -1)
+                    return
+                }
+                var courses: [CourseModel] = []
+                
+                for courseJSON in courseJSONs {
+                    let course = CourseModel(courseJSON)
+                    courses.append(course)
+                }
+                
+                completion(courses, 200)
+            }
+        }
+    }
+    
     
     // 서버에 후기 작성 데이터 전송
     func requestEpilogueInsertion(epilogue: EpilogueModel, _ completion: @escaping (Int) -> Void) {

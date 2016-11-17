@@ -38,9 +38,9 @@ enum CourseStatus {
     init(rawValue: Int) {
         switch rawValue {
         case 0:
-            self = .active
-        default:
             self = .deactive
+        default:
+            self = .active
         }
     }
 }
