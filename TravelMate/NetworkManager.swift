@@ -17,7 +17,7 @@ class NetworkManager {
     
     // 서버에서 후기 타임라인 리스트 load
     func loadEpilogueTimeline(time: Date, loadMoreCount: Int, _ completion : @escaping ([EpilogueModel]?, Int) -> Void) {
-        let parameters: Parameters = ["time": time, "loadMoreCount": loadMoreCount]
+        let parameters: Parameters = ["time": time, "offset": loadMoreCount, "limit": 20]
         Alamofire.request(BASE_URL, method: .post, parameters: parameters).responseJSON { response in
             if response.result.isSuccess {
                 guard let JSON = response.result.value as? [String: AnyObject] else {
@@ -46,31 +46,22 @@ class NetworkManager {
     
     // 서버에서 코스 타임라인 리스트 load
     func loadCourseTimeline(time: Date, loadMoreCount: Int, _ completion : @escaping ([CourseModel]?, Int) -> Void) {
-        let parameters: Parameters = ["time": time, "loadMoreCount": loadMoreCount]
-        Alamofire.request(BASE_URL, method: .post, parameters: parameters).responseJSON { response in
-            if response.result.isSuccess {
-                var courses: [CourseModel] = []
-                guard let JSON = response.result.value as? [String: AnyObject] else {
-                    print("No Json Data")
-                    completion(nil, -1)
-                    return
-                }
-                
-                guard let courseJSONs = JSON["courses"] as? [[String: AnyObject]] else {
+        let parameters: Parameters = ["offset": loadMoreCount, "limit": 20, "status": -1]
+        Alamofire.request(BASE_URL + "event/list", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: [:]).responseJSON { (response) in
+            if let result = response.result.value as? [String: Any] {
+                guard let courseJSONs = result["events_list"] as? [[String: Any]] else {
                     print("No courses JSON")
                     completion(nil, -1)
                     return
                 }
+                var courses: [CourseModel] = []
                 
                 for courseJSON in courseJSONs {
-                    let course = CourseModel(json: courseJSON)
+                    let course = CourseModel(courseJSON)
                     courses.append(course)
                 }
                 
                 completion(courses, 200)
-            } else {
-                print("fail")
-                completion(nil, 300/*result Code*/)
             }
         }
     }
@@ -165,7 +156,7 @@ class NetworkManager {
                 }
                 
                 for courseJSON in courseJSONs {
-                    let course = CourseModel(json: courseJSON)
+                    let course = CourseModel(courseJSON)
                     courses.append(course)
                 }
                 
@@ -197,7 +188,7 @@ class NetworkManager {
                 }
                 
                 for courseJSON in courseJSONs {
-                    let course = CourseModel(json: courseJSON)
+                    let course = CourseModel(courseJSON)
                     courses.append(course)
                 }
                 
@@ -258,7 +249,7 @@ class NetworkManager {
                 }
                 
                 for courseJSON in courseJSONs {
-                    let course = CourseModel(json: courseJSON)
+                    let course = CourseModel(courseJSON)
                     courses.append(course)
                 }
                 

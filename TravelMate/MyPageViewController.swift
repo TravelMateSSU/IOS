@@ -137,7 +137,7 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
             let course = courses[indexPath.row]
             courseCell.course = course
             courseCell.titleLabel.text = course.title
-            courseCell.createdAtLabel.text = Date(timeIntervalSince1970: Double(course.createdAt!)).description
+            courseCell.createdAtLabel.text = course.createdAt.description
             courseCell.statusLabel.text = course.status.getText()
             courseCell.statusLabel.textColor = course.status.getColor()
             return courseCell

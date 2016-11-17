@@ -40,7 +40,7 @@ class CourseTimelineCell: UITableViewCell {
             return
         }
         
-        createdAtLabel.text = Date(timeIntervalSince1970: Double(createdAt)).description
+        createdAtLabel.text = course.createdAt.description
         
         statusLabel.text = course.status.getText()
         statusLabel.textColor = course.status.getColor()
