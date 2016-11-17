@@ -21,12 +21,29 @@ class WriteEpilogueViewController: UIViewController, ImagePickDelegate {
     }
     
     @IBAction func submitPressed(_ sender: UIBarButtonItem) {
+        
+        if writeEpilogueView.epilogue.contents == nil {
+            errorMessage()
+            return
+        } else {
+            let trim: String = writeEpilogueView.epilogue.contents.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
+            
+            if trim.isEmpty{
+                errorMessage()
+                return
+            }
+        }
+        
         networkManager.requestEpilogueInsertion(epilogue: writeEpilogueView.epilogue, {
             code in
             if code == 200 {
                 print("성공")
+                SweetAlert().showAlert(title: "후기가 등록되었습니다!", subTitle: "", style: .Success, buttonTitle: "확인", action: { Void in
+                    self.dismiss(animated: true, completion: nil)
+                })
+
             } else {
-                print("실패")
+                SweetAlert().showAlert(title: "후기 등록에 실패하였습니다.", subTitle: "다시 시도해주세요(ㅠㅠ)", style: .Error)
             }
         })
     }
@@ -58,5 +75,9 @@ class WriteEpilogueViewController: UIViewController, ImagePickDelegate {
         }
         
         self.present(pickerController, animated: true, completion: nil)
+    }
+    
+    func errorMessage(){
+        SweetAlert().showAlert(title: "후기 등록에 실패하였습니다.", subTitle: "공란없이 후기를 작성해주세요.", style: .Warning)
     }
 }
