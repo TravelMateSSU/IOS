@@ -529,7 +529,7 @@
 				TargetAttributes = {
 					9032619C1D9E2E2900CE31DC = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 8S882ZSFK3;
+						DevelopmentTeam = 87MXE3B593;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
@@ -886,7 +886,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 8S882ZSFK3;
+				DEVELOPMENT_TEAM = 87MXE3B593;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -907,7 +907,7 @@
 					"-all_load",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ssu.travelmate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yucaroll.travelmate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TravelMate/TravelMate-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -922,7 +922,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = 8S882ZSFK3;
+				DEVELOPMENT_TEAM = 87MXE3B593;
 				ENABLE_TESTABILITY = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -944,7 +944,7 @@
 					"-all_load",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ssu.travelmate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yucaroll.travelmate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TravelMate/TravelMate-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
