@@ -105,7 +105,7 @@ extension DetailCourseViewController: UITableViewDelegate, UITableViewDataSource
             courseCell.course = self.course
             courseCell.titleLabel.text = course.title
             courseCell.descriptionLabel.text = course.content
-            courseCell.createdAtLabel.text = Date(timeIntervalSince1970: TimeInterval(integerLiteral: Int64(course.createdAt))).description
+            courseCell.createdAtLabel.text = course.createdAt.description
             courseCell.statusLabel.text = course.status.getText()
             courseCell.statusLabel.textColor = course.status.getColor()
             return courseCell

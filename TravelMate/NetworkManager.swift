@@ -17,7 +17,7 @@ class NetworkManager {
     
     // 서버에서 후기 타임라인 리스트 load
     func loadEpilogueTimeline(time: Date, loadMoreCount: Int, _ completion : @escaping ([EpilogueModel]?, Int) -> Void) {
-        let parameters: Parameters = ["time": time, "loadMoreCount": loadMoreCount]
+        let parameters: Parameters = ["time": time, "offset": loadMoreCount, "limit": 20]
         Alamofire.request(BASE_URL, method: .post, parameters: parameters).responseJSON { response in
             if response.result.isSuccess {
                 guard let JSON = response.result.value as? [String: AnyObject] else {
@@ -46,31 +46,22 @@ class NetworkManager {
     
     // 서버에서 코스 타임라인 리스트 load
     func loadCourseTimeline(time: Date, loadMoreCount: Int, _ completion : @escaping ([CourseModel]?, Int) -> Void) {
-        let parameters: Parameters = ["time": time, "loadMoreCount": loadMoreCount]
-        Alamofire.request(BASE_URL, method: .post, parameters: parameters).responseJSON { response in
-            if response.result.isSuccess {
-                var courses: [CourseModel] = []
-                guard let JSON = response.result.value as? [String: AnyObject] else {
-                    print("No Json Data")
-                    completion(nil, -1)
-                    return
-                }
-                
-                guard let courseJSONs = JSON["courses"] as? [[String: AnyObject]] else {
+        let parameters: Parameters = ["offset": loadMoreCount, "limit": 20, "status": -1]
+        Alamofire.request(BASE_URL + "event/list", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: [:]).responseJSON { (response) in
+            if let result = response.result.value as? [String: Any] {
+                guard let courseJSONs = result["events_list"] as? [[String: Any]] else {
                     print("No courses JSON")
                     completion(nil, -1)
                     return
                 }
+                var courses: [CourseModel] = []
                 
                 for courseJSON in courseJSONs {
-                    let course = CourseModel(json: courseJSON)
+                    let course = CourseModel(courseJSON)
                     courses.append(course)
                 }
                 
                 completion(courses, 200)
-            } else {
-                print("fail")
-                completion(nil, 300/*result Code*/)
             }
         }
     }
@@ -165,7 +156,7 @@ class NetworkManager {
                 }
                 
                 for courseJSON in courseJSONs {
-                    let course = CourseModel(json: courseJSON)
+                    let course = CourseModel(courseJSON)
                     courses.append(course)
                 }
                 
@@ -197,7 +188,7 @@ class NetworkManager {
                 }
                 
                 for courseJSON in courseJSONs {
-                    let course = CourseModel(json: courseJSON)
+                    let course = CourseModel(courseJSON)
                     courses.append(course)
                 }
                 
@@ -239,10 +230,24 @@ class NetworkManager {
     }
     
     
+    // 서버에 글 공유 요청
+    func requestShareCourse(user: UserInfoModel, course: CourseModel, _ completion: @escaping (Int) -> Void) {
+        let parameters: Parameters = ["user_id": user.id, "event_id": course.id]
+        Alamofire.request(BASE_URL + "event/list", method: .post, parameters: parameters).responseJSON(completionHandler: {
+            response in
+            if response.result.isSuccess {
+                completion(200)
+            } else {
+                completion(300/*result Code*/)
+            }
+        })
+    }
+    
+    
     // 서버에서 유저가 공유한 글 리스트 받아오기
     func loadUsersSharedCourses(user: UserInfoModel, _ completion: @escaping (([CourseModel]?, Int) -> Void)) {
-        Alamofire.request(BASE_URL /* + URL */).responseJSON(completionHandler: {
-            response in
+        let parameters: Parameters = ["status": 2, "user_id": user.id]
+        Alamofire.request(BASE_URL + "event/list", method: .post, parameters: parameters).responseJSON { (response) in
             if response.result.isSuccess {
                 var courses: [CourseModel] = []
                 guard let JSON = response.result.value as? [String: AnyObject] else {
@@ -258,7 +263,7 @@ class NetworkManager {
                 }
                 
                 for courseJSON in courseJSONs {
-                    let course = CourseModel(json: courseJSON)
+                    let course = CourseModel(courseJSON)
                     courses.append(course)
                 }
                 
@@ -267,7 +272,7 @@ class NetworkManager {
                 print("fail")
                 completion(nil, 300/*result Code*/)
             }
-        })
+        }
     }
     
     func insertRecruting(course: CourseModel, _ handler: @escaping (Bool, Int) -> Void){
@@ -283,15 +288,13 @@ class NetworkManager {
             sequence_id += 1
             var image_url: String! = "bagic"
             if spot.titleImage1 != nil { image_url = spot.titleImage1 }
+            course.hashTag.append("#\(spot.title!)")
             
             let spot = ["content_id": content_id, "sequence_id": sequence_id, "content_type": content_type, "image_url": image_url] as [String : Any]
             spotList.append(spot)
         }
         
-        let decoded  = UserDefaults.standard.object(forKey: "UserInfo") as! Data
-        let userInfo = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! UserInfoModel
-
-        let requestParsams = ["user_id":userInfo.id,
+        let requestParsams = ["user_id":course.author.id,
                              "title":course.title,
                              "description":course.content,
                              "course_list":spotList,
@@ -299,7 +302,7 @@ class NetworkManager {
                              "start_time":course.travelStartDate,
                              "end_time":course.travelEndDate,
                              "event_end_time":course.recruitEndDate,
-                             "hash_tag":"abc"] as [String : Any]
+                             "hash_tag":course.hashTag] as [String : Any]
         
         Alamofire.request(urlString, method: .post, parameters: requestParsams, encoding: JSONEncoding.default, headers: [:])
             .responseJSON{ response in

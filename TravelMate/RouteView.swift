@@ -17,11 +17,7 @@ class RouteView: UIView {
     var points: [[(x: Int, y: Int)]] = []
     var titlePoints: [(x: Int, y: Int)] = []
     
-    var spots: [SpotModel] = [] {
-        willSet (value) {
-            ballNum = value.count
-        }
-    }
+    var spots: [SpotModel] = []
     var ballNum: Int = 0
     var title: String?
     
@@ -44,12 +40,17 @@ class RouteView: UIView {
             }
         }
         
+        ballNum = spots.count
+        
         if points.count == 0 {
             initBasePoints()
         }
         if ballNum <= 0 {
             ballNum = 1
+        } else if ballNum >= 7 {
+            ballNum = 6
         }
+        
         
         for i in 0 ..< points[ballNum - 1].count {
             let point = points[ballNum - 1][i]

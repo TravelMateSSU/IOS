@@ -34,14 +34,23 @@ enum CourseStatus {
         }
         return nil
     }
+    
+    init(rawValue: Int) {
+        switch rawValue {
+        case 0:
+            self = .active
+        default:
+            self = .deactive
+        }
+    }
 }
 
 class CourseModel {
     var id: Int!
-    var author: UserInfoModel!
+    var author = UserInfoModel()
     var title: String!
     var content: String!
-    var createdAt: Int!
+    var createdAt: Date!
     var spots: [SpotModel] = []
     var titleImage: UIImage!
     var status: CourseStatus!
@@ -64,7 +73,7 @@ class CourseModel {
         self.hashTag = hashTag
     }
     
-    init(json: [String: AnyObject]) {
+    init(_ json: [String: Any]) {
         if let id = json["event_id"] {
             self.id = id as? Int
         }
@@ -72,6 +81,8 @@ class CourseModel {
         if let user = json["user"] {
             let userJSON = user as? [String: AnyObject]
             self.author = UserInfoModel(userJSON!)
+        } else if let userId = json["user_id"] {
+            self.author.id = userId as? String
         }
         
         if let title = json["title"] {
@@ -82,7 +93,7 @@ class CourseModel {
             self.content = description as? String
         }
         
-        if let maxCompanionNum = json["max_companion"] {
+        if let maxCompanionNum = json["max_tourist"] {
             self.maxCompanionNum = maxCompanionNum as? Int
         }
         
@@ -103,11 +114,36 @@ class CourseModel {
         }
         
         if let status = json["status"] {
-            self.status = status as? CourseStatus
+            let statusInt = status as? Int
+            self.status = CourseStatus(rawValue: statusInt!)
         }
         
         if let createdAt = json["created"] {
-            self.createdAt = createdAt as? Int
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale(identifier: "en_US")
+            dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss ZZZ"
+            self.createdAt = dateFormatter.date(from: createdAt as! String)
+        }
+        
+        if let hashTag = json["hash_tag"] {
+            if let hashTag = hashTag as? String {
+                self.hashTag = hashTag
+                let spotTitles = hashTag.components(separatedBy: "#")
+                for i in 1 ..< spotTitles.count {
+                    let spot = SpotModel()
+                    let spotTitle = spotTitles[i]
+                    spot.title = spotTitle
+                    self.spots.append(spot)
+                }
+            }
+            
+            // 해시태그 없을 때 빈 데이터 삽입
+            else {
+                self.hashTag = ""
+                let spot = SpotModel()
+                spot.title = ""
+                self.spots.append(spot)
+            }
         }
         
     }

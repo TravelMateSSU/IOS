@@ -45,6 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             mainViewController.popToRootViewController(animated: true)
             
+            userInfo = UserInfoModel(id: "0", nickName: "guest", profileImageURL: "bagic", thumbnailImageURL: "bagic")
             setUserInfo(userInfo: self.userInfo)
         }else{
             getUserInfo()
@@ -127,7 +128,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupEntryController()
         
         // KOSession 변경 시
-        NotificationCenter.default.addObserver(self, selector: #selector(kakaoSessionDidChangeWithNotification), name: NSNotification.Name.KOSessionDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadApplication), name: NSNotification.Name.KOSessionDidChange, object: nil)
         
         reloadRootViewController()
         
@@ -136,7 +137,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func kakaoSessionDidChangeWithNotification(){
+    func reloadApplication(){
+        setupEntryController()
         reloadRootViewController()
     }
     

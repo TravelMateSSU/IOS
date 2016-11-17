@@ -19,39 +19,20 @@ class MyPageViewController: UIViewController {
         super.viewDidLoad()
 
         initTableView()
-
-        #if DEBUG
-            let manager = TourAPIManager()
-            manager.querySearchByKeyword(keyword: "서울", completion: {
-                spots in
-                var course: CourseModel!
-                for (index, spot) in spots.enumerated() {
-                    if index % 5 == 0 {
-                        let user = UserInfoModel()
-                        user.id = "123456"
-                        user.nickName = "이동규"
-                        course = CourseModel(title: "경복궁", content: "굿", author: user, spots: [spot], maxCompanionNum: 10, travelEndDate: "2016-12-25", travelStartDate: "2016-12-12", recruitEndDate: "2016-12-25", hashTag: "")
-                        self.courses.append(course)
-                    }
-                    course.spots.append(spot)
-                }
+        let decoded  = UserDefaults.standard.object(forKey: "UserInfo") as! Data
+        user = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! UserInfoModel
+        
+        let manager = NetworkManager()
+        manager.loadUsersSharedCourses(user: user, {
+            courses, code in
+            if code == 200 {
+                print("성공")
+                self.courses = courses!
                 self.tableView.reloadData()
-            })
-            
-        #else
-            let manager = NetworkManager()
-            manager.loadUsersSharedCourses(user: user, {
-                courses, code in
-                if code == 200 {
-                    print("성공")
-                    self.courses = courses!
-                    self.tableView.reloadData()
-                } else {
-                    print("실패")
-                }
-            })
-            
-        #endif
+            } else {
+                print("실패")
+            }
+        })
         
         tableView.contentInset = .zero
         tableView.scrollIndicatorInsets = .zero
@@ -137,7 +118,7 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
             let course = courses[indexPath.row]
             courseCell.course = course
             courseCell.titleLabel.text = course.title
-            courseCell.createdAtLabel.text = Date(timeIntervalSince1970: Double(course.createdAt!)).description
+            courseCell.createdAtLabel.text = course.createdAt.description
             courseCell.statusLabel.text = course.status.getText()
             courseCell.statusLabel.textColor = course.status.getColor()
             return courseCell
