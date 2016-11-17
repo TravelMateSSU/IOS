@@ -14,7 +14,7 @@ class WriteMapDetailController: UIViewController {
     var spots: [SpotModel]!
     
     override func viewWillAppear(_ animated: Bool) {
-        writeView.enrollButton.addTarget(self, action: #selector(networkTest(_:)), for: .touchUpInside)
+        writeView.enrollButton.addTarget(self, action: #selector(enrollReview(_:)), for: .touchUpInside)
     }
     
     override func viewDidLoad() {
@@ -28,16 +28,19 @@ class WriteMapDetailController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func networkTest(_ sender: AnyObject) {
-        guard let title = writeView.titleText.text else { return }
-        guard let content = writeView.descriptionText.text else { return }
-        let authorId = "123456789"
-        let authorName = "ppang"
-        let hashTag = "abc"
-        guard let travelStartDay = writeView.travelStartDay.text else { return }
-        guard let travelEndDay = writeView.travelEndDay.text else { return }
-        guard let recuritEndDay = writeView.RecruitEndDay.text else { return }
-        guard let maxPeople = Int(writeView.maxPeople.text!) else { return }
+    @IBAction func enrollReview(_ sender: AnyObject) {
+        let decoded  = UserDefaults.standard.object(forKey: "UserInfo") as! Data
+        let userInfo = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! UserInfoModel
+        
+        guard let title = writeView.titleText.text else { errorMessage(); return }
+        guard let content = writeView.descriptionText.text else { errorMessage(); return }
+        let authorId = userInfo.id
+        let authorName = userInfo.nickName
+        let hashTag = ""
+        guard let travelStartDay = writeView.travelStartDay.text else { errorMessage(); return }
+        guard let travelEndDay = writeView.travelEndDay.text else { errorMessage(); return }
+        guard let recuritEndDay = writeView.RecruitEndDay.text else { errorMessage(); return }
+        guard let maxPeople = Int(writeView.maxPeople.text!) else { errorMessage(); return }
         
         let user = UserInfoModel()
         user.id = authorId
@@ -48,12 +51,17 @@ class WriteMapDetailController: UIViewController {
         networkManager.insertRecruting(course: course) { (err, code) in
             if err {
                 // 실패
-                print("실패")
+                SweetAlert().showAlert(title: "모집글 등록에 실패하였습니다.", subTitle: "다시 시도해주세요(ㅠㅠ)", style: .Error)
             } else {
                 // 성공
-                print("success")
-                self.navigationController?.popToRootViewController(animated: true)
+                SweetAlert().showAlert(title: "모집글이 등록되었습니다!", subTitle: "", style: .Success, buttonTitle: "확인", action: { Void in
+                    self.navigationController?.popToRootViewController(animated: true)
+                })
             }
         }
+    }
+    
+    func errorMessage(){
+        SweetAlert().showAlert(title: "모집글 등록에 실패하였습니다.", subTitle: "공란없이 모집글을 작성해주세요.", style: .Warning)
     }
 }

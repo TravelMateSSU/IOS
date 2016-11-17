@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		084F59491DDDA80E0042C1E8 /* SweetAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084F59481DDDA80E0042C1E8 /* SweetAlert.swift */; };
 		086318671DAFA6A90057DE9A /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086318661DAFA6A90057DE9A /* KakaoOpenSDK.framework */; };
 		0863186B1DAFE5C40057DE9A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0863186A1DAFE5C40057DE9A /* LoginViewController.swift */; };
 		0863186D1DB08A6F0057DE9A /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0863186C1DB08A6F0057DE9A /* MainMenuController.swift */; };
@@ -108,6 +109,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		084F59481DDDA80E0042C1E8 /* SweetAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SweetAlert.swift; sourceTree = "<group>"; };
 		086318661DAFA6A90057DE9A /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
 		0863186A1DAFE5C40057DE9A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0863186C1DB08A6F0057DE9A /* MainMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
@@ -430,6 +432,7 @@
 		FDB2DAB59323D997234F8AC2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				084F59481DDDA80E0042C1E8 /* SweetAlert.swift */,
 				086318661DAFA6A90057DE9A /* KakaoOpenSDK.framework */,
 				6285CE044243A7D743C74E47 /* Pods_TravelMate.framework */,
 			);
@@ -690,6 +693,7 @@
 				902A2EB71DA4F93F001FEA9F /* CategoryModel.swift in Sources */,
 				907CD1471DCF2F0E0069B3BE /* DetailCourseViewController.swift in Sources */,
 				906EE1AE1DC4A1E000A9A292 /* WriteEpilogueView.swift in Sources */,
+				084F59491DDDA80E0042C1E8 /* SweetAlert.swift in Sources */,
 				088B838D1DD4AD21004044BA /* WriteMapDetailView.swift in Sources */,
 				903262081DA255D500CE31DC /* TourAPIManager.swift in Sources */,
 				906AF8B11DD32B8C00987039 /* ProfileCell.swift in Sources */,

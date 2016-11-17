@@ -62,6 +62,15 @@ class MainMenuController: UITabBarController {
     
     // WriteBtn 클릭 이벤트 - btn animation, presentWriteMenu
     func doWrite(sender: UIButton!){
+        let decoded  = UserDefaults.standard.object(forKey: "UserInfo") as! Data
+        let userInfo = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! UserInfoModel
+        
+        if userInfo.id == "0"{
+            SweetAlert().showAlert(title: "로그인이 필요합니다.", subTitle: "모집글, 후기 작성에는 로그인이 필요합니다.", style: .Error)
+            
+            return
+        }
+        
         UIView.animate(withDuration: 0.3, animations: { () -> Void in
             let identity = sender.transform.isIdentity
             
@@ -97,6 +106,16 @@ class MainMenuController: UITabBarController {
     }
     
     @IBAction func doLogout(_ sender: AnyObject) {
+        let decoded  = UserDefaults.standard.object(forKey: "UserInfo") as! Data
+        let userInfo = NSKeyedUnarchiver.unarchiveObject(with: decoded) as! UserInfoModel
+        
+        if userInfo.id == "0"{
+            let delegate = UIApplication.shared.delegate as! AppDelegate
+            delegate.reloadApplication()
+            
+            return
+        }
+        
         KOSession.shared().logoutAndClose{ success, error in
             if success{
                 print("로그아웃 성공")
